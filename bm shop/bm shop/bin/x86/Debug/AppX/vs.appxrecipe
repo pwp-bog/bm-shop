@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>HOME-PC</Machine>
+    <WindowsUser>bodya</WindowsUser>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetOsVersion>10.0</TargetOsVersion>
+    <TargetOsDescription>Windows 10.0</TargetOsDescription>
+    <SolutionConfiguration>Debug|x86</SolutionConfiguration>
+    <PackageArchitecture>x86</PackageArchitecture>
+    <PackageIdentityName>8bc971be-d1be-441e-bd7f-25d11bf8fdf2</PackageIdentityName>
+    <PackageIdentityPublisher>CN=bodya</PackageIdentityPublisher>
+    <IntermediateOutputPath>C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\</IntermediateOutputPath>
+    <RemoteDeploymentType>
+    </RemoteDeploymentType>
+    <PackageRegistrationPath>
+    </PackageRegistrationPath>
+    <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
+    <DeployOptionalPackages>false</DeployOptionalPackages>
+    <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
+    <LayoutDir>C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\AppX</LayoutDir>
+    <RegisteredManifestChecksum>6331742BC8BDF5115824A26109D89CBF75EF1AD7CA266F2F018E6D1BA96B4F67</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>8bc971be-d1be-441e-bd7f-25d11bf8fdf2_1.0.0.0_x86__7pzyhxabcve4t</RegisteredPackageMoniker>
+    <RegisteredUserModeAppID>8bc971be-d1be-441e-bd7f-25d11bf8fdf2_7pzyhxabcve4t!App</RegisteredUserModeAppID>
+    <RegisteredPackageID>8bc971be-d1be-441e-bd7f-25d11bf8fdf2</RegisteredPackageID>
+    <RegisteredPackagePublisher>CN=bodya</RegisteredPackagePublisher>
+    <RegisteredVersion>1.0.0.0</RegisteredVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\Core\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2024-05-17T01:37:42.556</Modified>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\bm shop.exe">
+      <PackagePath>entrypoint\bm shop.exe</PackagePath>
+      <Modified>2024-05-17T01:37:41.702</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\microsoft.extensions.logging.abstractions\7.0.1\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll">
+      <PackagePath>Microsoft.Extensions.Logging.Abstractions.dll</PackagePath>
+      <Modified>2023-05-24T14:40:54.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\mysqlconnector\2.3.7\lib\netstandard2.0\MySqlConnector.dll">
+      <PackagePath>MySqlConnector.dll</PackagePath>
+      <Modified>2024-04-22T07:29:36.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.2.14\runtimes\win10-x86\lib\uap10.0.15138\System.Runtime.dll">
+      <PackagePath>System.Runtime.dll</PackagePath>
+      <Modified>2022-06-10T19:24:12.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\system.diagnostics.diagnosticsource\7.0.2\lib\netstandard2.0\System.Diagnostics.DiagnosticSource.dll">
+      <PackagePath>System.Diagnostics.DiagnosticSource.dll</PackagePath>
+      <Modified>2023-02-16T00:44:28.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\system.runtime.compilerservices.unsafe\6.0.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll">
+      <PackagePath>System.Runtime.CompilerServices.Unsafe.dll</PackagePath>
+      <Modified>2021-10-22T23:40:46.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\bin\10.0.22621.0\XamlCompiler\Microsoft.UI.Xaml.Markup.winmd">
+      <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
+      <Modified>2024-02-21T17:52:32.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\Assets\23.png">
+      <PackagePath>Assets\23.png</PackagePath>
+      <Modified>2024-05-16T20:51:23.853</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\Assets\33.png">
+      <PackagePath>Assets\33.png</PackagePath>
+      <Modified>2024-05-16T20:51:16.084</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\Assets\5402354_arrow_back_left_previous_direction_icon.png">
+      <PackagePath>Assets\5402354_arrow_back_left_previous_direction_icon.png</PackagePath>
+      <Modified>2024-05-16T20:26:16.934</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\Assets\SignInLogo1.png">
+      <PackagePath>Assets\SignInLogo1.png</PackagePath>
+      <Modified>2024-05-16T20:51:40.048</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\Assets\SplashScreen.scale-100.png">
+      <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2024-05-16T18:49:55.929</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\Assets\SplashScreen.scale-125.png">
+      <PackagePath>Assets\SplashScreen.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2024-05-16T18:49:48.840</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\Assets\SplashScreen.scale-150.png">
+      <PackagePath>Assets\SplashScreen.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2024-05-16T18:49:39.441</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\Assets\SplashScreen.scale-400.png">
+      <PackagePath>Assets\SplashScreen.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2024-05-16T18:49:24.045</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\Assets\startPage bg1.png">
+      <PackagePath>Assets\startPage bg1.png</PackagePath>
+      <Modified>2024-05-16T18:28:48.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\Assets\LockScreenLogo.scale-200.png">
+      <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
+      <Modified>2024-04-08T20:42:01.811</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\Assets\SplashScreen.scale-200.png">
+      <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2024-05-16T18:49:32.279</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\Assets\Square150x150Logo.scale-200.png">
+      <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2024-04-08T20:42:01.814</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\Assets\Square44x44Logo.scale-200.png">
+      <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2024-04-08T20:42:01.814</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+      <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2024-04-08T20:42:01.815</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\Assets\StoreLogo.png">
+      <PackagePath>Assets\StoreLogo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2024-04-08T20:42:01.815</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\Assets\Wide310x150Logo.scale-200.png">
+      <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2024-04-08T20:42:01.816</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\Properties\Default.rd.xml">
+      <PackagePath>Properties\Default.rd.xml</PackagePath>
+      <Modified>2024-05-16T15:36:14.277</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\bm shop.xr.xml">
+      <PackagePath>bm shop.xr.xml</PackagePath>
+      <Modified>2024-05-17T01:37:41.601</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\App.xbf">
+      <PackagePath>App.xbf</PackagePath>
+      <Modified>2024-05-17T01:37:41.620</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\AdditionalInfoAboutMaterials.xbf">
+      <PackagePath>AdditionalInfoAboutMaterials.xbf</PackagePath>
+      <Modified>2024-05-17T01:37:41.620</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\CatalogPage.xbf">
+      <PackagePath>CatalogPage.xbf</PackagePath>
+      <Modified>2024-05-17T01:37:41.620</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\CategoryPage.xbf">
+      <PackagePath>CategoryPage.xbf</PackagePath>
+      <Modified>2024-05-17T01:37:41.617</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\MainPage.xbf">
+      <PackagePath>MainPage.xbf</PackagePath>
+      <Modified>2024-05-17T01:37:41.621</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\SignInPage.xbf">
+      <PackagePath>SignInPage.xbf</PackagePath>
+      <Modified>2024-05-17T01:37:41.621</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\SignUpPage.xbf">
+      <PackagePath>SignUpPage.xbf</PackagePath>
+      <Modified>2024-05-17T01:37:41.621</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\StartPage.xbf">
+      <PackagePath>StartPage.xbf</PackagePath>
+      <Modified>2024-05-17T01:37:41.621</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.22621.0\Windows.winmd">
+      <PackagePath>WinMetadata\Windows.winmd</PackagePath>
+      <Modified>2024-02-21T20:46:02.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+      <Modified>2024-05-17T00:47:54.759</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\Core\bm shop.exe">
+      <PackagePath>bm shop.exe</PackagePath>
+      <Modified>2024-05-17T01:37:42.553</Modified>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.14\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx">
+      <Name>Microsoft.NET.CoreRuntime.2.2</Name>
+      <Version>2.2.31331.1</Version>
+      <Architecture>x86</Architecture>
+      <FrameworkIdentity>Name = Microsoft.NET.CoreRuntime.2.2, MinVersion = 2.2.31331.1, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.14\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx</AppxLocation>
+      <MoreInfo>
+      </MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.14\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx">
+      <Name>Microsoft.NET.CoreRuntime.2.2</Name>
+      <Version>2.2.31331.1</Version>
+      <Architecture>x64</Architecture>
+      <FrameworkIdentity>Name = Microsoft.NET.CoreRuntime.2.2, MinVersion = 2.2.31331.1, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.14\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx</AppxLocation>
+      <MoreInfo>
+      </MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.14\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx">
+      <Name>Microsoft.NET.CoreRuntime.2.2</Name>
+      <Version>2.2.31331.1</Version>
+      <Architecture>arm</Architecture>
+      <FrameworkIdentity>Name = Microsoft.NET.CoreRuntime.2.2, MinVersion = 2.2.31331.1, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.14\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx</AppxLocation>
+      <MoreInfo>
+      </MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.14\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx">
+      <Name>Microsoft.NET.CoreFramework.Debug.2.2</Name>
+      <Version>2.2.31327.1</Version>
+      <Architecture>x86</Architecture>
+      <FrameworkIdentity>Name = Microsoft.NET.CoreFramework.Debug.2.2, MinVersion = 2.2.31327.1, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.14\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx</AppxLocation>
+      <MoreInfo>
+      </MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.14\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx">
+      <Name>Microsoft.NET.CoreFramework.Debug.2.2</Name>
+      <Version>2.2.31327.1</Version>
+      <Architecture>x64</Architecture>
+      <FrameworkIdentity>Name = Microsoft.NET.CoreFramework.Debug.2.2, MinVersion = 2.2.31327.1, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.14\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx</AppxLocation>
+      <MoreInfo>
+      </MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.14\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx">
+      <Name>Microsoft.NET.CoreFramework.Debug.2.2</Name>
+      <Version>2.2.31327.1</Version>
+      <Architecture>arm</Architecture>
+      <FrameworkIdentity>Name = Microsoft.NET.CoreFramework.Debug.2.2, MinVersion = 2.2.31327.1, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.14\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx</AppxLocation>
+      <MoreInfo>
+      </MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\">
+      <Name>Microsoft.VCLibs.140.00.Debug</Name>
+      <Version>14.0.30704.0</Version>
+      <Architecture>ARM</Architecture>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00.Debug, MinVersion = 14.0.30704.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\.\AppX\Debug\ARM\Microsoft.VCLibs.ARM.Debug.14.00.appx</AppxLocation>
+      <MoreInfo>
+      </MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\">
+      <Name>Microsoft.VCLibs.140.00.Debug</Name>
+      <Version>14.0.30704.0</Version>
+      <Architecture>ARM64</Architecture>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00.Debug, MinVersion = 14.0.30704.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\.\AppX\Debug\ARM64\Microsoft.VCLibs.ARM64.Debug.14.00.appx</AppxLocation>
+      <MoreInfo>
+      </MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\">
+      <Name>Microsoft.VCLibs.140.00.Debug</Name>
+      <Version>14.0.30704.0</Version>
+      <Architecture>x64</Architecture>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00.Debug, MinVersion = 14.0.30704.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\.\AppX\Debug\x64\Microsoft.VCLibs.x64.Debug.14.00.appx</AppxLocation>
+      <MoreInfo>
+      </MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\">
+      <Name>Microsoft.VCLibs.140.00.Debug</Name>
+      <Version>14.0.30704.0</Version>
+      <Architecture>x86</Architecture>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00.Debug, MinVersion = 14.0.30704.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\.\AppX\Debug\x86\Microsoft.VCLibs.x86.Debug.14.00.appx</AppxLocation>
+      <MoreInfo>
+      </MoreInfo>
+    </ResolvedSDKReference>
+  </ItemGroup>
+</Project>

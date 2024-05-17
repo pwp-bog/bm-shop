@@ -1,0 +1,18 @@
+﻿<Page
+    x:Class="bm_shop.StartPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:bm_shop"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="#FF8C8F98" Width="1920" Height="1080">
+
+    <Grid>
+        <TextBlock Margin="665,107,655,0" TextWrapping="Wrap" Text="bm store" VerticalAlignment="Top" Foreground="#FFE9EFFD" FontSize="128" FontFamily="Aldrich" d:LayoutOverrides="LeftPosition, RightPosition"/>
+        <Button Content="Вход" Margin="595,867,0,0" VerticalAlignment="Top" Background="#FFE9EFFD" Width="350" Height="85" FontSize="40" CornerRadius="25,25,25,25" d:LayoutOverrides="HorizontalAlignment" FontFamily="Inter-Regular" Foreground="Black" Click="Button_Click"/>
+        <Button Content="Регистрация" Margin="975,867,0,0" VerticalAlignment="Top" Background="#FFE9EFFD" Width="350" Height="85" FontSize="40" CornerRadius="25,25,25,25" FontFamily="Inter" Foreground="Black" Click="Button_Click_1"/>
+        <Image Margin="637,261,636,248" Source="/Assets/startPage bg1.png" Stretch="Fill" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition"/>
+
+    </Grid>
+</Page>

@@ -1,0 +1,83 @@
+C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\App.xbf
+C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\MainPage.xbf
+C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\StartPage.xbf
+C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\bm shop.xr.xml
+C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\bm shop.exe
+C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\bm shop.pdb
+C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\resources.pri
+C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\AppxManifest.xml
+C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\Core\AppxManifest.xml
+C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\Core\bm shop.exe
+C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\bm shop.build.appxrecipe
+C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\System.Runtime.dll
+C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\Microsoft.UI.Xaml.Markup.winmd
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\bm shop.csproj.AssemblyReference.cache
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\App.g.i.cs
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\App.g.cs
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\MainPage.g.i.cs
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\MainPage.g.cs
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\StartPage.g.i.cs
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\StartPage.g.cs
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\XamlTypeInfo.g.cs
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\App.xaml
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\MainPage.xaml
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\StartPage.xaml
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\App.xbf
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\MainPage.xbf
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\StartPage.xbf
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\XamlSaveStateFile.xml
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\bm shop.csproj.CoreCompileInputs.cache
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\bm shop.csproj.Up2Date
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\bm shop.exe
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\bm shop.pdb
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\ResourceHandlingTask.state
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\priconfig.xml
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\priconfig.xml.intermediate
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\unfiltered.layout.resfiles
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\unfiltered.layout.resfiles.intermediate
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\filtered.layout.resfiles
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\filtered.layout.resfiles.intermediate
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\excluded.layout.resfiles
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\excluded.layout.resfiles.intermediate
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\resources.resfiles
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\resources.resfiles.intermediate
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\pri.resfiles
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\pri.resfiles.intermediate
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\qualifiers.txt
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\qualifiers.txt.intermediate
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\ProjectArchitectures.txt
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_638441347520000000.json
+C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\SignInPage.xbf
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\SignInPage.g.i.cs
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\SignInPage.g.cs
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\SignInPage.xaml
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\SignInPage.xbf
+C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\SignUpPage.xbf
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\SignUpPage.g.i.cs
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\SignUpPage.g.cs
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\SignUpPage.xaml
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\SignUpPage.xbf
+C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\CategoryPage.xbf
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\CategoryPage.g.i.cs
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\CategoryPage.g.cs
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\CategoryPage.xaml
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\CategoryPage.xbf
+C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\CatalogPage.xbf
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\CatalogPage.g.i.cs
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\CatalogPage.g.cs
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\CatalogPage.xaml
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\CatalogPage.xbf
+C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\MySqlConnector.dll
+C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\FxResources.Microsoft.Extensions.Logging.Abstractions.SR.resw
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\FxResources.System.Diagnostics.DiagnosticSource.SR.resw
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\resources.en-us.resfiles
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\resources.en-us.resfiles.intermediate
+C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\AdditionalInfoAboutMaterials.xbf
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\AdditionalInfoAboutMaterials.g.i.cs
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\AdditionalInfoAboutMaterials.g.cs
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\AdditionalInfoAboutMaterials.xaml
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\AdditionalInfoAboutMaterials.xbf

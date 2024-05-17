@@ -1,0 +1,19 @@
+﻿<Page
+    x:Class="bm_shop.AdditionalInfoAboutMaterials"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:bm_shop"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="#FF8C8F98" Width="1920" Height="1080">
+
+
+    <Grid>
+        <Grid x:ConnectionId='2' x:Name="ButtonsGrid" FocusVisualPrimaryBrush="{x:Null}" BorderBrush="#FFE9EFFD">
+            <Button x:ConnectionId='3' x:Name="testBtn" Content="Преимущества" Margin="1049,515,0,0" VerticalAlignment="Top" Width="150" Height="25" BorderThickness="0,0,0,1" BorderBrush="Black" Background="#008C8F98"                      Padding="8,0,8,0"/>
+            <Button x:ConnectionId='4' x:Name="testBtn1" Content="Характеристики" Margin="1199,515,0,0" VerticalAlignment="Top" Width="150" Height="25" BorderThickness="0,0,0,1" Background="#FF8C8F98"                       FocusVisualPrimaryBrush="{x:Null}" BorderBrush="#FFE9EFFD" Padding="8,0,8,0"/>
+        </Grid>
+    </Grid>
+</Page>
+

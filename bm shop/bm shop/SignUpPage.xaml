@@ -1,0 +1,23 @@
+﻿<Page
+    x:Class="bm_shop.SignUpPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:bm_shop"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="#FF8C8F98" Width="1920" Height="1080">
+
+    <Grid>
+        <Image Margin="219,180,0,159" Width="741" Height="741" HorizontalAlignment="Left" Source="/Assets/startPage bg1.png" d:LayoutOverrides="Width"/>
+        <TextBlock TextWrapping="Wrap" Text="bm store" FontSize="128" Height="125" Width="591" FontFamily="Aldrich" Margin="1071,150,258,813" Foreground="#FFE9EFFD" d:LayoutOverrides="Width, Height"/>
+        <TextBox x:Name="LoginTextBox" Height="85" TextWrapping="Wrap" Text="" Width="590" HorizontalAlignment="Left" Margin="1071,316,0,679" Background="#FFE9EFFD" CornerRadius="25,25,25,25" Foreground="Black" PlaceholderForeground="Black" FontSize="30" BorderBrush="{x:Null}" BorderThickness="2,2,2,2" Padding="15,20,6,0" PlaceholderText="Логин:" d:LayoutOverrides="VerticalAlignment"/>
+        <TextBox x:Name="PasswordTextBox" Height="85" TextWrapping="Wrap" Text="" Width="590" HorizontalAlignment="Left" Margin="1071,410,0,586" Background="#FFE9EFFD" CornerRadius="25,25,25,25" Foreground="Black" PlaceholderForeground="Black" FontSize="30" BorderBrush="{x:Null}" BorderThickness="2,2,2,2" Padding="15,20,6,0" PlaceholderText="Пароль:" d:LayoutOverrides="Height"/>
+        <TextBox x:Name="SurnameTextBox" Height="85" TextWrapping="Wrap" Text="" Width="590" HorizontalAlignment="Left" Margin="1071,505,0,492" Background="#FFE9EFFD" CornerRadius="25,25,25,25" Foreground="Black" PlaceholderForeground="Black" FontSize="30" BorderBrush="{x:Null}" BorderThickness="2,2,2,2" Padding="15,20,6,0" PlaceholderText="Фамилия:" d:LayoutOverrides="VerticalAlignment"/>
+        <TextBox x:Name="NameTextBox" Height="85" TextWrapping="Wrap" Text="" Width="590" HorizontalAlignment="Left" Margin="1071,600,0,397" Background="#FFE9EFFD" CornerRadius="25,25,25,25" Foreground="Black" PlaceholderForeground="Black" FontSize="30" BorderBrush="{x:Null}" BorderThickness="2,2,2,2" Padding="15,20,6,0" PlaceholderText="Имя:" d:LayoutOverrides="VerticalAlignment"/>
+        <TextBox x:Name="PatronymicTextBox" Height="85" TextWrapping="Wrap" Text="" Width="590" HorizontalAlignment="Left" Margin="1071,695,0,301" Background="#FFE9EFFD" CornerRadius="25,25,25,25" Foreground="Black" PlaceholderForeground="Black" FontSize="30" BorderBrush="{x:Null}" BorderThickness="2,2,2,2" Padding="15,20,6,0" PlaceholderText="Отчество:" d:LayoutOverrides="VerticalAlignment"/>
+        <Button Content="Вход" Height="85" Margin="1191,821,0,0" VerticalAlignment="Top" Width="350" Foreground="Black" Background="#FFE9EFFD" FontSize="40" CornerRadius="25,25,25,25" Click="Button_Click"/>
+        <TextBlock Margin="1340,906,526,149" TextWrapping="Wrap" Text="назад" FontSize="20" TextDecorations="Underline" Height="25" Width="54" Tapped="TextBlock_Tapped" d:LayoutOverrides="Width, Height" FocusVisualPrimaryBrush="#FFE9EFFD" Foreground="#FFE9EFFD"/>
+
+    </Grid>
+</Page>
