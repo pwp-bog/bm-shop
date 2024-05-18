@@ -58,11 +58,6 @@ C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\SignUpPage.g.i.cs
 C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\SignUpPage.g.cs
 C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\SignUpPage.xaml
 C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\SignUpPage.xbf
-C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\CategoryPage.xbf
-C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\CategoryPage.g.i.cs
-C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\CategoryPage.g.cs
-C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\CategoryPage.xaml
-C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\CategoryPage.xbf
 C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\CatalogPage.xbf
 C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\CatalogPage.g.i.cs
 C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\CatalogPage.g.cs

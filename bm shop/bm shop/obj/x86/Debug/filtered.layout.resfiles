@@ -2,6 +2,7 @@ Assets\23.png
 Assets\33.png
 Assets\5402354_arrow_back_left_previous_direction_icon.png
 Assets\LockScreenLogo.scale-200.png
+Assets\Rectangle 2.png
 Assets\SignInLogo1.png
 Assets\SplashScreen.scale-100.png
 Assets\SplashScreen.scale-125.png
@@ -18,7 +19,6 @@ AdditionalInfoAboutMaterials.xbf
 App.xbf
 bm shop.xr.xml
 CatalogPage.xbf
-CategoryPage.xbf
 MainPage.xbf
 SignInPage.xbf
 SignUpPage.xbf

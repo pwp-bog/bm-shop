@@ -1,14 +1,28 @@
-﻿<Page
-    x:Class="bm_shop.MainPage"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:bm_shop"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+﻿<Page x:Class="bm_shop.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:bm_shop"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d"
+      Background="{ThemeResource SystemControlPageBackgroundListLowBrush}">
 
     <Grid>
+        <NavigationView x:Name="NavigationViewControl" PaneDisplayMode="Top" IsBackButtonVisible="Visible" IsBackEnabled="True">
+            <NavigationView.MenuItems>
+                <!-- Используем NavigationViewItem для LEVEL 1 -->
+                <NavigationViewItem Content="Категории" Icon="AllApps" Tapped="Level1Button_Click" />
 
+
+                <!-- Добавьте остальные элементы меню -->
+                <NavigationViewItem Icon="Shop" Content="Корзина"/>
+
+                <TextBox PlaceholderText="Поиск" Width="500" CornerRadius="10,10,10,10" Background="{x:Null}"/>
+
+            </NavigationView.MenuItems>
+
+
+            <Frame x:Name="ContentFrame" />
+        </NavigationView>
     </Grid>
 </Page>

@@ -36,9 +36,9 @@ namespace bm_shop
 
         public void FillData()
         {
-            CategoryNameTextBlock.Text = CategoryPage.CategoryName;
+            //CategoryNameTextBlock.Text = MainPage.CategoryName;
 
-            FillCatalog($"SELECT * FROM `materials` where `category` = '{CategoryPage.CategoryName}' and quantity > 0;");
+            FillCatalog($"SELECT * FROM `materials` where `category` = '{MainPage.CategoryName}' and quantity > 0;");
         }
 
         //Лист товаров
@@ -177,7 +177,7 @@ namespace bm_shop
         //Обработчик кнопки назад
         private void Image_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            Frame.Navigate(typeof(CategoryPage));
+            //Frame.Navigate(typeof(CategoryPage));
         }
 
         //Обработчик кнопки корзина

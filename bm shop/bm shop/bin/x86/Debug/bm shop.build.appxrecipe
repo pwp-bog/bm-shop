@@ -55,6 +55,9 @@
     <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\Assets\5402354_arrow_back_left_previous_direction_icon.png">
       <PackagePath>Assets\5402354_arrow_back_left_previous_direction_icon.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\Assets\Rectangle 2.png">
+      <PackagePath>Assets\Rectangle 2.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\Assets\SignInLogo1.png">
       <PackagePath>Assets\SignInLogo1.png</PackagePath>
     </AppxPackagedFile>
@@ -118,9 +121,6 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\CatalogPage.xbf">
       <PackagePath>CatalogPage.xbf</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\CategoryPage.xbf">
-      <PackagePath>CategoryPage.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>

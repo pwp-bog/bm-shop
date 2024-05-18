@@ -86,7 +86,7 @@ namespace bm_shop
                             bool.Parse(table.Rows[0][6].ToString())
                         );
 
-                        Frame.Navigate(typeof(CategoryPage));
+                        Frame.Navigate(typeof(MainPage));
                     }
                     else
                     {
