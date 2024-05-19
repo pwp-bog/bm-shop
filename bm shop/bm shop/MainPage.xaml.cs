@@ -94,5 +94,27 @@ namespace bm_shop
             ContentFrame.Navigate(typeof(CatalogPage));
         }
 
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            //// Получение ресурса
+            //var resource = Application.Current.Resources["SystemAccentColor"] as SolidColorBrush;
+
+            //if (resource != null)
+            //{
+            //    // Установка BorderBrush
+            //    SearchTextBox.BorderBrush = resource;
+            //}
+            //else
+            //{
+            //    // Ресурс не найден, можете задать цвет по умолчанию
+            //    SearchTextBox.BorderBrush = new SolidColorBrush(Windows.UI.Colors.Gray);
+            //}
+        }
+
+        private void NavigationViewItem_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            CategoryName = "purchases";
+            ContentFrame.Navigate(typeof(CatalogPage));
+        }
     }
 }

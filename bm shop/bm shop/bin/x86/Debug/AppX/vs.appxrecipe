@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2024-05-18T11:51:31.836</Modified>
+      <Modified>2024-05-19T05:34:42.977</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\bm shop.exe">
       <PackagePath>entrypoint\bm shop.exe</PackagePath>
-      <Modified>2024-05-18T11:51:30.169</Modified>
+      <Modified>2024-05-19T05:34:42.119</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\microsoft.extensions.logging.abstractions\7.0.1\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll">
       <PackagePath>Microsoft.Extensions.Logging.Abstractions.dll</PackagePath>
@@ -146,35 +146,35 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\bm shop.xr.xml">
       <PackagePath>bm shop.xr.xml</PackagePath>
-      <Modified>2024-05-18T10:44:09.467</Modified>
+      <Modified>2024-05-19T05:06:53.854</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2024-05-18T11:51:29.890</Modified>
+      <Modified>2024-05-19T05:34:42.030</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\AdditionalInfoAboutMaterials.xbf">
       <PackagePath>AdditionalInfoAboutMaterials.xbf</PackagePath>
-      <Modified>2024-05-18T11:51:29.890</Modified>
+      <Modified>2024-05-19T05:34:42.030</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\CatalogPage.xbf">
       <PackagePath>CatalogPage.xbf</PackagePath>
-      <Modified>2024-05-18T11:51:29.890</Modified>
+      <Modified>2024-05-19T05:34:42.030</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2024-05-18T11:51:29.890</Modified>
+      <Modified>2024-05-19T05:34:42.030</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\SignInPage.xbf">
       <PackagePath>SignInPage.xbf</PackagePath>
-      <Modified>2024-05-18T11:51:29.890</Modified>
+      <Modified>2024-05-19T05:34:42.030</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\SignUpPage.xbf">
       <PackagePath>SignUpPage.xbf</PackagePath>
-      <Modified>2024-05-18T11:51:29.890</Modified>
+      <Modified>2024-05-19T05:34:42.031</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\StartPage.xbf">
       <PackagePath>StartPage.xbf</PackagePath>
-      <Modified>2024-05-18T11:51:29.890</Modified>
+      <Modified>2024-05-19T05:34:42.031</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.22621.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -186,7 +186,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\Core\bm shop.exe">
       <PackagePath>bm shop.exe</PackagePath>
-      <Modified>2024-05-18T11:51:31.820</Modified>
+      <Modified>2024-05-19T05:34:42.974</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

@@ -9,12 +9,29 @@
     Background="{ThemeResource SystemControlPageBackgroundListLowBrush}" Width="1920" Height="1080">
 
     <Grid>
-        <Grid>
-            <TextBlock x:Name="NameMaterial" HorizontalAlignment="Left" Margin="25,25,0,0" TextWrapping="Wrap" Text="Lorem" VerticalAlignment="Top" FontSize="48"/>
-            <Image x:Name="ImageMaterial" HorizontalAlignment="Left" Height="750" Margin="25,128,0,0" VerticalAlignment="Top" Width="750" Source="/Assets/Rectangle 2.png"/>
+        <Grid Width="750" HorizontalAlignment="Left" Margin="25,25,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock x:Name="NameMaterial" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Lorem" VerticalAlignment="Top" FontSize="48" Grid.Row="0" Grid.Column="0" Margin="0,0,0,25"/>
+            <Image x:Name="ImageMaterial" HorizontalAlignment="Left" Height="750" VerticalAlignment="Top" Width="750" Source="/Assets/Rectangle 2.png" Grid.Row="1" Grid.Column="0"/>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center">
+                <TextBlock x:Name="CostMaterial" HorizontalAlignment="Left" TextWrapping="Wrap" Text="lorem" VerticalAlignment="Center" FontSize="40" Margin="0,0,10,0"/>
+                <TextBlock x:Name="Quantity" HorizontalAlignment="Left" TextWrapping="Wrap" Text="lorem" VerticalAlignment="Center" FontSize="40" Margin="0,0,10,0"/>
+                <ComboBox x:Name="WeigthMaterial" Height="48" Background="{x:Null}" BorderBrush="{ThemeResource SystemAccentColor}"  CornerRadius="10,10,10,10" PlaceholderText="Объём" FontSize="24" Padding="25,5,5,7" HorizontalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" SelectionChanged="WeigthMaterial_SelectionChanged"/>
+                <Button x:Name="BuyButton" Content="Купить" VerticalAlignment="Stretch" Height="48" Width="150" CornerRadius="10,10,10,10" Background="{x:Null}" BorderBrush="{ThemeResource SystemAccentColor}"  FontSize="24" Padding="8,0,8,0" Margin="10,0,0,0" HorizontalAlignment="Stretch" Click="BuyButton_Click"/>
+            </StackPanel>
         </Grid>
+
         <ScrollViewer VerticalScrollBarVisibility="Auto" Background="{x:Null}" BorderBrush="{x:Null}" Margin="786,0,0,0">
-            <Grid x:Name="CatalogGrid" Margin="15,125,15,0">
+            <Grid x:Name="CatalogGrid" Margin="15,25,15,0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
@@ -29,20 +46,14 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <TextBlock x:Name="CostMaterial" HorizontalAlignment="Left" TextWrapping="Wrap" Text="lorem" VerticalAlignment="Top" FontSize="40" Grid.Row="0" Grid.Column="0"/>
-                <ComboBox x:Name="WeigthMaterial" Height="48" Background="{x:Null}" BorderBrush="#FF91B3FA" CornerRadius="10,10,10,10" PlaceholderText="Объём" FontSize="24" Padding="25,5,5,7" HorizontalContentAlignment="Center" Grid.Row="0" Grid.Column="1" Margin="10,0,0,0"/>
-                <Button x:Name="BuyButton" Content="Купить" VerticalAlignment="Top" Height="48" Width="150" CornerRadius="10,10,10,10" Background="{x:Null}" BorderBrush="#FF91B3FA" FontSize="24" Padding="8,0,8,0" Grid.Row="0" Grid.Column="2" Margin="10,0,0,0"/>
-
-                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Описание:" VerticalAlignment="Top" FontSize="32" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"/>
-                <TextBlock x:Name="DescriptionText" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Lorem" VerticalAlignment="Top" FontSize="20" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Margin="0,0,0,10"/>
-
                 <!-- Выбор подпунктов -->
                 <StackPanel x:Name="ButtonStackPanel" Orientation="Horizontal" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3">
-                    <Button x:Name="testBtn" Content="Преимущества" Width="150" Height="25" BorderThickness="0,0,0,2" BorderBrush="Black" Background="#008C8F98" Click="Button_Click" Padding="8,0,8,0"/>
-                    <Button x:Name="testBtn1" Content="Характеристики" Width="150" Height="25" BorderThickness="0,0,0,2" Background="{x:Null}" Click="Button_Click" FocusVisualPrimaryBrush="{x:Null}" BorderBrush="#FFE9EFFD" Padding="8,0,8,0"/>
-                    <Button x:Name="testBtn2" Content="Способ применения" Width="150" Height="25" BorderThickness="0,0,0,2" Background="{x:Null}" Click="Button_Click" FocusVisualPrimaryBrush="{x:Null}" BorderBrush="#FFE9EFFD" Padding="8,0,8,0"/>
-                    <Button x:Name="testBtn3" Content="Хранение" Width="150" Height="25" BorderThickness="0,0,0,2" Background="{x:Null}" FocusVisualPrimaryBrush="{x:Null}" BorderBrush="#FFE9EFFD" Padding="8,0,8,0" Click="Button_Click"/>
-                    <Button x:Name="testBtn4" Content="Отзывы" Width="150" Height="25" BorderThickness="0,0,0,2" Background="{x:Null}" FocusVisualPrimaryBrush="{x:Null}" BorderBrush="#FFE9EFFD" Padding="8,0,8,0" Click="Button_Click"/>
+                    <Button x:Name="testBtn0" Content="Описание" BorderThickness="0,0,0,2" BorderBrush="{ThemeResource SystemAccentColor}" Background="#008C8F98" Click="Button_Click" Padding="8,0,8,0" FontSize="20"/>
+                    <Button x:Name="testBtn" Content="Преимущества" BorderThickness="0,0,0,2" BorderBrush="{ThemeResource AppBarItemDisabledForegroundThemeBrush}" Background="{x:Null}" Click="Button_Click" Padding="8,0,8,0" FontSize="20"/>
+                    <Button x:Name="testBtn1" Content="Характеристики" BorderThickness="0,0,0,2" Background="{x:Null}" Click="Button_Click" FocusVisualPrimaryBrush="{x:Null}" BorderBrush="{ThemeResource AppBarItemDisabledForegroundThemeBrush}" Padding="8,0,8,0" FontSize="20"/>
+                    <Button x:Name="testBtn2" Content="Способ применения" BorderThickness="0,0,0,2" Background="{x:Null}" Click="Button_Click" FocusVisualPrimaryBrush="{x:Null}" BorderBrush="{ThemeResource AppBarItemDisabledForegroundThemeBrush}" Padding="8,0,8,0" FontSize="20"/>
+                    <Button x:Name="testBtn3" Content="Хранение" BorderThickness="0,0,0,2" Background="{x:Null}" FocusVisualPrimaryBrush="{x:Null}" BorderBrush="{ThemeResource AppBarItemDisabledForegroundThemeBrush}" Padding="8,0,8,0" Click="Button_Click" FontSize="20"/>
+                    <Button x:Name="testBtn4" Content="Отзывы" BorderThickness="0,0,0,2" Background="{x:Null}" FocusVisualPrimaryBrush="{x:Null}" BorderBrush="{ThemeResource AppBarItemDisabledForegroundThemeBrush}" Padding="8,0,8,0" Click="Button_Click" FontSize="20"/>
                 </StackPanel>
                 
                 <TextBlock x:Name="FooterText" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Padding="0,10,0,0" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3" Margin="0,5,0,0"/>

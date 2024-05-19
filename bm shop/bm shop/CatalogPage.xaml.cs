@@ -34,11 +34,21 @@ namespace bm_shop
             FillData();
         }
 
+
         public void FillData()
         {
             //CategoryNameTextBlock.Text = MainPage.CategoryName;
 
-            FillCatalog($"SELECT * FROM `materials` where `category` = '{MainPage.CategoryName}' and quantity > 0;");
+            if(MainPage.CategoryName == "purchases")
+            {
+                AdditionalInfoAboutMaterials.isBasket = true;
+                FillCatalog($"SELECT * FROM `materials` m JOIN `purchases` p where m.id = p.materialId and p.userId = {SignInPage.CurrentUser.id};");
+            }
+            else
+            {
+                AdditionalInfoAboutMaterials.isBasket = false;
+                FillCatalog($"SELECT * FROM `materials` where `category` = '{MainPage.CategoryName}' and quantity > 0;");
+            }
         }
 
         //Лист товаров
@@ -96,18 +106,31 @@ namespace bm_shop
                 CatalogGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = GridLength.Auto });
                 CatalogGrid.RowDefinitions.Add(new RowDefinition() { Height = GridLength.Auto });
 
+                //if(AdditionalInfoAboutMaterials.isBasket)
+                //{
+                //    addTextToGrid(k, j, MaterialsList[i], i);
+                //}
+                //else
+                //{
+                //    // Проверка наличия значения в списке
+                //    if (!AdeddList.Contains(TitleNote[i]))
+                //    {
+                //        addTextToGrid(k, j, MaterialsList[i], i);
+                //        AdeddList.Add(TitleNote[i]);
+                //    }
+                //}
                 // Проверка наличия значения в списке
                 if (!AdeddList.Contains(TitleNote[i]))
                 {
                     addTextToGrid(k, j, MaterialsList[i], i);
                     AdeddList.Add(TitleNote[i]);
-                }
 
-                j++;
-                if (j >= 5)
-                {
-                    j = 0;
-                    k++;
+                    j++;
+                    if (j >= 4)
+                    {
+                        j = 0;
+                        k++;
+                    }
                 }
             }
         }
@@ -168,9 +191,20 @@ namespace bm_shop
 
             if (tappedImage.Tag != null)
             {
-                int index = (int)tappedImage.Tag;
-                CatalogPage.CurrentMateriall = MaterialsList[index];
-                Frame.Navigate(typeof(AdditionalInfoAboutMaterials));
+                if(MainPage.CategoryName == "purchases")
+                {
+                    int index = (int)tappedImage.Tag;
+                    CatalogPage.CurrentMateriall = MaterialsList[index];
+                    AdditionalInfoAboutMaterials.isBasket = true;
+                    Frame.Navigate(typeof(AdditionalInfoAboutMaterials));
+                }
+                else
+                {
+                    int index = (int)tappedImage.Tag;
+                    CatalogPage.CurrentMateriall = MaterialsList[index];
+                    AdditionalInfoAboutMaterials.isBasket = false;
+                    Frame.Navigate(typeof(AdditionalInfoAboutMaterials));
+                }
             }
         }
 

@@ -15,9 +15,9 @@
 
 
                 <!-- Добавьте остальные элементы меню -->
-                <NavigationViewItem Icon="Shop" Content="Корзина"/>
+                <NavigationViewItem Icon="Shop" Content="Корзина" Tapped="NavigationViewItem_Tapped"/>
 
-                <TextBox PlaceholderText="Поиск" Width="500" CornerRadius="10,10,10,10" Background="{x:Null}"/>
+                <TextBox x:Name="SearchTextBox" PlaceholderText="Поиск" Width="500" CornerRadius="10,10,10,10" Background="{x:Null}" TextChanged="TextBox_TextChanged"/>
 
             </NavigationView.MenuItems>
 

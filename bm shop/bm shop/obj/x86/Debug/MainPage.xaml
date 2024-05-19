@@ -15,14 +15,14 @@
 
 
                 <!-- Добавьте остальные элементы меню -->
-                <NavigationViewItem Icon="Shop" Content="Корзина"/>
+                <NavigationViewItem x:ConnectionId='4' Icon="Shop" Content="Корзина"                                   />
 
-                <TextBox PlaceholderText="Поиск" Width="500" CornerRadius="10,10,10,10" Background="{x:Null}"/>
+                <TextBox x:ConnectionId='5' x:Name="SearchTextBox" PlaceholderText="Поиск" Width="500" CornerRadius="10,10,10,10" Background="{x:Null}"                                  />
 
             </NavigationView.MenuItems>
 
 
-            <Frame x:ConnectionId='4' x:Name="ContentFrame" />
+            <Frame x:ConnectionId='6' x:Name="ContentFrame" />
         </NavigationView>
     </Grid>
 </Page>
