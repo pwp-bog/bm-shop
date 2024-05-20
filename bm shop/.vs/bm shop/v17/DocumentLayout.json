@@ -3,28 +3,44 @@
   "WorkspaceRootPath": "C:\\Github\\bm-shop\\bm shop\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8FEEE9A5-A636-450F-A694-EDF291091804}|bm shop\\bm shop.csproj|C:\\Github\\bm-shop\\bm shop\\bm shop\\catalogpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8FEEE9A5-A636-450F-A694-EDF291091804}|bm shop\\bm shop.csproj|solutionrelative:bm shop\\catalogpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8FEEE9A5-A636-450F-A694-EDF291091804}|bm shop\\bm shop.csproj|C:\\Github\\bm-shop\\bm shop\\bm shop\\additionalinfoaboutmaterials.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{8FEEE9A5-A636-450F-A694-EDF291091804}|bm shop\\bm shop.csproj|solutionrelative:bm shop\\additionalinfoaboutmaterials.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8FEEE9A5-A636-450F-A694-EDF291091804}|bm shop\\bm shop.csproj|C:\\Github\\bm-shop\\bm shop\\bm shop\\mainpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8FEEE9A5-A636-450F-A694-EDF291091804}|bm shop\\bm shop.csproj|solutionrelative:bm shop\\mainpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8FEEE9A5-A636-450F-A694-EDF291091804}|bm shop\\bm shop.csproj|C:\\Github\\bm-shop\\bm shop\\bm shop\\catalogpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8FEEE9A5-A636-450F-A694-EDF291091804}|bm shop\\bm shop.csproj|solutionrelative:bm shop\\catalogpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8FEEE9A5-A636-450F-A694-EDF291091804}|bm shop\\bm shop.csproj|C:\\Github\\bm-shop\\bm shop\\bm shop\\catalogpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{8FEEE9A5-A636-450F-A694-EDF291091804}|bm shop\\bm shop.csproj|solutionrelative:bm shop\\catalogpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8FEEE9A5-A636-450F-A694-EDF291091804}|bm shop\\bm shop.csproj|c:\\github\\bm-shop\\bm shop\\bm shop\\additionalinfoaboutmaterials.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{8FEEE9A5-A636-450F-A694-EDF291091804}|bm shop\\bm shop.csproj|solutionrelative:bm shop\\additionalinfoaboutmaterials.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{8FEEE9A5-A636-450F-A694-EDF291091804}|bm shop\\bm shop.csproj|C:\\Github\\bm-shop\\bm shop\\bm shop\\mainpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8FEEE9A5-A636-450F-A694-EDF291091804}|bm shop\\bm shop.csproj|solutionrelative:bm shop\\mainpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8FEEE9A5-A636-450F-A694-EDF291091804}|bm shop\\bm shop.csproj|C:\\Github\\bm-shop\\bm shop\\bm shop\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{8FEEE9A5-A636-450F-A694-EDF291091804}|bm shop\\bm shop.csproj|c:\\github\\bm-shop\\bm shop\\bm shop\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{8FEEE9A5-A636-450F-A694-EDF291091804}|bm shop\\bm shop.csproj|solutionrelative:bm shop\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8FEEE9A5-A636-450F-A694-EDF291091804}|bm shop\\bm shop.csproj|C:\\Github\\bm-shop\\bm shop\\bm shop\\additionalinfoaboutmaterials.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8FEEE9A5-A636-450F-A694-EDF291091804}|bm shop\\bm shop.csproj|solutionrelative:bm shop\\additionalinfoaboutmaterials.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8FEEE9A5-A636-450F-A694-EDF291091804}|bm shop\\bm shop.csproj|c:\\github\\bm-shop\\bm shop\\bm shop\\settings.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8FEEE9A5-A636-450F-A694-EDF291091804}|bm shop\\bm shop.csproj|solutionrelative:bm shop\\settings.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8FEEE9A5-A636-450F-A694-EDF291091804}|bm shop\\bm shop.csproj|c:\\github\\bm-shop\\bm shop\\bm shop\\settings.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{8FEEE9A5-A636-450F-A694-EDF291091804}|bm shop\\bm shop.csproj|solutionrelative:bm shop\\settings.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8FEEE9A5-A636-450F-A694-EDF291091804}|bm shop\\bm shop.csproj|c:\\github\\bm-shop\\bm shop\\bm shop\\startpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{8FEEE9A5-A636-450F-A694-EDF291091804}|bm shop\\bm shop.csproj|solutionrelative:bm shop\\startpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8FEEE9A5-A636-450F-A694-EDF291091804}|bm shop\\bm shop.csproj|c:\\github\\bm-shop\\bm shop\\bm shop\\startpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8FEEE9A5-A636-450F-A694-EDF291091804}|bm shop\\bm shop.csproj|solutionrelative:bm shop\\startpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,11 +50,48 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "StartPage.xaml",
+              "DocumentMoniker": "C:\\Github\\bm-shop\\bm shop\\bm shop\\StartPage.xaml",
+              "RelativeDocumentMoniker": "bm shop\\StartPage.xaml",
+              "ToolTip": "C:\\Github\\bm-shop\\bm shop\\bm shop\\StartPage.xaml",
+              "RelativeToolTip": "bm shop\\StartPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-05-20T05:29:31.634Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Settings.xaml.cs",
+              "DocumentMoniker": "C:\\Github\\bm-shop\\bm shop\\bm shop\\Settings.xaml.cs",
+              "RelativeDocumentMoniker": "bm shop\\Settings.xaml.cs",
+              "ToolTip": "C:\\Github\\bm-shop\\bm shop\\bm shop\\Settings.xaml.cs",
+              "RelativeToolTip": "bm shop\\Settings.xaml.cs",
+              "ViewState": "AQIAABQAAAAAAAAAAAAAACoAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-20T05:18:39.863Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Settings.xaml",
+              "DocumentMoniker": "C:\\Github\\bm-shop\\bm shop\\bm shop\\Settings.xaml",
+              "RelativeDocumentMoniker": "bm shop\\Settings.xaml",
+              "ToolTip": "C:\\Github\\bm-shop\\bm shop\\bm shop\\Settings.xaml",
+              "RelativeToolTip": "bm shop\\Settings.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-05-20T05:07:34.594Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -54,13 +107,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "MainPage.xaml.cs",
               "DocumentMoniker": "C:\\Github\\bm-shop\\bm shop\\bm shop\\MainPage.xaml.cs",
               "RelativeDocumentMoniker": "bm shop\\MainPage.xaml.cs",
               "ToolTip": "C:\\Github\\bm-shop\\bm shop\\bm shop\\MainPage.xaml.cs",
               "RelativeToolTip": "bm shop\\MainPage.xaml.cs",
-              "ViewState": "AQIAAFkAAAAAAAAAAAAwwHMAAAAnAAAA",
+              "ViewState": "AQIAAEkAAAAAAAAAAAA9wGcAAABlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-18T01:46:08.95Z",
               "EditorCaption": ""
@@ -79,20 +132,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "CatalogPage.xaml.cs",
               "DocumentMoniker": "C:\\Github\\bm-shop\\bm shop\\bm shop\\CatalogPage.xaml.cs",
               "RelativeDocumentMoniker": "bm shop\\CatalogPage.xaml.cs",
               "ToolTip": "C:\\Github\\bm-shop\\bm shop\\bm shop\\CatalogPage.xaml.cs",
               "RelativeToolTip": "bm shop\\CatalogPage.xaml.cs",
-              "ViewState": "AQIAAGEAAAAAAAAAAAAcwHUAAABDAAAA",
+              "ViewState": "AQIAACEAAAAAAAAAAAApwDYAAABCAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-16T20:28:42.972Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "AdditionalInfoAboutMaterials.xaml",
               "DocumentMoniker": "C:\\Github\\bm-shop\\bm shop\\bm shop\\AdditionalInfoAboutMaterials.xaml",
               "RelativeDocumentMoniker": "bm shop\\AdditionalInfoAboutMaterials.xaml",
@@ -104,13 +157,26 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "StartPage.xaml.cs",
+              "DocumentMoniker": "C:\\Github\\bm-shop\\bm shop\\bm shop\\StartPage.xaml.cs",
+              "RelativeDocumentMoniker": "bm shop\\StartPage.xaml.cs",
+              "ToolTip": "C:\\Github\\bm-shop\\bm shop\\bm shop\\StartPage.xaml.cs",
+              "RelativeToolTip": "bm shop\\StartPage.xaml.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAAwwCkAAABIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-20T05:29:59.218Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 5,
               "Title": "AdditionalInfoAboutMaterials.xaml.cs",
               "DocumentMoniker": "C:\\Github\\bm-shop\\bm shop\\bm shop\\AdditionalInfoAboutMaterials.xaml.cs",
               "RelativeDocumentMoniker": "bm shop\\AdditionalInfoAboutMaterials.xaml.cs",
               "ToolTip": "C:\\Github\\bm-shop\\bm shop\\bm shop\\AdditionalInfoAboutMaterials.xaml.cs",
               "RelativeToolTip": "bm shop\\AdditionalInfoAboutMaterials.xaml.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAowHEAAAA6AAAA",
+              "ViewState": "AQIAAB0AAAAAAAAAAAAcwHQAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-17T00:40:41.717Z",
               "EditorCaption": ""

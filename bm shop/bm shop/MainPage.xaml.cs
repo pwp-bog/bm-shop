@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
 
@@ -36,16 +37,15 @@ namespace bm_shop
 
         private void NavigationView_BackRequested(NavigationView sender, NavigationViewBackRequestedEventArgs args)
         {
-            if (ContentFrame.CanGoBack)
+            try
             {
                 ContentFrame.GoBack();
             }
-            else
+            catch (System.NullReferenceException)
             {
-                Frame.Navigate(typeof(MainPage));
+                Frame.Navigate(typeof(CatalogPage));
             }
         }
-
 
 
         private NavigationViewItem _currentButton;
@@ -60,6 +60,7 @@ namespace bm_shop
         private void ShowMenuFlyout()
         {
             MenuFlyout menuFlyout = new MenuFlyout();
+            
 
             // Добавление элементов второго уровня для каждого раздела
             AddSubMenuItems(menuFlyout, "Лако-красочные материалы", new string[] { "Грунтовки", "Краски", "Лаки", "Растворители", "Грунт-эмаль 3в1", "Пропитки" });
@@ -94,27 +95,25 @@ namespace bm_shop
             ContentFrame.Navigate(typeof(CatalogPage));
         }
 
+        public static string FindInfo;
+
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            //// Получение ресурса
-            //var resource = Application.Current.Resources["SystemAccentColor"] as SolidColorBrush;
-
-            //if (resource != null)
-            //{
-            //    // Установка BorderBrush
-            //    SearchTextBox.BorderBrush = resource;
-            //}
-            //else
-            //{
-            //    // Ресурс не найден, можете задать цвет по умолчанию
-            //    SearchTextBox.BorderBrush = new SolidColorBrush(Windows.UI.Colors.Gray);
-            //}
+            MainPage.CategoryName = "Find";
+            MainPage.FindInfo = SearchTextBox.Text;
+            ContentFrame.Navigate(typeof(CatalogPage), null, new SuppressNavigationTransitionInfo());
         }
 
         private void NavigationViewItem_Tapped(object sender, TappedRoutedEventArgs e)
         {
             CategoryName = "purchases";
             ContentFrame.Navigate(typeof(CatalogPage));
+        }
+
+        //Обработчик кнопки настройки
+        private void SettingsButton_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            ContentFrame.Navigate(typeof(Settings));
         }
     }
 }

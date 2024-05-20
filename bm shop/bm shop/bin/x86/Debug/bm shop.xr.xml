@@ -17,6 +17,7 @@
       <RootProperty Name="ColumnDefinitions" />
       <RootProperty Name="RowDefinitions" />
       <RootProperty Name="Resources" />
+      <RootProperty Name="Padding" />
       <RootMethod Name="GetRow" />
       <RootMethod Name="SetRow" />
       <RootMethod Name="GetColumn" />
@@ -43,6 +44,8 @@
       <RootProperty Name="Orientation" />
       <RootProperty Name="Children" />
       <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Spacing" />
+      <RootProperty Name="Margin" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
       <RootProperty Name="HorizontalAlignment" />
@@ -52,6 +55,7 @@
       <RootProperty Name="Padding" />
       <RootProperty Name="Margin" />
       <RootProperty Name="FontSize" />
+      <RootProperty Name="FontWeight" />
       <RootProperty Name="Height" />
       <RootProperty Name="Width" />
       <RootProperty Name="FontFamily" />
@@ -98,6 +102,8 @@
       <RootProperty Name="HorizontalContentAlignment" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Header" />
+      <RootProperty Name="Items" />
       <RootEvent Name="SelectionChanged" />
     </RootType>
     <RootType FullName="bm_shop.AdditionalInfoAboutMaterials" />
@@ -113,7 +119,9 @@
       <RootProperty Name="PaneDisplayMode" />
       <RootProperty Name="IsBackButtonVisible" />
       <RootProperty Name="IsBackEnabled" />
+      <RootProperty Name="IsSettingsVisible" />
       <RootProperty Name="MenuItems" />
+      <RootProperty Name="PaneFooter" />
       <RootProperty Name="Content" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.NavigationViewItem">
@@ -126,6 +134,7 @@
       <RootProperty Name="Width" />
       <RootProperty Name="CornerRadius" />
       <RootProperty Name="Background" />
+      <RootProperty Name="Header" />
       <RootProperty Name="Height" />
       <RootProperty Name="TextWrapping" />
       <RootProperty Name="Text" />
@@ -142,6 +151,20 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Frame" />
     <RootType FullName="bm_shop.MainPage" />
+    <RootType FullName="Windows.UI.Xaml.Controls.ToggleSwitch">
+      <RootProperty Name="Header" />
+      <RootProperty Name="OnContent" />
+      <RootProperty Name="OffContent" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ComboBoxItem">
+      <RootProperty Name="Content" />
+      <RootProperty Name="Tag" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.PasswordBox">
+      <RootProperty Name="Header" />
+      <RootProperty Name="PlaceholderText" />
+    </RootType>
+    <RootType FullName="bm_shop.Settings" />
     <RootType FullName="bm_shop.SignInPage" />
     <RootType FullName="bm_shop.SignUpPage" />
     <RootType FullName="bm_shop.StartPage" />

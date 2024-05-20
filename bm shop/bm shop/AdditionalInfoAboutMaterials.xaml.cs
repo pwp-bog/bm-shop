@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -38,7 +39,7 @@ namespace bm_shop
         public void FillData()
         {
             NameMaterial.Text = CatalogPage.CurrentMateriall.name;
-            
+
             BitmapImage img = new BitmapImage();
             img.UriSource = new Uri(CatalogPage.CurrentMateriall.photo);
             ImageMaterial.Source = img;
@@ -79,7 +80,7 @@ namespace bm_shop
                 }
 
                 MySqlCommand QyantityMaterial = new MySqlCommand($"SELECT weigth, cost, quantity FROM `materials` m JOIN purchases p where m.name = \"{CatalogPage.CurrentMateriall.name}\" and m.id = p.materialId and weigth = \"{CatalogPage.CurrentMateriall.weigth}\";", connection);
-                
+
                 using (MySqlDataAdapter adapter = new MySqlDataAdapter(QyantityMaterial))
                 {
                     adapter.Fill(table1);
@@ -100,12 +101,12 @@ namespace bm_shop
             }
 
             WeigthMaterial.SelectedItem = CatalogPage.CurrentMateriall.weigth;
-            Quantity.Text = countBueydMaterial.ToString() + " шт.";
             //WeigthMaterial.PlaceholderText = CatalogPage.CurrentMateriall.weigth;
-            CostMaterial.Text = CatalogPage.CurrentMateriall.cost.ToString() + " руб.";
 
             if (isBasket)
             {
+                Quantity.Text = countBueydMaterial.ToString() + " шт.";
+                CostMaterial.Text = (CatalogPage.CurrentMateriall.cost * countBueydMaterial).ToString() + " руб.";
                 Quantity.Visibility = Visibility.Visible;
                 BuyButton.Visibility = Visibility.Collapsed;
             }
@@ -179,9 +180,11 @@ namespace bm_shop
 
             db.closeConnection();
 
+            double ThisCost = 0;
             foreach (DataRow row in table.Rows)
             {
                 CostMaterial.Text = row[0].ToString() + " руб.";
+                ThisCost = double.Parse(row[0].ToString());
             }
 
             int countBueydMaterial = 0;
@@ -190,6 +193,21 @@ namespace bm_shop
                 countBueydMaterial++;
             }
             Quantity.Text = countBueydMaterial.ToString() + " шт.";
+
+            if (isBasket)
+            {
+                Quantity.Text = countBueydMaterial.ToString() + " шт.";
+                CostMaterial.Text = (ThisCost * countBueydMaterial).ToString() + " руб.";
+                Quantity.Visibility = Visibility.Visible;
+                BuyButton.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                //Quantity.Text = countBueydMaterial.ToString() + " шт.";
+                //CostMaterial.Text = ThisCost + " руб.";
+                Quantity.Visibility = Visibility.Collapsed;
+                BuyButton.Visibility = Visibility.Visible;
+            }
         }
 
         //Кнопка купить
@@ -290,6 +308,5 @@ namespace bm_shop
                 await msg.ShowAsync();
             }
         }
-
     }
 }

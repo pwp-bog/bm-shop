@@ -76,3 +76,8 @@ C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\AdditionalInfoAboutMaterials.g.i
 C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\AdditionalInfoAboutMaterials.g.cs
 C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\AdditionalInfoAboutMaterials.xaml
 C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\AdditionalInfoAboutMaterials.xbf
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\Settings.g.i.cs
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\Settings.g.cs
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\Settings.xaml
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\Settings.xbf
+C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\Settings.xbf
