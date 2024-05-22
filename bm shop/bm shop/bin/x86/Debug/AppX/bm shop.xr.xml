@@ -16,6 +16,10 @@
       <RootProperty Name="Margin" />
       <RootProperty Name="ColumnDefinitions" />
       <RootProperty Name="RowDefinitions" />
+      <RootProperty Name="Background" />
+      <RootProperty Name="BorderThickness" />
+      <RootProperty Name="BorderBrush" />
+      <RootProperty Name="CornerRadius" />
       <RootProperty Name="Resources" />
       <RootProperty Name="Padding" />
       <RootMethod Name="GetRow" />
@@ -55,11 +59,11 @@
       <RootProperty Name="Padding" />
       <RootProperty Name="Margin" />
       <RootProperty Name="FontSize" />
+      <RootProperty Name="Foreground" />
       <RootProperty Name="FontWeight" />
       <RootProperty Name="Height" />
       <RootProperty Name="Width" />
       <RootProperty Name="FontFamily" />
-      <RootProperty Name="Foreground" />
       <RootProperty Name="TextDecorations" />
       <RootProperty Name="FocusVisualPrimaryBrush" />
       <RootEvent Name="Tapped" />
@@ -78,18 +82,19 @@
       <RootProperty Name="CornerRadius" />
       <RootProperty Name="Margin" />
       <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="FocusVisualSecondaryBrush" />
       <RootProperty Name="Foreground" />
       <RootProperty Name="FontFamily" />
       <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Image">
       <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="Height" />
       <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="Width" />
       <RootProperty Name="Source" />
-      <RootProperty Name="Margin" />
       <RootProperty Name="Stretch" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="Height" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
       <RootProperty Name="Height" />
@@ -107,6 +112,16 @@
       <RootEvent Name="SelectionChanged" />
     </RootType>
     <RootType FullName="bm_shop.AdditionalInfoAboutMaterials" />
+    <RootType FullName="Windows.UI.Xaml.Shapes.Rectangle">
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="Fill" />
+      <RootProperty Name="RadiusX" />
+      <RootProperty Name="RadiusY" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.FrameworkElement">
       <RootProperty Name="Margin" />
     </RootType>
@@ -114,6 +129,7 @@
       <RootProperty Name="Property" />
       <RootProperty Name="Value" />
     </RootType>
+    <RootType FullName="bm_shop.Basket" />
     <RootType FullName="bm_shop.CatalogPage" />
     <RootType FullName="Windows.UI.Xaml.Controls.NavigationView">
       <RootProperty Name="PaneDisplayMode" />

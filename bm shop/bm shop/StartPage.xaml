@@ -5,13 +5,12 @@
     xmlns:local="using:bm_shop"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource SystemControlPageBackgroundListLowBrush}" Width="1920" Height="1080">
+    mc:Ignorable="d" Width="1920" Height="1080">
 
     <Grid>
-        <TextBlock Margin="665,107,655,0" TextWrapping="Wrap" Text="bm store" VerticalAlignment="Top" Foreground="{ThemeResource AppBarItemForegroundThemeBrush}" FontSize="128" FontFamily="Aldrich" d:LayoutOverrides="LeftPosition, RightPosition" FocusVisualPrimaryBrush="{ThemeResource AppBarItemForegroundThemeBrush}"/>
-        <Button Content="Вход" Margin="580,867,0,0" VerticalAlignment="Top" Background="{x:Null}" Width="350" Height="85" FontSize="40" CornerRadius="25,25,25,25" FontFamily="Inter-Regular" Foreground="{ThemeResource AppBarItemForegroundThemeBrush}" Click="Button_Click" Padding="8,0,8,0" BorderBrush="#FF91B3FA" BorderThickness="3,3,3,3"/>
-        <Button Content="Регистрация" Margin="960,867,0,0" VerticalAlignment="Top" Width="350" Height="85" FontSize="40" CornerRadius="25,25,25,25" FontFamily="Inter" Foreground="{ThemeResource AppBarItemForegroundThemeBrush}" Click="Button_Click_1" Padding="8,0,8,0" BorderThickness="3,3,3,3" BorderBrush="#FF91B3FA" Background="{x:Null}"/>
+        <TextBlock Margin="665,107,655,0" TextWrapping="Wrap" Text="bm store" VerticalAlignment="Top" Foreground="{ThemeResource AppBarItemForegroundThemeBrush}" FontSize="128" FontFamily="Aldrich" d:LayoutOverrides="LeftPosition, RightPosition"/>
+        <Button Content="Вход" Margin="580,867,0,0" VerticalAlignment="Top" Background="{ThemeResource BackButtonPressedForegroundThemeBrush}" Width="350" Height="85" FontSize="40" CornerRadius="4,4,4,4" FontFamily="Inter-Regular" Foreground="{ThemeResource AppBarItemForegroundThemeBrush}" Click="Button_Click" Padding="8,0,8,0" BorderBrush="#FFECECEC" BorderThickness="3,3,3,3"/>
+        <Button Content="Регистрация" Margin="960,867,0,0" VerticalAlignment="Top" Width="350" Height="85" FontSize="40" CornerRadius="4,4,4,4" FontFamily="Inter" Foreground="{ThemeResource AppBarItemForegroundThemeBrush}" Click="Button_Click_1" Padding="8,0,8,0" BorderThickness="3,3,3,3" BorderBrush="#FFECECEC" Background="{ThemeResource BackButtonPressedForegroundThemeBrush}"/>
         <Image Margin="637,261,637,248" Source="/Assets/Rectangle 2.png" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition" Stretch="Fill"/>
 
     </Grid>

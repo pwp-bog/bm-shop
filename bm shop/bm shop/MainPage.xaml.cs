@@ -33,6 +33,9 @@ namespace bm_shop
         {
             this.InitializeComponent();
             NavigationViewControl.BackRequested += NavigationView_BackRequested;
+
+            MainPage.CategoryName = "find";
+            ContentFrame.Navigate(typeof(CatalogPage));
         }
 
         private void NavigationView_BackRequested(NavigationView sender, NavigationViewBackRequestedEventArgs args)
@@ -60,7 +63,10 @@ namespace bm_shop
         private void ShowMenuFlyout()
         {
             MenuFlyout menuFlyout = new MenuFlyout();
-            
+
+            MenuFlyoutItem separateItem = new MenuFlyoutItem { Text = "Все товары" };
+            separateItem.Click += SeparateItem_Click; // Обработка нажатия на отдельный пункт
+            menuFlyout.Items.Add(separateItem);
 
             // Добавление элементов второго уровня для каждого раздела
             AddSubMenuItems(menuFlyout, "Лако-красочные материалы", new string[] { "Грунтовки", "Краски", "Лаки", "Растворители", "Грунт-эмаль 3в1", "Пропитки" });
@@ -69,6 +75,13 @@ namespace bm_shop
             AddSubMenuItems(menuFlyout, "Металлопрокат", new string[] { "Арматура", "Профильная труба" });
 
             menuFlyout.ShowAt(_currentButton);
+        }
+
+        public void SeparateItem_Click(object sender, RoutedEventArgs e)
+        {
+            _currentButton.Content = "Все товары";
+            MainPage.CategoryName = "find";
+            ContentFrame.Navigate(typeof(CatalogPage));
         }
 
         private void AddSubMenuItems(MenuFlyout menuFlyout, string header, string[] items)
@@ -91,7 +104,7 @@ namespace bm_shop
             _currentButton.Content = clickedItem.Text;
 
             // Добавьте здесь другие действия, которые вам нужно выполнить после изменения названия
-            CategoryName = clickedItem.Text;
+            MainPage.CategoryName = clickedItem.Text;
             ContentFrame.Navigate(typeof(CatalogPage));
         }
 
@@ -99,7 +112,7 @@ namespace bm_shop
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            MainPage.CategoryName = "Find";
+            MainPage.CategoryName = "find";
             MainPage.FindInfo = SearchTextBox.Text;
             ContentFrame.Navigate(typeof(CatalogPage), null, new SuppressNavigationTransitionInfo());
         }
@@ -114,6 +127,11 @@ namespace bm_shop
         private void SettingsButton_Tapped(object sender, TappedRoutedEventArgs e)
         {
             ContentFrame.Navigate(typeof(Settings));
+        }
+
+        private void NavigationViewItem_Tapped1(object sender, TappedRoutedEventArgs e)
+        {
+            ContentFrame.Navigate(typeof(Basket));
         }
     }
 }

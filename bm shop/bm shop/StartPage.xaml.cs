@@ -28,26 +28,26 @@ namespace bm_shop
         {
             this.InitializeComponent();
 
-            // Восстановление других настроек...
+            //// Восстановление других настроек...
 
-            if (ApplicationData.Current.LocalSettings.Values.TryGetValue("AppTheme", out object theme))
-            {
-                switch (theme.ToString())
-                {
-                    case "Light":
-                        // Установить тему для каждой отдельной страницы
-                        this.RequestedTheme = ElementTheme.Light;
-                        break;
-                    case "Dark":
-                        // Установить тему для каждой отдельной страницы
-                        this.RequestedTheme = ElementTheme.Dark;
-                        break;
-                    default:
-                        // По умолчанию установить светлую тему
-                        this.RequestedTheme = ElementTheme.Light;
-                        break;
-                }
-            }
+            //if (ApplicationData.Current.LocalSettings.Values.TryGetValue("AppTheme", out object theme))
+            //{
+            //    switch (theme.ToString())
+            //    {
+            //        case "Light":
+            //            // Установить тему для каждой отдельной страницы
+            //            this.RequestedTheme = ElementTheme.Light;
+            //            break;
+            //        case "Dark":
+            //            // Установить тему для каждой отдельной страницы
+            //            this.RequestedTheme = ElementTheme.Dark;
+            //            break;
+            //        default:
+            //            // По умолчанию установить светлую тему
+            //            this.RequestedTheme = ElementTheme.Light;
+            //            break;
+            //    }
+            //}
 
 
             // Ваш код запуска приложения...

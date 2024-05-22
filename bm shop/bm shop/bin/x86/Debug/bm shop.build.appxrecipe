@@ -119,6 +119,9 @@
     <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\AdditionalInfoAboutMaterials.xbf">
       <PackagePath>AdditionalInfoAboutMaterials.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\Basket.xbf">
+      <PackagePath>Basket.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\CatalogPage.xbf">
       <PackagePath>CatalogPage.xbf</PackagePath>
     </AppxPackagedFile>

@@ -81,3 +81,8 @@ C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\Settings.g.cs
 C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\Settings.xaml
 C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\Settings.xbf
 C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\Settings.xbf
+C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\Basket.xbf
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\Basket.g.i.cs
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\Basket.g.cs
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\Basket.xaml
+C:\Github\bm-shop\bm shop\bm shop\obj\x86\Debug\Basket.xbf

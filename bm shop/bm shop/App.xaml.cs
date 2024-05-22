@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
+
 namespace bm_shop
 {
     /// <summary>
@@ -41,13 +42,9 @@ namespace bm_shop
         {
             Frame rootFrame = Window.Current.Content as Frame;
 
-            // Не повторяйте инициализацию приложения, если в окне уже имеется содержимое,
-            // только обеспечьте активность окна
             if (rootFrame == null)
             {
-                // Создание фрейма, который станет контекстом навигации, и переход к первой странице
                 rootFrame = new Frame();
-
                 rootFrame.NavigationFailed += OnNavigationFailed;
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
@@ -55,7 +52,6 @@ namespace bm_shop
                     //TODO: Загрузить состояние из ранее приостановленного приложения
                 }
 
-                // Размещение фрейма в текущем окне
                 Window.Current.Content = rootFrame;
             }
 
@@ -63,15 +59,12 @@ namespace bm_shop
             {
                 if (rootFrame.Content == null)
                 {
-                    // Если стек навигации не восстанавливается для перехода к первой странице,
-                    // настройка новой страницы путем передачи необходимой информации в качестве параметра
-                    // навигации
                     rootFrame.Navigate(typeof(StartPage), e.Arguments);
                 }
-                // Обеспечение активности текущего окна
                 Window.Current.Activate();
             }
         }
+
 
         /// <summary>
         /// Вызывается в случае сбоя навигации на определенную страницу

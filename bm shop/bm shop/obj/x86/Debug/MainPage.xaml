@@ -13,11 +13,12 @@
             <NavigationView.MenuItems>
                 <!-- Используем NavigationViewItem для LEVEL 1 -->
                 <NavigationViewItem x:ConnectionId='3' Content="Категории" Icon="AllApps"                            />
-                <NavigationViewItem x:ConnectionId='4' Icon="Clock" Content="История покупок"                                   />
+                <NavigationViewItem x:ConnectionId='4' Icon="Shop" Content="Корзина"                                    />
+                <!--<NavigationViewItem Icon="Clock" Content="История покупок" Tapped="NavigationViewItem_Tapped"/>-->
                 <TextBox x:ConnectionId='5' x:Name="SearchTextBox" PlaceholderText="Поиск" Width="500" CornerRadius="10,10,10,10" Background="{x:Null}"                                  />
             </NavigationView.MenuItems>
             <NavigationView.PaneFooter>
-                <NavigationViewItem x:ConnectionId='6' Icon="Setting" Content=""                               />
+                <NavigationViewItem x:ConnectionId='6' Icon="Contact" Content=""                               />
             </NavigationView.PaneFooter>
             <Frame x:ConnectionId='7' x:Name="ContentFrame" />
         </NavigationView>

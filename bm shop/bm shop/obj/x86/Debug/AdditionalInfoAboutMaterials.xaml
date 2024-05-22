@@ -20,18 +20,18 @@
             </Grid.RowDefinitions>
 
             <TextBlock x:ConnectionId='11' x:Name="NameMaterial" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Lorem" VerticalAlignment="Top" FontSize="48" Grid.Row="0" Grid.Column="0" Margin="0,0,0,25"/>
-            <Image x:ConnectionId='12' x:Name="ImageMaterial" HorizontalAlignment="Left" Height="750" VerticalAlignment="Top" Width="750" Source="/Assets/Rectangle 2.png" Grid.Row="1" Grid.Column="0"/>
+            <Image x:ConnectionId='12' x:Name="ImageMaterial" HorizontalAlignment="Left" VerticalAlignment="Top" Source="/Assets/Rectangle 2.png" Grid.Row="1" Grid.Column="0" Stretch="Uniform"/>
 
             <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center">
                 <TextBlock x:ConnectionId='13' x:Name="CostMaterial" HorizontalAlignment="Left" TextWrapping="Wrap" Text="lorem" VerticalAlignment="Center" FontSize="40" Margin="0,0,10,0"/>
                 <TextBlock x:ConnectionId='14' x:Name="Quantity" HorizontalAlignment="Left" TextWrapping="Wrap" Text="lorem" VerticalAlignment="Center" FontSize="40" Margin="0,0,10,0"/>
                 <ComboBox x:ConnectionId='15' x:Name="WeigthMaterial" Height="48" Background="{x:Null}" BorderBrush="{ThemeResource SystemAccentColor}"  CornerRadius="10,10,10,10" PlaceholderText="Объём" FontSize="24" Padding="25,5,5,7" HorizontalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"                                                   />
-                <Button x:ConnectionId='16' x:Name="BuyButton" Content="Купить" VerticalAlignment="Stretch" Height="48" Width="150" CornerRadius="10,10,10,10" Background="{x:Null}" BorderBrush="{ThemeResource SystemAccentColor}"  FontSize="24" Padding="8,0,8,0" Margin="10,0,0,0" HorizontalAlignment="Stretch"                        />
+                <Button x:ConnectionId='16' x:Name="BuyButton" Content="В корзину" VerticalAlignment="Stretch" Height="48" Width="150" CornerRadius="10,10,10,10" Background="{x:Null}" BorderBrush="{ThemeResource SystemAccentColor}"  FontSize="24" Padding="8,0,8,0" Margin="10,0,0,0" HorizontalAlignment="Stretch"                        />
             </StackPanel>
         </Grid>
 
-        <ScrollViewer VerticalScrollBarVisibility="Auto" Background="{x:Null}" BorderBrush="{x:Null}" Margin="786,0,0,0">
-            <Grid x:ConnectionId='2' x:Name="CatalogGrid" Margin="15,25,15,0">
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Background="{x:Null}" BorderBrush="{x:Null}" Margin="0,0,0,0">
+            <Grid x:ConnectionId='2' x:Name="CatalogGrid" Margin="800,25,15,0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />

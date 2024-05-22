@@ -224,12 +224,13 @@ namespace bm_shop
                     if (db.getConnection().State == ConnectionState.Open)
                     {
                         DataTable table = new DataTable();
+                        DataTable table1 = new DataTable();
 
-                        // Команда изменения количества
-                        string editQuantityQuery = "UPDATE `materials` SET `quantity` = quantity - 1 WHERE `name` = @name AND `weigth` = @weigth";
-                        MySqlCommand editQuantityCommand = new MySqlCommand(editQuantityQuery, db.getConnection());
-                        editQuantityCommand.Parameters.AddWithValue("@name", CatalogPage.CurrentMateriall.name);
-                        editQuantityCommand.Parameters.AddWithValue("@weigth", WeigthMaterial.SelectedItem.ToString());
+                        //// Команда изменения количества
+                        //string editQuantityQuery = "UPDATE `materials` SET `quantity` = quantity - 1 WHERE `name` = @name AND `weigth` = @weigth";
+                        //MySqlCommand editQuantityCommand = new MySqlCommand(editQuantityQuery, db.getConnection());
+                        //editQuantityCommand.Parameters.AddWithValue("@name", CatalogPage.CurrentMateriall.name);
+                        //editQuantityCommand.Parameters.AddWithValue("@weigth", WeigthMaterial.SelectedItem.ToString());
 
                         // Команда получения id для изменённого товара
                         string getIdCurrentMaterialQuery = "SELECT id FROM `materials` WHERE `name` = @name AND `weigth` = @weigth AND quantity > 0";
@@ -250,50 +251,120 @@ namespace bm_shop
                             buf = int.Parse(row[0].ToString());
                         }
 
-                        // Команда для записи в таблицу покупок
-                        string insertIntoPurchasesQuery = "INSERT INTO `purchases` (`id`, `materialId`, `userId`) VALUES (NULL, @materialId, @userId)";
-                        MySqlCommand insertIntoPurchases = new MySqlCommand(insertIntoPurchasesQuery, db.getConnection());
-                        insertIntoPurchases.Parameters.AddWithValue("@materialId", buf);
-                        insertIntoPurchases.Parameters.AddWithValue("@userId", SignInPage.CurrentUser.id);
-
-                        // Выполнение команд изменения количества и записи товара
-                        try
+                        //Команда для увеличения количества товара
+                        string CheckMaterialInBasket = $"SELECT b.id, b.materialId, b.userId, b.quantity FROM `materials` m JOIN basket b WHERE {buf} = b.materialId;";
+                        MySqlCommand CheckMaterialInBasketCommand = new MySqlCommand(CheckMaterialInBasket, db.getConnection());
+                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(CheckMaterialInBasketCommand))
                         {
-                            int insertResult = insertIntoPurchases.ExecuteNonQuery();
-                            if (insertResult == 1)
+                            adapter.Fill(table1);
+                        }
+
+                        int BasketId = 0;
+                        int materialId = 0;
+                        int userId = 0;
+                        int quantity = 0;
+                        
+                        foreach(DataRow row in table1.Rows)
+                        {
+                            BasketId = int.Parse(row[0].ToString());
+                            materialId = int.Parse(row[1].ToString());
+                            userId = int.Parse(row[2].ToString());
+                            quantity = int.Parse(row[3].ToString());
+                        }
+
+                        if (BasketId == 0 && materialId == 0 && userId == 0 && quantity == 0)
+                        {
+                            // Команда для записи в таблицу покупок
+                            string insertIntoPurchasesQuery = "INSERT INTO `basket` (`id`, `materialId`, `userId`, `quantity`) VALUES (NULL, @materialId, @userId, @quantity)";
+                            MySqlCommand insertIntoPurchases = new MySqlCommand(insertIntoPurchasesQuery, db.getConnection());
+                            insertIntoPurchases.Parameters.AddWithValue("@materialId", buf);
+                            insertIntoPurchases.Parameters.AddWithValue("@userId", SignInPage.CurrentUser.id);
+                            insertIntoPurchases.Parameters.AddWithValue("@quantity", 1);
+
+                            // Выполнение команд изменения количества и записи товара
+                            try
                             {
-                                int editResult = editQuantityCommand.ExecuteNonQuery();
-                                if (editResult == 1)
+                                int insertResult = insertIntoPurchases.ExecuteNonQuery();
+                                if (insertResult == 1)
                                 {
-                                    var messageDialog = new MessageDialog("Товар приобретён", "bm shop");
-                                    await messageDialog.ShowAsync();
+                                    //int editResult = editQuantityCommand.ExecuteNonQuery();
+                                    //if (editResult == 1)
+                                    //{
+                                    //    var messageDialog = new MessageDialog("Товар добавлен в корзину", "bm shop");
+                                    //    await messageDialog.ShowAsync();
+                                    //}
+                                    //else
+                                    //{
+                                    //    var messageDialog = new MessageDialog("Возникла ошибка во время добавления товара в корзину, попробуйте снова", "bm shop");
+                                    //    await messageDialog.ShowAsync();
+                                    //}
                                 }
                                 else
                                 {
-                                    var messageDialog = new MessageDialog("Возникла ошибка во время покупки товара, попробуйте снова", "bm shop");
+                                    var messageDialog = new MessageDialog("Возникла ошибка во время добавления товара в корзину, попробуйте снова", "bm shop");
                                     await messageDialog.ShowAsync();
                                 }
                             }
-                            else
+                            catch (Exception ex)
                             {
-                                var messageDialog = new MessageDialog("Возникла ошибка во время покупки товара, попробуйте снова", "bm shop");
+                                var messageDialog = new MessageDialog($"Возникла ошибка: {ex.Message}", "bm shop");
+                                // Использование IndexOf с StringComparison.OrdinalIgnoreCase для сравнения без учета регистра
+                                if (ex.Message.IndexOf("Cannot add or update a child row: a foreign key constraint fails", StringComparison.OrdinalIgnoreCase) >= 0)
+                                {
+                                    messageDialog = new MessageDialog("Товар закончился", "bm shop");
+                                }
                                 await messageDialog.ShowAsync();
                             }
-                        }
-                        catch (Exception ex)
-                        {
-                            var messageDialog = new MessageDialog($"Возникла ошибка: {ex.Message}", "bm shop");
-                            // Использование IndexOf с StringComparison.OrdinalIgnoreCase для сравнения без учета регистра
-                            if (ex.Message.IndexOf("Cannot add or update a child row: a foreign key constraint fails", StringComparison.OrdinalIgnoreCase) >= 0)
+                            finally
                             {
-                                messageDialog = new MessageDialog("Товар закончился", "bm shop");
+                                db.closeConnection();
                             }
-                            await messageDialog.ShowAsync();
                         }
-                        finally
+                        else
                         {
-                            db.closeConnection();
+                            string updateValueInBasket = $"UPDATE `basket` SET `quantity` = {quantity+1} WHERE `basket`.`id` = {BasketId};";
+                            MySqlCommand insertIntoBasket = new MySqlCommand(updateValueInBasket, db.getConnection());
+                            // Выполнение команд изменения количества и записи товара
+                            try
+                            {
+                                int insertResult = insertIntoBasket.ExecuteNonQuery();
+                                if (insertResult == 1)
+                                {
+                                    //int editResult = editQuantityCommand.ExecuteNonQuery();
+                                    //if (editResult == 1)
+                                    //{
+                                    var messageDialog = new MessageDialog("Товар успешно добавлен в корзину", "bm shop");
+                                    await messageDialog.ShowAsync();
+                                    //}
+                                    //else
+                                    //{
+                                    //    var messageDialog = new MessageDialog("Возникла ошибка во время добавления товара в корзину, попробуйте снова", "bm shop");
+                                    //    await messageDialog.ShowAsync();
+                                    //}
+                                }
+                                else
+                                {
+                                    var messageDialog = new MessageDialog("Возникла ошибка во время добавления товара в корзину, попробуйте снова", "bm shop");
+                                    await messageDialog.ShowAsync();
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                var messageDialog = new MessageDialog($"Возникла ошибка: {ex.Message}", "bm shop");
+                                // Использование IndexOf с StringComparison.OrdinalIgnoreCase для сравнения без учета регистра
+                                if (ex.Message.IndexOf("Cannot add or update a child row: a foreign key constraint fails", StringComparison.OrdinalIgnoreCase) >= 0)
+                                {
+                                    messageDialog = new MessageDialog("Товар закончился", "bm shop");
+                                }
+                                await messageDialog.ShowAsync();
+                            }
+                            finally
+                            {
+                                db.closeConnection();
+                            }
                         }
+                        
+
                     }
                     else
                     {

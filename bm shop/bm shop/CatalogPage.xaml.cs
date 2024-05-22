@@ -47,12 +47,12 @@ namespace bm_shop
             else if(MainPage.CategoryName == "find")
             {
                 AdditionalInfoAboutMaterials.isBasket = false;
-                FillCatalog($"SELECT * FROM `materials` where `category` = '{MainPage.CategoryName}' and quantity > 0;");
+                FillCatalog($"SELECT * FROM `materials` where name LIKE '%{MainPage.FindInfo}%' and quantity > 0;");
             }
             else
             {
                 AdditionalInfoAboutMaterials.isBasket = false;
-                FillCatalog($"SELECT * FROM `materials` where name LIKE '%{MainPage.FindInfo}%' and quantity > 0;");
+                FillCatalog($"SELECT * FROM `materials` where `category` = '{MainPage.CategoryName}' and quantity > 0;");
             }
         }
 
