@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -17,6 +18,12 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
+using static System.Net.WebRequestMethods;
+using Windows.UI.Xaml.Shapes;
+using System.Reflection;
+using Windows.Security.Authentication.Identity.Core;
+
+
 
 // Документацию по шаблону элемента "Пустая страница" см. по адресу https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -33,8 +40,11 @@ namespace bm_shop
             FillData();
         }
 
+        //Функция заполнения данных
         public void FillData()
         {
+            AllCost = 0;
+            QuantityMaterialInBasket = 0;
             FillCatalog($"SELECT * FROM `materials` m JOIN `basket` p where m.id = p.materialId and p.userId = {SignInPage.CurrentUser.id};");
         }
 
@@ -43,6 +53,7 @@ namespace bm_shop
         //Текущий товар
         public static Materials CurrentMateriall;
 
+        //Функция заполнения карточек с товарами
         public void FillCatalog(string SqlCommand)
         {
             DB db = new DB();
@@ -51,6 +62,40 @@ namespace bm_shop
             CatalogGrid.Children.Clear();
             MaterialsList.Clear();
             CurrentMateriall = null;
+
+            // Создание CheckBox программно
+            CheckBox selectAllCheckBox = new CheckBox
+            {
+                Name = "SelectAll",
+                Content = "Выбрать все товары",
+                FontSize = 18,
+                Margin = new Thickness(10, 10, 0, 0),
+                VerticalAlignment = VerticalAlignment.Top,
+                IsChecked = true
+            };
+
+            selectAllCheckBox.Click += SelectAllCheckBox_Click;
+
+            // Создание Rectangle программно
+            Windows.UI.Xaml.Shapes.Rectangle redLine = new Windows.UI.Xaml.Shapes.Rectangle
+            {
+                VerticalAlignment = VerticalAlignment.Top,
+                Height = 1, // высота линии
+                Fill = new SolidColorBrush(Windows.UI.Colors.Gray)
+            };
+
+            // Определение строк в Grid
+            CatalogGrid.RowDefinitions.Add(new RowDefinition() { Height = GridLength.Auto }); // строка для CheckBox
+            CatalogGrid.RowDefinitions.Add(new RowDefinition() { Height = GridLength.Auto }); // строка для линии
+
+            // Добавление элементов в Grid
+            CatalogGrid.Children.Add(selectAllCheckBox);
+            Grid.SetRow(selectAllCheckBox, 0);
+            Grid.SetColumn(selectAllCheckBox, 0);
+
+            CatalogGrid.Children.Add(redLine);
+            Grid.SetRow(redLine, 1);
+            Grid.SetColumn(redLine, 0);
 
             List<string> Photo = new List<string>();
             List<int> Id = new List<int>();
@@ -88,7 +133,7 @@ namespace bm_shop
 
             // Итерация по массиву URL изображений
             int j = 0;
-            int k = 0;
+            int k = 1;
             List<string> AdeddList = new List<string>();
             for (int i = 0; i < TitleNote.Count; i++)
             {
@@ -120,39 +165,44 @@ namespace bm_shop
             }
         }
 
-        public double AllCost = 0;
-        public int QuantityMaterialInBasket = 0;
-        
-        public string GetCorrectWordFormForProduct(int count)
+        private bool selectAllPreviousState = true; // Предыдущее состояние SelectAll
+
+        //Проставление галочек выбора для всех товаров, для кнопки выбрать все товары
+        private void SelectAllCheckBox_Click(object sender, RoutedEventArgs e)
         {
-            if (count < 0)
+            bool isChecked = (sender as CheckBox).IsChecked ?? false;
+
+            // Если текущее состояние SelectAll отличается от предыдущего,
+            // то обновляем галочки у всех остальных CheckBox
+            if (isChecked != selectAllPreviousState)
             {
-                throw new ArgumentOutOfRangeException("count", "Число должно быть неотрицательным.");
+                foreach (var child in CatalogGrid.Children)
+                {
+                    if (child is Border border)
+                    {
+                        foreach (var gridChild in (border.Child as Grid).Children)
+                        {
+                            if (gridChild is Grid containerGrid)
+                            {
+                                foreach (var btnGridChild in containerGrid.Children)
+                                {
+                                    if (btnGridChild is CheckBox checkBox && checkBox.Name != "SelectAll")
+                                    {
+                                        checkBox.IsChecked = isChecked;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
 
-            int lastDigit = count % 10; // последняя цифра числа
-            int lastTwoDigits = count % 100; // последние две цифры числа
-
-            // Обработка исключений для чисел, оканчивающихся на 11-14
-            if (lastTwoDigits >= 11 && lastTwoDigits <= 14)
-            {
-                return $"{count} товаров";
-            }
-
-            // Определение правильной формы слова "товар" в зависимости от последней цифры числа
-            switch (lastDigit)
-            {
-                case 1:
-                    return $"{count} товар";
-                case 2:
-                case 3:
-                case 4:
-                    return $"{count} товара";
-                default:
-                    return $"{count} товаров";
-            }
+            // Обновляем предыдущее состояние SelectAll
+            selectAllPreviousState = isChecked;
         }
 
+        
+        //Отображение плашки с товаром в список корзины
         public void addTextToGrid(int row, int column, Materials currentMaterial, int i, int quantity)
         {
             // Создание нового объекта BitmapImage
@@ -268,9 +318,7 @@ namespace bm_shop
             QuantityMaterial.HorizontalAlignment = HorizontalAlignment.Center;
             QuantityMaterial.VerticalAlignment = VerticalAlignment.Center;
             QuantityMaterial.Margin = new Thickness(0);
-            QuantityMaterial.TextChanged += (sender, e) => TextBoxChanged(sender, e, QuantityMaterial, MaterialCost, MaterialBigCost);
 
-            MinusBtn.Tapped += (sender, e) => MinusBtnClick(sender, e, QuantityMaterial, MaterialCost, MaterialBigCost);
 
             Button DeleteBtn = new Button();
             DeleteBtn.Background = new SolidColorBrush(Windows.UI.Colors.Transparent);
@@ -295,15 +343,30 @@ namespace bm_shop
             PlusBtn.Height = 35;
             PlusBtn.Content = "+";
             PlusBtn.FontSize = 20;
-            PlusBtn.Tapped += (sender, e) => PlusBtnClick(sender, e, QuantityMaterial, MaterialCost, MaterialBigCost);
+
+            AllCost += double.Parse(MaterialBigCost.Text);
 
             // Создание CheckBox выбора товара
             CheckBox IsSelected = new CheckBox();
+            IsSelected.BorderBrush = new SolidColorBrush(BlackColor);
             IsSelected.HorizontalAlignment = HorizontalAlignment.Right;
             IsSelected.VerticalAlignment = VerticalAlignment.Top;
             IsSelected.Margin = new Thickness(5,0,0,0);
             IsSelected.IsChecked = true;
-            AllCost += double.Parse(MaterialBigCost.Text);
+            IsSelected.Checked += (sender, e) => IsSelected_Checked(sender, e, MaterialBigCost, QuantityMaterial, PlusBtn, MinusBtn);
+            IsSelected.Unchecked += (sender, e) => IsSelected_Checked(sender, e, MaterialBigCost, QuantityMaterial, PlusBtn, MinusBtn);
+
+
+            MinusBtn.Tapped += (sender, e) => MinusBtnClick(sender, e, QuantityMaterial, MaterialCost, MaterialBigCost, IsSelected);
+            PlusBtn.Tapped += (sender, e) => PlusBtnClick(sender, e, QuantityMaterial, MaterialCost, MaterialBigCost, IsSelected);
+
+            // Привязка события TextChanged
+            QuantityMaterial.TextChanged += (sender, e) => TextBoxTextChanged(sender, e, QuantityMaterial, MaterialCost, MaterialBigCost, IsSelected, currentMaterial);
+
+            // Привязка события LostFocus
+            QuantityMaterial.LostFocus += (sender, e) => TextBoxLostFocus(sender, e, QuantityMaterial, MaterialCost, MaterialBigCost, IsSelected, currentMaterial);
+
+
             QuantityMaterialInBasket++;
 
             BtnGrid.Children.Add(MinusBtn);
@@ -365,93 +428,310 @@ namespace bm_shop
 
             // Добавление объекта Border в Grid
             CatalogGrid.Children.Add(border);
-            DeleteBtn.Tapped += (sender, e) => DeleteBtnClick(sender, e, border);
+            DeleteBtn.Tapped += (sender, e) => DeleteBtnClick(sender, e, border, currentMaterial);
         }
 
-        private void DeleteBtnClick(object sender, TappedRoutedEventArgs e, Border border)
+        //Добавление элемента в список покупкок (за счёт поставленной галочки)
+        public void IsSelected_Checked(object sender, RoutedEventArgs e, TextBlock MaterialBigCost, TextBox MaterialTextBox, Button PlusBtn, Button MinusBtn)
         {
-            border.Visibility = Visibility.Collapsed;
-            //Удалить товар из корзины (запрос в бд)
-        }
+            // Получаем CheckBox, который вызвал событие
+            CheckBox checkBox = sender as CheckBox;
 
-        private void MinusBtnClick(object sender, TappedRoutedEventArgs e, TextBox quantityTextBox, TextBlock materialCostTextBox, TextBlock materialBigCostTextBox)
-        {
-            if (sender is Button button)
+            // Ваш код обработки события для конкретного CheckBox
+            if (checkBox.IsChecked == true)
             {
-                var parentGrid = button.Parent as Grid;
-                if (parentGrid != null)
-                {
-
-                    if (quantityTextBox != null && materialCostTextBox != null && materialBigCostTextBox != null &&
-                        int.TryParse(quantityTextBox.Text, out int quantity) &&
-                        double.TryParse(materialCostTextBox.Text, out double materialCost))
-                    {
-                        if (quantity >= 2)
-                        {
-                            quantity--;
-                            quantityTextBox.Text = quantity.ToString();
-                        }
-                        else if (quantity == 0)
-                        {
-                            //parentGrid.Visibility = Visibility.Collapsed;
-                            //Удалить из корзины??TODO
-                        }
-
-                        //double newBigCost = quantity * materialCost;
-                        //materialBigCostTextBox.Text = newBigCost.ToString("F2");
-                    }
-                }
-            }
-        }
-
-        public void TextBoxChanged(object sender, TextChangedEventArgs e, TextBox quantityTextBox, TextBlock materialCostTextBox, TextBlock materialBigCostTextBox)
-        {
-            if(quantityTextBox.Text == string.Empty || quantityTextBox.Text == "0")
-            {
-                double newBigCost = 1 * double.Parse(materialCostTextBox.Text);
-                materialBigCostTextBox.Text = newBigCost.ToString("F2");
-                quantityTextBox.Text = "1";
-                quantityTextBox.SelectionStart = quantityTextBox.Text.Length;    
+                MaterialTextBox.IsEnabled = true;
+                MinusBtn.IsEnabled = true;
+                PlusBtn.IsEnabled = true;
+                // Код, который нужно выполнить, если CheckBox отмечен
+                //var msg = new MessageDialog($"MatBigCst = {MaterialBigCost.Text}\nAllCost = {AllCost}", "bm shop");
+                //var result = msg.ShowAsync();
+                AllCost += double.Parse(MaterialBigCost.Text);
+                AllCostText.Text = AllCost.ToString("F2");
+                QuantityMaterialInBasket++;
+                QuantityMaterial.Text = GetCorrectWordFormForProduct(QuantityMaterialInBasket);
             }
             else
             {
-                double buf = double.Parse(quantityTextBox.Text);
-                if (buf <= 0)
-                {
-                    double newBigCost = 1 * double.Parse(materialCostTextBox.Text);
-                    materialBigCostTextBox.Text = newBigCost.ToString("F2");
-                }
-                else
-                {
-                    double newBigCost = buf * double.Parse(materialCostTextBox.Text);
-                    materialBigCostTextBox.Text = newBigCost.ToString("F2");
-                }
+                MaterialTextBox.IsEnabled = false;
+                PlusBtn.IsEnabled = false;
+                MinusBtn.IsEnabled = false;
+                // Код, который нужно выполнить, если CheckBox не отмечен
+                //var msg = new MessageDialog($"MatBigCst = {MaterialBigCost.Text}\nAllCost = {AllCost}", "bm shop");
+                //var result = msg.ShowAsync();
+                AllCost -= double.Parse(MaterialBigCost.Text);
+                //msg = new MessageDialog($"AllCost = {AllCost}", "bm shop");
+                //result = msg.ShowAsync();
+                AllCostText.Text = AllCost.ToString("F2");
+                QuantityMaterialInBasket--;
+                QuantityMaterial.Text = GetCorrectWordFormForProduct(QuantityMaterialInBasket);
             }
         }
 
-        private void PlusBtnClick(object sender, TappedRoutedEventArgs e, TextBox quantityTextBox, TextBlock materialCostTextBox, TextBlock materialBigCostTextBox)
+
+        public double AllCost = 0;
+        public int QuantityMaterialInBasket = 0;
+        
+        //Получение корректной формы слова "товар"
+        public string GetCorrectWordFormForProduct(int count)
+        {
+            if (count < 0)
+            {
+                throw new ArgumentOutOfRangeException("count", "Число должно быть неотрицательным.");
+            }
+
+            int lastDigit = count % 10; // последняя цифра числа
+            int lastTwoDigits = count % 100; // последние две цифры числа
+
+            // Обработка исключений для чисел, оканчивающихся на 11-14
+            if (lastTwoDigits >= 11 && lastTwoDigits <= 14)
+            {
+                return $"{count} товаров";
+            }
+
+            // Определение правильной формы слова "товар" в зависимости от последней цифры числа
+            switch (lastDigit)
+            {
+                case 1:
+                    return $"{count} товар";
+                case 2:
+                case 3:
+                case 4:
+                    return $"{count} товара";
+                default:
+                    return $"{count} товаров";
+            }
+        }
+
+        //Крестик удаления товара из корзины
+        private void DeleteBtnClick(object sender, TappedRoutedEventArgs e, Border border, Materials CurrentMaterial)
+        {
+            border.Visibility = Visibility.Collapsed;
+            //Удалить товар из корзины (запрос в бд)
+
+            //DELETE FROM basket WHERE `basket`.`id` = 3
+            DB db = new DB();
+            db.openConnection();
+
+            using (MySqlConnection connection = db.getConnection())
+            {
+                string SqlText = $"DELETE FROM basket WHERE `basket`.`materialId` = {CurrentMaterial.id} and `userId` = {SignInPage.CurrentUser.id}";
+                MySqlCommand command = new MySqlCommand(SqlText, connection);
+
+                if (command.ExecuteNonQuery() == 1)
+                {
+                    var msg = new MessageDialog($"Товар удалён из корзины", "bm shop");
+                    var result = msg.ShowAsync();
+                }
+            }
+
+            db.closeConnection();
+            FillData();
+        }
+
+        //Кнопка уменьшения количества товара
+        private void MinusBtnClick(object sender, TappedRoutedEventArgs e, TextBox quantityTextBox, TextBlock materialCostTextBox, TextBlock materialBigCostTextBox, CheckBox IsSelect)
         {
             if (sender is Button button)
             {
                 var parentGrid = button.Parent as Grid;
                 if (parentGrid != null)
                 {
-
-                    if (quantityTextBox != null && materialCostTextBox != null && materialBigCostTextBox != null &&
+                    if(IsSelect.IsChecked == true)
+                    {
+                        if (quantityTextBox != null && materialCostTextBox != null && materialBigCostTextBox != null &&
                         int.TryParse(quantityTextBox.Text, out int quantity) &&
                         double.TryParse(materialCostTextBox.Text, out double materialCost))
-                    {
-                        quantity++;
-                        quantityTextBox.Text = quantity.ToString();
+                        {
+                            if (quantity >= 2)
+                            {
+                                quantity--;
+                                quantityTextBox.Text = quantity.ToString();
+                            }
+                            else if (quantity == 0)
+                            {
+                                //parentGrid.Visibility = Visibility.Collapsed;
+                                //Удалить из корзины??TODO
+                            }
 
-                        //double newBigCost = quantity * materialCost;
-                        //materialBigCostTextBox.Text = newBigCost.ToString("F2");
+                            //double newBigCost = quantity * materialCost;
+                            //materialBigCostTextBox.Text = newBigCost.ToString("F2");
+                        }
                     }
                 }
             }
         }
 
+        //Функция обработки текстового поля количества товара
+        public void TextBoxTextChanged(object sender, TextChangedEventArgs e, TextBox quantityTextBox, TextBlock materialCostTextBox, TextBlock materialBigCostTextBox, CheckBox checkBox, Materials CurrentMaterial)
+        {
+            if (checkBox.IsChecked == true)
+            {
+                quantityTextBox.IsReadOnly = false;
+                if (quantityTextBox.Text == string.Empty || quantityTextBox.Text == "0")
+                {
+                    AllCost -= double.Parse(materialBigCostTextBox.Text);
+                    double newBigCost = 1 * double.Parse(materialCostTextBox.Text);
+                    materialBigCostTextBox.Text = newBigCost.ToString("F2");
+                    quantityTextBox.Text = "1";
+                    quantityTextBox.SelectionStart = quantityTextBox.Text.Length;
+                    AllCost += double.Parse(materialBigCostTextBox.Text);
+                    if (checkBox.IsChecked == true)
+                    {
+                        AllCostText.Text = AllCost.ToString("F2");
 
+                        DB db = new DB();
+                        db.openConnection();
+
+                        using (MySqlConnection connection = db.getConnection())
+                        {
+                            string SqlCommandText = $"UPDATE `basket` SET `quantity` = '{quantityTextBox.Text}' WHERE `basket`.`materialId` = {CurrentMaterial.id} and `basket`.`userId` = {SignInPage.CurrentUser.id};";
+                            MySqlCommand command = new MySqlCommand(SqlCommandText, connection);
+
+                            command.ExecuteNonQuery();
+                        }
+
+                        db.closeConnection();
+                    }
+                }
+                else
+                {
+                    double buf = double.Parse(quantityTextBox.Text);
+                    if (buf <= 0)
+                    {
+                        AllCost -= double.Parse(materialBigCostTextBox.Text);
+                        double newBigCost = 1 * double.Parse(materialCostTextBox.Text);
+                        materialBigCostTextBox.Text = newBigCost.ToString("F2");
+                        AllCost += double.Parse(materialBigCostTextBox.Text);
+                        if (checkBox.IsChecked == true)
+                        {
+                            AllCostText.Text = AllCost.ToString("F2");
+
+                            DB db = new DB();
+                            db.openConnection();
+
+                            using (MySqlConnection connection = db.getConnection())
+                            {
+                                string SqlCommandText = $"UPDATE `basket` SET `quantity` = '{quantityTextBox.Text}' WHERE `basket`.`materialId` = {CurrentMaterial.id} and `basket`.`userId` = {SignInPage.CurrentUser.id};";
+                                MySqlCommand command = new MySqlCommand(SqlCommandText, connection);
+
+                                command.ExecuteNonQuery();
+                            }
+
+                            db.closeConnection();
+                        }
+                    }
+                    else
+                    {
+                        AllCost -= double.Parse(materialBigCostTextBox.Text);
+                        double newBigCost = buf * double.Parse(materialCostTextBox.Text);
+                        materialBigCostTextBox.Text = newBigCost.ToString("F2");
+                        AllCost += double.Parse(materialBigCostTextBox.Text);
+                        if (checkBox.IsChecked == true)
+                        {
+                            AllCostText.Text = AllCost.ToString("F2");
+
+                            DB db = new DB();
+                            db.openConnection();
+
+                            using (MySqlConnection connection = db.getConnection())
+                            {
+                                string SqlCommandText = $"UPDATE `basket` SET `quantity` = '{quantityTextBox.Text}' WHERE `basket`.`materialId` = {CurrentMaterial.id} and `basket`.`userId` = {SignInPage.CurrentUser.id};";
+                                MySqlCommand command = new MySqlCommand(SqlCommandText, connection);
+
+                                command.ExecuteNonQuery();
+                            }
+
+                            db.closeConnection();
+                        }
+                    }
+                }
+            }
+            else
+            {
+                quantityTextBox.IsReadOnly = true;
+                // Перенести в проставление галочки
+            }
+        }
+
+
+        public void TextBoxLostFocus(object sender, RoutedEventArgs e, TextBox quantityTextBox, TextBlock materialCostTextBox, TextBlock materialBigCostTextBox, CheckBox checkBox, Materials currentMaterial)
+        {
+            quantityTextBox.IsReadOnly = false;
+            // Вызов метода TextBoxTextChanged с текущими параметрами
+            TextBoxTextChanged(sender, null, quantityTextBox, materialCostTextBox, materialBigCostTextBox, checkBox, currentMaterial);
+
+            if (checkBox.IsChecked == true)
+            {
+                quantityTextBox.IsReadOnly = false;
+                if (quantityTextBox.Text == string.Empty || quantityTextBox.Text == "0")
+                {
+                    AllCost -= double.Parse(materialBigCostTextBox.Text);
+                    double newBigCost = 1 * double.Parse(materialCostTextBox.Text);
+                    materialBigCostTextBox.Text = newBigCost.ToString("F2");
+                    quantityTextBox.Text = "1";
+                    quantityTextBox.SelectionStart = quantityTextBox.Text.Length;
+                    AllCost += double.Parse(materialBigCostTextBox.Text);
+                    if (checkBox.IsChecked == true)
+                        AllCostText.Text = AllCost.ToString("F2");
+                }
+                else
+                {
+                    double buf = double.Parse(quantityTextBox.Text);
+                    if (buf <= 0)
+                    {
+                        AllCost -= double.Parse(materialBigCostTextBox.Text);
+                        double newBigCost = 1 * double.Parse(materialCostTextBox.Text);
+                        materialBigCostTextBox.Text = newBigCost.ToString("F2");
+                        AllCost += double.Parse(materialBigCostTextBox.Text);
+                        if (checkBox.IsChecked == true)
+                            AllCostText.Text = AllCost.ToString("F2");
+                    }
+                    else
+                    {
+                        AllCost -= double.Parse(materialBigCostTextBox.Text);
+                        double newBigCost = buf * double.Parse(materialCostTextBox.Text);
+                        materialBigCostTextBox.Text = newBigCost.ToString("F2");
+                        AllCost += double.Parse(materialBigCostTextBox.Text);
+                        if (checkBox.IsChecked == true)
+                            AllCostText.Text = AllCost.ToString("F2");
+                    }
+                }
+            }
+            else
+            {
+                quantityTextBox.IsReadOnly = true;
+                // Перенести в проставление галочки
+            }
+        }
+
+
+        //Кнопка увеличения количества товара
+        private void PlusBtnClick(object sender, TappedRoutedEventArgs e, TextBox quantityTextBox, TextBlock materialCostTextBox, TextBlock materialBigCostTextBox, CheckBox IsSelected)
+        {
+            if (sender is Button button)
+            {
+                var parentGrid = button.Parent as Grid;
+                if (parentGrid != null)
+                {
+                    if(IsSelected.IsChecked == true)
+                    {
+                        if (quantityTextBox != null && materialCostTextBox != null && materialBigCostTextBox != null &&
+                        int.TryParse(quantityTextBox.Text, out int quantity) &&
+                        double.TryParse(materialCostTextBox.Text, out double materialCost))
+                        {
+                            quantity++;
+                            quantityTextBox.Text = quantity.ToString();
+
+                            //double newBigCost = quantity * materialCost;
+                            //materialBigCostTextBox.Text = newBigCost.ToString("F2");
+                        }
+                    }
+                }
+            }
+        }
+
+        //Получение названия товара и переход на страницу просмотра содержимого
         public void getNamePicture(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
         {
             Windows.UI.Xaml.Controls.Image tappedImage = sender as Windows.UI.Xaml.Controls.Image;

@@ -227,6 +227,7 @@ namespace bm_shop
                         DataTable table1 = new DataTable();
 
                         //// Команда изменения количества
+                        /////Закоментил потому что корзина не должна бронировать товар
                         //string editQuantityQuery = "UPDATE `materials` SET `quantity` = quantity - 1 WHERE `name` = @name AND `weigth` = @weigth";
                         //MySqlCommand editQuantityCommand = new MySqlCommand(editQuantityQuery, db.getConnection());
                         //editQuantityCommand.Parameters.AddWithValue("@name", CatalogPage.CurrentMateriall.name);
@@ -287,6 +288,7 @@ namespace bm_shop
                                 int insertResult = insertIntoPurchases.ExecuteNonQuery();
                                 if (insertResult == 1)
                                 {
+                                    //Закоментил потому что корзина не должна бронировать товар
                                     //int editResult = editQuantityCommand.ExecuteNonQuery();
                                     //if (editResult == 1)
                                     //{
@@ -330,6 +332,7 @@ namespace bm_shop
                                 int insertResult = insertIntoBasket.ExecuteNonQuery();
                                 if (insertResult == 1)
                                 {
+                                    //Закоментил потому что корзина не должна бронировать товар
                                     //int editResult = editQuantityCommand.ExecuteNonQuery();
                                     //if (editResult == 1)
                                     //{
