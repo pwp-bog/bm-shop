@@ -253,7 +253,7 @@ namespace bm_shop
                         }
 
                         //Команда для увеличения количества товара
-                        string CheckMaterialInBasket = $"SELECT b.id, b.materialId, b.userId, b.quantity FROM `materials` m JOIN basket b WHERE {buf} = b.materialId;";
+                        string CheckMaterialInBasket = $"SELECT b.id, b.materialId, b.userId, b.quantity FROM `materials` m JOIN basket b WHERE {buf} = b.materialId and b.userId = {SignInPage.CurrentUser.id};";
                         MySqlCommand CheckMaterialInBasketCommand = new MySqlCommand(CheckMaterialInBasket, db.getConnection());
                         using (MySqlDataAdapter adapter = new MySqlDataAdapter(CheckMaterialInBasketCommand))
                         {
@@ -276,11 +276,12 @@ namespace bm_shop
                         if (BasketId == 0 && materialId == 0 && userId == 0 && quantity == 0)
                         {
                             // Команда для записи в таблицу покупок
-                            string insertIntoPurchasesQuery = "INSERT INTO `basket` (`id`, `materialId`, `userId`, `quantity`) VALUES (NULL, @materialId, @userId, @quantity)";
+                            string insertIntoPurchasesQuery = "INSERT INTO `basket` (`id`, `materialId`, `userId`, `quantity`, `selected`) VALUES (NULL, @materialId, @userId, @quantity, @selected)";
                             MySqlCommand insertIntoPurchases = new MySqlCommand(insertIntoPurchasesQuery, db.getConnection());
                             insertIntoPurchases.Parameters.AddWithValue("@materialId", buf);
                             insertIntoPurchases.Parameters.AddWithValue("@userId", SignInPage.CurrentUser.id);
                             insertIntoPurchases.Parameters.AddWithValue("@quantity", 1);
+                            insertIntoPurchases.Parameters.AddWithValue("@selected", "true");
 
                             // Выполнение команд изменения количества и записи товара
                             try
@@ -288,6 +289,8 @@ namespace bm_shop
                                 int insertResult = insertIntoPurchases.ExecuteNonQuery();
                                 if (insertResult == 1)
                                 {
+                                    var messageDialog = new MessageDialog("Товар успешно добавлен в корзину", "bm shop");
+                                    await messageDialog.ShowAsync();
                                     //Закоментил потому что корзина не должна бронировать товар
                                     //int editResult = editQuantityCommand.ExecuteNonQuery();
                                     //if (editResult == 1)
@@ -324,7 +327,7 @@ namespace bm_shop
                         }
                         else
                         {
-                            string updateValueInBasket = $"UPDATE `basket` SET `quantity` = {quantity+1} WHERE `basket`.`id` = {BasketId};";
+                            string updateValueInBasket = $"UPDATE `basket` SET `quantity` = {quantity+1} WHERE `basket`.`id` = {BasketId} and `basket`.`userid` = {SignInPage.CurrentUser.id};";
                             MySqlCommand insertIntoBasket = new MySqlCommand(updateValueInBasket, db.getConnection());
                             // Выполнение команд изменения количества и записи товара
                             try

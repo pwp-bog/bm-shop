@@ -22,6 +22,10 @@ using static System.Net.WebRequestMethods;
 using Windows.UI.Xaml.Shapes;
 using System.Reflection;
 using Windows.Security.Authentication.Identity.Core;
+using Windows.ApplicationModel.Activation;
+using System.Xml.Linq;
+using Windows.UI;
+using System.Data.SqlClient;
 
 
 
@@ -100,6 +104,8 @@ namespace bm_shop
             List<string> Photo = new List<string>();
             List<int> Id = new List<int>();
             List<int> Quantity = new List<int>();
+            List<int> BasketId = new List<int>();
+            List<string> SelectedStatusForMaterial = new List<string>();
             List<string> TitleNote = new List<string>();
 
             DataTable table = new DataTable();
@@ -124,7 +130,10 @@ namespace bm_shop
                     row[9].ToString(), int.Parse(row[10].ToString()), row[11].ToString());
                 MaterialsList.Add(buf);
 
+
+                BasketId.Add(int.Parse(row[13].ToString()));
                 Quantity.Add(int.Parse(row[16].ToString()));
+                SelectedStatusForMaterial.Add(row[17].ToString());
 
                 //Photo.Add(buf.);
                 Id.Add(buf.id);
@@ -144,7 +153,7 @@ namespace bm_shop
                 // Проверка наличия значения в списке
                 if (!AdeddList.Contains(TitleNote[i]))
                 {
-                    addTextToGrid(k, j, MaterialsList[i], i, Quantity[i]);
+                    addTextToGrid(k, j, MaterialsList[i], i, Quantity[i], SelectedStatusForMaterial[i], BasketId[i]);
                     AdeddList.Add(TitleNote[i]);
 
                     j++;
@@ -203,7 +212,7 @@ namespace bm_shop
 
         
         //Отображение плашки с товаром в список корзины
-        public void addTextToGrid(int row, int column, Materials currentMaterial, int i, int quantity)
+        public void addTextToGrid(int row, int column, Materials currentMaterial, int i, int quantity, string SelectedStatusForMaterial, int BasketId)
         {
             // Создание нового объекта BitmapImage
             BitmapImage bitmapImage = new BitmapImage();
@@ -239,6 +248,7 @@ namespace bm_shop
             TextBlock MaterialName = new TextBlock();
             MaterialName.Text = currentMaterial.name;
             MaterialName.FontSize = 28;
+            MaterialName.Name = "MaterialName";
             MaterialName.Foreground = new SolidColorBrush(BlackColor);
             MaterialName.HorizontalAlignment = HorizontalAlignment.Left;
             MaterialName.VerticalAlignment = VerticalAlignment.Top;
@@ -248,6 +258,7 @@ namespace bm_shop
             TextBlock MaterialColor = new TextBlock();
             MaterialColor.Text = currentMaterial.color;
             MaterialColor.FontSize = 18;
+            MaterialColor.Name = "MaterialColor";
             MaterialColor.Foreground = new SolidColorBrush(BlackColor);
             MaterialColor.HorizontalAlignment = HorizontalAlignment.Left;
             MaterialColor.VerticalAlignment = VerticalAlignment.Top;
@@ -268,6 +279,7 @@ namespace bm_shop
             TextBlock MaterialWeight = new TextBlock();
             MaterialWeight.Text = currentMaterial.weigth;
             MaterialWeight.FontSize = 18;
+            MaterialWeight.Name = "MaterialWeight";
             MaterialWeight.Foreground = new SolidColorBrush(BlackColor);
             MaterialWeight.HorizontalAlignment = HorizontalAlignment.Left;
             MaterialWeight.VerticalAlignment = VerticalAlignment.Top;
@@ -344,21 +356,26 @@ namespace bm_shop
             PlusBtn.Content = "+";
             PlusBtn.FontSize = 20;
 
-            AllCost += double.Parse(MaterialBigCost.Text);
+            if(bool.Parse(SelectedStatusForMaterial))
+            {
+                AllCost += double.Parse(MaterialBigCost.Text);
+                QuantityMaterialInBasket++;
+            }
 
             // Создание CheckBox выбора товара
             CheckBox IsSelected = new CheckBox();
             IsSelected.BorderBrush = new SolidColorBrush(BlackColor);
+            IsSelected.Name = "IsSelected";
             IsSelected.HorizontalAlignment = HorizontalAlignment.Right;
             IsSelected.VerticalAlignment = VerticalAlignment.Top;
             IsSelected.Margin = new Thickness(5,0,0,0);
-            IsSelected.IsChecked = true;
-            IsSelected.Checked += (sender, e) => IsSelected_Checked(sender, e, MaterialBigCost, QuantityMaterial, PlusBtn, MinusBtn);
-            IsSelected.Unchecked += (sender, e) => IsSelected_Checked(sender, e, MaterialBigCost, QuantityMaterial, PlusBtn, MinusBtn);
+            IsSelected.IsChecked = bool.Parse(SelectedStatusForMaterial);
+            IsSelected.Checked += (sender, e) => IsSelected_Checked(sender, e, MaterialBigCost, QuantityMaterial, PlusBtn, MinusBtn, BasketId);
+            IsSelected.Unchecked += (sender, e) => IsSelected_Checked(sender, e, MaterialBigCost, QuantityMaterial, PlusBtn, MinusBtn, BasketId);
 
 
             MinusBtn.Tapped += (sender, e) => MinusBtnClick(sender, e, QuantityMaterial, MaterialCost, MaterialBigCost, IsSelected);
-            PlusBtn.Tapped += (sender, e) => PlusBtnClick(sender, e, QuantityMaterial, MaterialCost, MaterialBigCost, IsSelected);
+            PlusBtn.Tapped += (sender, e) => PlusBtnClick(sender, e, QuantityMaterial, MaterialCost, MaterialBigCost, IsSelected, currentMaterial);
 
             // Привязка события TextChanged
             QuantityMaterial.TextChanged += (sender, e) => TextBoxTextChanged(sender, e, QuantityMaterial, MaterialCost, MaterialBigCost, IsSelected, currentMaterial);
@@ -366,8 +383,6 @@ namespace bm_shop
             // Привязка события LostFocus
             QuantityMaterial.LostFocus += (sender, e) => TextBoxLostFocus(sender, e, QuantityMaterial, MaterialCost, MaterialBigCost, IsSelected, currentMaterial);
 
-
-            QuantityMaterialInBasket++;
 
             BtnGrid.Children.Add(MinusBtn);
             BtnGrid.Children.Add(QuantityMaterial);
@@ -432,7 +447,7 @@ namespace bm_shop
         }
 
         //Добавление элемента в список покупкок (за счёт поставленной галочки)
-        public void IsSelected_Checked(object sender, RoutedEventArgs e, TextBlock MaterialBigCost, TextBox MaterialTextBox, Button PlusBtn, Button MinusBtn)
+        public void IsSelected_Checked(object sender, RoutedEventArgs e, TextBlock MaterialBigCost, TextBox MaterialTextBox, Button PlusBtn, Button MinusBtn, int BasketId)
         {
             // Получаем CheckBox, который вызвал событие
             CheckBox checkBox = sender as CheckBox;
@@ -466,6 +481,18 @@ namespace bm_shop
                 QuantityMaterialInBasket--;
                 QuantityMaterial.Text = GetCorrectWordFormForProduct(QuantityMaterialInBasket);
             }
+
+            DB db = new DB();
+            db.openConnection();
+
+            using (MySqlConnection connection = db.getConnection())
+            {
+                string SqlCommandText = $"UPDATE `basket` SET `selected` = '{checkBox.IsChecked}' WHERE `basket`.`id` = {BasketId};";
+                MySqlCommand command = new MySqlCommand(SqlCommandText, connection);
+                command.ExecuteNonQuery();
+            }
+
+            db.closeConnection();
         }
 
 
@@ -543,17 +570,19 @@ namespace bm_shop
                         int.TryParse(quantityTextBox.Text, out int quantity) &&
                         double.TryParse(materialCostTextBox.Text, out double materialCost))
                         {
+                            //var minusBtn = sender as Button;
                             if (quantity >= 2)
                             {
                                 quantity--;
                                 quantityTextBox.Text = quantity.ToString();
+                                //minusBtn.IsEnabled = true;
                             }
-                            else if (quantity == 0)
+                            else if (quantity <= 1)
                             {
+                                //minusBtn.IsEnabled = false;
                                 //parentGrid.Visibility = Visibility.Collapsed;
                                 //Удалить из корзины??TODO
                             }
-
                             //double newBigCost = quantity * materialCost;
                             //materialBigCostTextBox.Text = newBigCost.ToString("F2");
                         }
@@ -565,92 +594,138 @@ namespace bm_shop
         //Функция обработки текстового поля количества товара
         public void TextBoxTextChanged(object sender, TextChangedEventArgs e, TextBox quantityTextBox, TextBlock materialCostTextBox, TextBlock materialBigCostTextBox, CheckBox checkBox, Materials CurrentMaterial)
         {
-            if (checkBox.IsChecked == true)
+            DB db1 = new DB();
+            db1.openConnection();
+
+            DataTable table = new DataTable();
+
+            using (MySqlConnection connection = db1.getConnection())
             {
-                quantityTextBox.IsReadOnly = false;
-                if (quantityTextBox.Text == string.Empty || quantityTextBox.Text == "0")
+                string TextSqlCommand = $"SELECT m.quantity FROM `basket`b JOIN materials m WHERE {CurrentMaterial.id} = m.id and b.materialId = {CurrentMaterial.id};";
+                MySqlCommand command = new MySqlCommand(TextSqlCommand, connection);
+
+                using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
                 {
-                    AllCost -= double.Parse(materialBigCostTextBox.Text);
-                    double newBigCost = 1 * double.Parse(materialCostTextBox.Text);
-                    materialBigCostTextBox.Text = newBigCost.ToString("F2");
-                    quantityTextBox.Text = "1";
-                    quantityTextBox.SelectionStart = quantityTextBox.Text.Length;
-                    AllCost += double.Parse(materialBigCostTextBox.Text);
-                    if (checkBox.IsChecked == true)
-                    {
-                        AllCostText.Text = AllCost.ToString("F2");
+                    adapter.Fill(table);
+                }
+            }
 
-                        DB db = new DB();
-                        db.openConnection();
+            db1.closeConnection();
 
-                        using (MySqlConnection connection = db.getConnection())
-                        {
-                            string SqlCommandText = $"UPDATE `basket` SET `quantity` = '{quantityTextBox.Text}' WHERE `basket`.`materialId` = {CurrentMaterial.id} and `basket`.`userId` = {SignInPage.CurrentUser.id};";
-                            MySqlCommand command = new MySqlCommand(SqlCommandText, connection);
+            foreach (DataRow row in table.Rows)
+            {
+                if (quantityTextBox.Text == string.Empty)
+                {
 
-                            command.ExecuteNonQuery();
-                        }
-
-                        db.closeConnection();
-                    }
                 }
                 else
                 {
-                    double buf = double.Parse(quantityTextBox.Text);
-                    if (buf <= 0)
+                    try
                     {
-                        AllCost -= double.Parse(materialBigCostTextBox.Text);
-                        double newBigCost = 1 * double.Parse(materialCostTextBox.Text);
-                        materialBigCostTextBox.Text = newBigCost.ToString("F2");
-                        AllCost += double.Parse(materialBigCostTextBox.Text);
+                        if (int.Parse(quantityTextBox.Text) >= int.Parse(row[0].ToString()))
+                        {
+                            quantityTextBox.Text = row[0].ToString();
+                            quantityTextBox.SelectionStart = quantityTextBox.Text.Length;
+                            //var plusBtn = sender as Button;
+                            //plusBtn.IsEnabled = false;
+                        }
+
                         if (checkBox.IsChecked == true)
                         {
-                            AllCostText.Text = AllCost.ToString("F2");
-
-                            DB db = new DB();
-                            db.openConnection();
-
-                            using (MySqlConnection connection = db.getConnection())
+                            quantityTextBox.IsReadOnly = false;
+                            if (quantityTextBox.Text == string.Empty || quantityTextBox.Text == "0")
                             {
-                                string SqlCommandText = $"UPDATE `basket` SET `quantity` = '{quantityTextBox.Text}' WHERE `basket`.`materialId` = {CurrentMaterial.id} and `basket`.`userId` = {SignInPage.CurrentUser.id};";
-                                MySqlCommand command = new MySqlCommand(SqlCommandText, connection);
+                                AllCost -= double.Parse(materialBigCostTextBox.Text);
+                                double newBigCost = 1 * double.Parse(materialCostTextBox.Text);
+                                materialBigCostTextBox.Text = newBigCost.ToString("F2");
+                                quantityTextBox.Text = "1";
+                                quantityTextBox.SelectionStart = quantityTextBox.Text.Length;
+                                AllCost += double.Parse(materialBigCostTextBox.Text);
+                                if (checkBox.IsChecked == true)
+                                {
+                                    AllCostText.Text = AllCost.ToString("F2");
 
-                                command.ExecuteNonQuery();
+                                    DB db = new DB();
+                                    db.openConnection();
+
+                                    using (MySqlConnection connection = db.getConnection())
+                                    {
+                                        string SqlCommandText = $"UPDATE `basket` SET `quantity` = '{quantityTextBox.Text}' WHERE `basket`.`materialId` = {CurrentMaterial.id} and `basket`.`userId` = {SignInPage.CurrentUser.id};";
+                                        MySqlCommand command = new MySqlCommand(SqlCommandText, connection);
+
+                                        command.ExecuteNonQuery();
+                                    }
+
+                                    db.closeConnection();
+                                }
                             }
+                            else
+                            {
+                                double buf = double.Parse(quantityTextBox.Text);
+                                if (buf <= 0)
+                                {
+                                    AllCost -= double.Parse(materialBigCostTextBox.Text);
+                                    double newBigCost = 1 * double.Parse(materialCostTextBox.Text);
+                                    materialBigCostTextBox.Text = newBigCost.ToString("F2");
+                                    AllCost += double.Parse(materialBigCostTextBox.Text);
+                                    if (checkBox.IsChecked == true)
+                                    {
+                                        AllCostText.Text = AllCost.ToString("F2");
 
-                            db.closeConnection();
+                                        DB db = new DB();
+                                        db.openConnection();
+
+                                        using (MySqlConnection connection = db.getConnection())
+                                        {
+                                            quantityTextBox.Text = "1";
+                                            quantityTextBox.SelectionStart = quantityTextBox.Text.Length;
+                                            string SqlCommandText = $"UPDATE `basket` SET `quantity` = '{quantityTextBox.Text}' WHERE `basket`.`materialId` = {CurrentMaterial.id} and `basket`.`userId` = {SignInPage.CurrentUser.id};";
+                                            MySqlCommand command = new MySqlCommand(SqlCommandText, connection);
+
+                                            command.ExecuteNonQuery();
+                                        }
+
+                                        db.closeConnection();
+                                    }
+                                }
+                                else
+                                {
+                                    AllCost -= double.Parse(materialBigCostTextBox.Text);
+                                    double newBigCost = buf * double.Parse(materialCostTextBox.Text);
+                                    materialBigCostTextBox.Text = newBigCost.ToString("F2");
+                                    AllCost += double.Parse(materialBigCostTextBox.Text);
+                                    if (checkBox.IsChecked == true)
+                                    {
+                                        AllCostText.Text = AllCost.ToString("F2");
+
+                                        DB db = new DB();
+                                        db.openConnection();
+
+                                        using (MySqlConnection connection = db.getConnection())
+                                        {
+                                            string SqlCommandText = $"UPDATE `basket` SET `quantity` = '{quantityTextBox.Text}' WHERE `basket`.`materialId` = {CurrentMaterial.id} and `basket`.`userId` = {SignInPage.CurrentUser.id};";
+                                            MySqlCommand command = new MySqlCommand(SqlCommandText, connection);
+
+                                            command.ExecuteNonQuery();
+                                        }
+
+                                        db.closeConnection();
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            quantityTextBox.IsReadOnly = true;
+                            // Перенести в проставление галочки
                         }
                     }
-                    else
+                    catch (Exception)
                     {
-                        AllCost -= double.Parse(materialBigCostTextBox.Text);
-                        double newBigCost = buf * double.Parse(materialCostTextBox.Text);
-                        materialBigCostTextBox.Text = newBigCost.ToString("F2");
-                        AllCost += double.Parse(materialBigCostTextBox.Text);
-                        if (checkBox.IsChecked == true)
-                        {
-                            AllCostText.Text = AllCost.ToString("F2");
-
-                            DB db = new DB();
-                            db.openConnection();
-
-                            using (MySqlConnection connection = db.getConnection())
-                            {
-                                string SqlCommandText = $"UPDATE `basket` SET `quantity` = '{quantityTextBox.Text}' WHERE `basket`.`materialId` = {CurrentMaterial.id} and `basket`.`userId` = {SignInPage.CurrentUser.id};";
-                                MySqlCommand command = new MySqlCommand(SqlCommandText, connection);
-
-                                command.ExecuteNonQuery();
-                            }
-
-                            db.closeConnection();
-                        }
+                        //var msg = new MessageDialog($"Введите корректное число", "bm shop");
+                        //var result = msg.ShowAsync();
                     }
                 }
-            }
-            else
-            {
-                quantityTextBox.IsReadOnly = true;
-                // Перенести в проставление галочки
             }
         }
 
@@ -707,7 +782,7 @@ namespace bm_shop
 
 
         //Кнопка увеличения количества товара
-        private void PlusBtnClick(object sender, TappedRoutedEventArgs e, TextBox quantityTextBox, TextBlock materialCostTextBox, TextBlock materialBigCostTextBox, CheckBox IsSelected)
+        private void PlusBtnClick(object sender, TappedRoutedEventArgs e, TextBox quantityTextBox, TextBlock materialCostTextBox, TextBlock materialBigCostTextBox, CheckBox IsSelected, Materials currentMaterial)
         {
             if (sender is Button button)
             {
@@ -720,7 +795,40 @@ namespace bm_shop
                         int.TryParse(quantityTextBox.Text, out int quantity) &&
                         double.TryParse(materialCostTextBox.Text, out double materialCost))
                         {
-                            quantity++;
+                            DB db = new DB();
+                            db.openConnection();
+
+                            DataTable table = new DataTable();
+
+                            using (MySqlConnection connection = db.getConnection())
+                            {
+                                string TextSqlCommand = $"SELECT m.quantity FROM `basket`b JOIN materials m WHERE {currentMaterial.id} = m.id and b.materialId = {currentMaterial.id};";
+                                MySqlCommand command = new MySqlCommand(TextSqlCommand, connection);
+
+                                using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                                {
+                                    adapter.Fill(table);
+                                }
+                            }
+
+                            db.closeConnection();
+
+                            foreach (DataRow row in table.Rows)
+                            {
+                                if(quantity >= int.Parse(row[0].ToString()))
+                                {
+                                    quantity = int.Parse(row[0].ToString());
+                                    //var plusBtn = sender as Button;
+                                    //plusBtn.IsEnabled = false;
+                                }
+                                else
+                                {
+                                    //var plusBtn = sender as Button;
+                                    //plusBtn.IsEnabled = true;
+                                    quantity++;
+                                }
+                            }
+
                             quantityTextBox.Text = quantity.ToString();
 
                             //double newBigCost = quantity * materialCost;
@@ -751,6 +859,121 @@ namespace bm_shop
                     CatalogPage.CurrentMateriall = MaterialsList[index];
                     AdditionalInfoAboutMaterials.isBasket = false;
                     Frame.Navigate(typeof(AdditionalInfoAboutMaterials));
+                }
+            }
+        }
+
+        //Обработчик кнопки оплатить корзину
+        private void BuyButtonClick(object sender, RoutedEventArgs e)
+        {
+            DB db = new DB();
+
+            db.openConnection();
+
+            DataTable table = new DataTable();
+
+            using (MySqlConnection connection = db.getConnection())
+            {
+                string GetAllCorrectMaterialId = $"SELECT * FROM `basket` WHERE userId = \"{SignInPage.CurrentUser.id}\" and selected = \"true\";";
+                MySqlCommand AllCorrectMaterialId = new MySqlCommand(GetAllCorrectMaterialId, connection);
+
+                using (MySqlDataAdapter adapter = new MySqlDataAdapter(AllCorrectMaterialId))
+                {
+                    adapter.Fill(table);
+                }
+            }
+
+            db.closeConnection();
+
+            List<BasketNote> BasketList = new List<BasketNote>();
+            foreach (DataRow row in table.Rows)
+            {
+                int id = int.Parse(row[0].ToString());
+                int materialId = int.Parse(row[1].ToString());
+                int userId = int.Parse(row[2].ToString());
+                int quantity = int.Parse(row[3].ToString());
+                bool selected = bool.Parse(row[4].ToString());
+
+                BasketNote buf = new BasketNote(id,materialId,userId, quantity, selected);
+                BasketList.Add(buf);
+            }
+
+            //Количество для товара из таблицы товары
+            List<int> QuantityInMaterial = new List<int>();
+            foreach(var item in BasketList)
+            {
+                DB db1 = new DB();
+                db1.openConnection();
+
+                DataTable table1 = new DataTable();
+
+                using (MySqlConnection connection1 = db1.getConnection())
+                {
+                    string CheckQuantityInMaterialTable = $"SELECT quantity FROM `materials` WHERE id = \"{item.materialId}\";";
+                    MySqlCommand QuantityMaterialCommand = new MySqlCommand(CheckQuantityInMaterialTable, connection1);
+
+                    using (MySqlDataAdapter adapter1 = new MySqlDataAdapter(QuantityMaterialCommand))
+                    {
+                        adapter1.Fill(table1);
+                    }
+                }
+
+                db1.closeConnection();
+
+                foreach (DataRow row in table1.Rows)
+                {
+                    QuantityInMaterial.Add(int.Parse(row[0].ToString()));
+
+                    //if количество товара больше в корзине, то сообщение сосал яйца
+                    if (item.quantity > int.Parse(row[0].ToString()))
+                    {
+                        var msgDialog = new MessageDialog($"Количество товара в корзине больше, чем количество товара в магазине", "bm shop");
+                        var result = msgDialog.ShowAsync();
+                    }
+                    //else количество товара меньше в корзине, то:
+                    else
+                    {
+                        DB db2 = new DB();
+                        db2.openConnection();
+
+                        DataTable table2 = new DataTable();
+
+                        using (MySqlConnection connection2 = db2.getConnection())
+                        {
+                            string ChangeQuantityValueInMaterialTable = $"UPDATE `materials` SET `quantity` = '{int.Parse(row[0].ToString()) - item.quantity}' WHERE `materials`.`id` = {item.materialId};";
+                            //значение в бд = бд - текущее
+                            MySqlCommand ChangeQuantity = new MySqlCommand(ChangeQuantityValueInMaterialTable, connection2);
+                            int ResChangeQuantity = ChangeQuantity.ExecuteNonQuery();
+
+                            int ResWriteInPurchases = 0;
+                            for (int i = 0; i < item.quantity; i++)
+                            {
+                                string WriteInPurchasesTable = $"INSERT INTO `purchases` (`id`, `materialId`, `userId`) VALUES (NULL, '{item.materialId}', '{SignInPage.CurrentUser.id}');";
+                                MySqlCommand WriteInPurchases = new MySqlCommand(WriteInPurchasesTable, connection2);
+                                ResWriteInPurchases = WriteInPurchases.ExecuteNonQuery();
+                            }
+
+                            string DeleteFromBasketTable = $"DELETE FROM basket WHERE `basket`.`id` = {item.id}";
+                            MySqlCommand DeleteBasketNote = new MySqlCommand(DeleteFromBasketTable, connection2);
+                            int ResDeleteBasketNote = DeleteBasketNote.ExecuteNonQuery();
+                            //вывести сообщение об успешном удалении
+
+                            if(ResDeleteBasketNote == 1 && ResChangeQuantity == 1 && ResWriteInPurchases == 1)
+                            {
+                                var msgDialog = new MessageDialog($"Транзакция успешна завершена", "bm shop");
+                                var res = msgDialog.ShowAsync();
+                                FillData();
+                            }
+                            else
+                            {
+                                var msgDialog = new MessageDialog($"Возникла ошибка при совершении покупки", "bm shop");
+                                var res = msgDialog.ShowAsync();
+                                FillData();
+                            }
+                        }
+
+                        db2.closeConnection();
+                    }
                 }
             }
         }

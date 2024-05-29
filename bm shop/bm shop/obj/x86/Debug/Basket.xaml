@@ -22,10 +22,10 @@
         </Grid>
         <Rectangle HorizontalAlignment="Left" Height="175" Margin="1460,18,0,0" VerticalAlignment="Top" Width="400" Fill="#FFFBFBFB" RadiusX="8" RadiusY="8"/>
         <TextBlock HorizontalAlignment="Left" Margin="1469,24,0,0" TextWrapping="Wrap" Text="Ваша корзина" VerticalAlignment="Top" Foreground="Black" FontSize="20" FontWeight="SemiBold"/>
-        <TextBlock x:ConnectionId='3' x:Name="QuantityMaterial" HorizontalAlignment="Left" Margin="1469,51,0,0" TextWrapping="Wrap" Text="lorem" VerticalAlignment="Top" Foreground="Black" FontSize="16" FontWeight="Light"/>
+        <TextBlock x:ConnectionId='3' x:Name="QuantityMaterial" HorizontalAlignment="Left" Margin="1469,51,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Foreground="Black" FontSize="16" FontWeight="Light"/>
         <TextBlock HorizontalAlignment="Left" Margin="1469,87,0,0" TextWrapping="Wrap" Text="Общая стоимость" VerticalAlignment="Top" Foreground="Black" FontSize="20" FontWeight="SemiBold"/>
-        <TextBlock x:ConnectionId='4' x:Name="AllCostText" HorizontalAlignment="Left" Margin="1469,114,0,0" TextWrapping="Wrap" Text="lorem" VerticalAlignment="Top" Foreground="Black" FontSize="16" FontWeight="Light"/>
-        <Button Content="Оплатить корзину" Margin="1467,146,0,0" VerticalAlignment="Top" Width="386" Height="40" Background="#FF28CA5E" CornerRadius="6,6,6,6" BorderBrush="#FFF1F1F1" FontSize="18" FocusVisualPrimaryBrush="Black" FocusVisualSecondaryBrush="#99000000"/>
+        <TextBlock x:ConnectionId='4' x:Name="AllCostText" HorizontalAlignment="Left" Margin="1469,114,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Foreground="Black" FontSize="16" FontWeight="Light"/>
+        <Button x:ConnectionId='5' Content="Оплатить корзину" Margin="1467,146,0,0" VerticalAlignment="Top" Width="386" Height="40" Background="#FF28CA5E" CornerRadius="6,6,6,6" BorderBrush="#FFF1F1F1" FontSize="18" FocusVisualPrimaryBrush="Black" FocusVisualSecondaryBrush="#99000000"                       />
     </Grid>
 </Page>
 
