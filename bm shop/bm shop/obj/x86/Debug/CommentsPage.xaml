@@ -8,7 +8,7 @@
     mc:Ignorable="d"
     Background="#FF960404" Width="1920" Height="1080">
 
-    <Grid>
+    <Grid x:ConnectionId='2' x:Name="CatalogGrid">
 
     </Grid>
 </Page>

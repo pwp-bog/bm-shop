@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2024-06-01T12:50:30.033</Modified>
+      <Modified>2024-06-01T22:07:18.590</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\bm shop.exe">
       <PackagePath>entrypoint\bm shop.exe</PackagePath>
-      <Modified>2024-06-01T12:50:29.178</Modified>
+      <Modified>2024-06-01T22:07:17.739</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\epplus\7.1.3\lib\netstandard2.0\EPPlus.dll">
       <PackagePath>EPPlus.dll</PackagePath>
@@ -226,55 +226,55 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2024-06-01T12:50:29.016</Modified>
+      <Modified>2024-06-01T22:07:17.582</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\AddInfoPage.xbf">
       <PackagePath>AddInfoPage.xbf</PackagePath>
-      <Modified>2024-06-01T12:50:29.016</Modified>
+      <Modified>2024-06-01T22:07:17.582</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\AdditionalInfoAboutMaterials.xbf">
       <PackagePath>AdditionalInfoAboutMaterials.xbf</PackagePath>
-      <Modified>2024-06-01T12:50:29.016</Modified>
+      <Modified>2024-06-01T22:07:17.582</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\AdminAddedMaterialPage.xbf">
       <PackagePath>AdminAddedMaterialPage.xbf</PackagePath>
-      <Modified>2024-06-01T12:50:29.002</Modified>
+      <Modified>2024-06-01T22:07:17.566</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\AdminEditMaterialPage.xbf">
       <PackagePath>AdminEditMaterialPage.xbf</PackagePath>
-      <Modified>2024-06-01T12:50:29.016</Modified>
+      <Modified>2024-06-01T22:07:17.582</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\Basket.xbf">
       <PackagePath>Basket.xbf</PackagePath>
-      <Modified>2024-06-01T12:50:29.016</Modified>
+      <Modified>2024-06-01T22:07:17.582</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\CatalogPage.xbf">
       <PackagePath>CatalogPage.xbf</PackagePath>
-      <Modified>2024-06-01T12:50:29.016</Modified>
+      <Modified>2024-06-01T22:07:17.582</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\CommentsPage.xbf">
       <PackagePath>CommentsPage.xbf</PackagePath>
-      <Modified>2024-06-01T12:50:29.016</Modified>
+      <Modified>2024-06-01T22:07:17.582</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2024-06-01T12:50:29.016</Modified>
+      <Modified>2024-06-01T22:07:17.582</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\Settings.xbf">
       <PackagePath>Settings.xbf</PackagePath>
-      <Modified>2024-06-01T12:50:29.016</Modified>
+      <Modified>2024-06-01T22:07:17.582</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\SignInPage.xbf">
       <PackagePath>SignInPage.xbf</PackagePath>
-      <Modified>2024-06-01T12:50:29.016</Modified>
+      <Modified>2024-06-01T22:07:17.582</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\SignUpPage.xbf">
       <PackagePath>SignUpPage.xbf</PackagePath>
-      <Modified>2024-06-01T12:50:29.016</Modified>
+      <Modified>2024-06-01T22:07:17.582</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\StartPage.xbf">
       <PackagePath>StartPage.xbf</PackagePath>
-      <Modified>2024-06-01T12:50:29.018</Modified>
+      <Modified>2024-06-01T22:07:17.582</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.22621.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -282,11 +282,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2024-06-01T12:49:06.042</Modified>
+      <Modified>2024-06-01T13:58:06.666</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\Core\bm shop.exe">
       <PackagePath>bm shop.exe</PackagePath>
-      <Modified>2024-06-01T12:50:30.031</Modified>
+      <Modified>2024-06-01T22:07:18.588</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
