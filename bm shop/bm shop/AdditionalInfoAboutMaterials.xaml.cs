@@ -18,6 +18,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
+using Windows.ApplicationModel.DataTransfer;
+using System.ServiceModel.Channels;
 
 // Документацию по шаблону элемента "Пустая страница" см. по адресу https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -43,7 +45,8 @@ namespace bm_shop
             BitmapImage img = new BitmapImage();
             img.UriSource = new Uri(CatalogPage.CurrentMateriall.photo);
             ImageMaterial.Source = img;
-            FooterText.Text = CatalogPage.CurrentMateriall.description;
+            FooterText = CatalogPage.CurrentMateriall.description;
+            CommentsFrame.Navigate(typeof(AddInfoPage));
 
             AdditionalInfoButtonsText.Add("Описание", CatalogPage.CurrentMateriall.description);
             AdditionalInfoButtonsText.Add("Преимущества", CatalogPage.CurrentMateriall.advantages);
@@ -105,8 +108,8 @@ namespace bm_shop
 
             if (isBasket)
             {
-                Quantity.Text = countBueydMaterial.ToString() + " шт.";
-                CostMaterial.Text = (CatalogPage.CurrentMateriall.cost * countBueydMaterial).ToString() + " руб.";
+                Quantity.Text = CatalogPage.quantity.ToString() + " шт.";
+                CostMaterial.Text = (CatalogPage.CurrentMateriall.cost * CatalogPage.quantity).ToString() + " руб.";
                 Quantity.Visibility = Visibility.Visible;
                 BuyButton.Visibility = Visibility.Collapsed;
             }
@@ -117,6 +120,7 @@ namespace bm_shop
             }
         }
 
+        public static string FooterText;
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             var clickedButton = sender as Button;
@@ -130,7 +134,16 @@ namespace bm_shop
                     {
                         Color accentColor = (Color)Application.Current.Resources["SystemAccentColor"];
                         button.BorderBrush = new SolidColorBrush(accentColor); // Цвет для нажатой кнопки
-                        FooterText.Text = AdditionalInfoButtonsText[button.Content.ToString()];
+
+                        if(button.Content.ToString() != "Отзывы")
+                        {
+                            AdditionalInfoAboutMaterials.FooterText = AdditionalInfoButtonsText[button.Content.ToString()];
+                            CommentsFrame.Navigate(typeof(AddInfoPage));
+                        }
+                        else
+                        {
+                            CommentsFrame.Navigate(typeof(CommentsPage));
+                        }
                     }
                     else
                     {
@@ -384,6 +397,22 @@ namespace bm_shop
                 var msg = new MessageDialog("Выберите объём перед покупкой", "bm shop");
                 await msg.ShowAsync();
             }
+        }
+
+        private void NameMaterial_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            CopyToClipboard(NameMaterial.Text);
+        }
+
+        // Копирование текста в буфер обмена
+        public void CopyToClipboard(string text)
+        {
+            var dialog = new MessageDialog("Название скопировано в буфер обмена", "bm shop");
+            dialog.ShowAsync();
+
+            var dataPackage = new DataPackage();
+            dataPackage.SetText(text);
+            Clipboard.SetContent(dataPackage);
         }
     }
 }

@@ -6,15 +6,15 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource SystemControlPageBackgroundListLowBrush}" Width="1920" Height="1080">
+    Background="{ThemeResource AppBarBackgroundThemeBrush}" Width="1920" Height="1080">
 
     <Grid>
-        <Image Margin="219,180,0,169" Width="741" Height="741" HorizontalAlignment="Left" d:LayoutOverrides="Width" Source="/Assets/startPage bg1.png"/>
-        <TextBlock TextWrapping="Wrap" Text="bm store" FontSize="128" Height="125" Width="591" FontFamily="Aldrich" d:LayoutOverrides="Width, Height" Margin="1071,287,268,657" Foreground="#FFE9EFFD"/>
-        <TextBox x:Name="LoginTextBox" Height="85" TextWrapping="Wrap" Text="" Width="590" HorizontalAlignment="Left" Margin="1071,466,0,513" Background="{x:Null}" CornerRadius="25,25,25,25" Foreground="{ThemeResource DefaultTextForegroundThemeBrush}" PlaceholderForeground="{ThemeResource DefaultTextForegroundThemeBrush}" FontSize="30" BorderBrush="#FF91B3FA" BorderThickness="2,2,2,2" Padding="25,20,0,0" d:LayoutOverrides="VerticalAlignment" PlaceholderText="Логин:" FocusVisualPrimaryBrush="{x:Null}"/>
-        <TextBox x:Name="PasswordTextBox" Height="85" TextWrapping="Wrap" Text="" Width="590" HorizontalAlignment="Left" Margin="1071,568,0,428" Background="{x:Null}" CornerRadius="25,25,25,25" Foreground="{ThemeResource DefaultTextForegroundThemeBrush}" PlaceholderForeground="{ThemeResource DefaultTextForegroundThemeBrush}" FontSize="30" BorderBrush="#FF91B3FA" BorderThickness="2,2,2,2" Padding="25,20,0,0" d:LayoutOverrides="Height" PlaceholderText="Пароль:"/>
-        <Button Content="Вход" Height="85" Margin="1192,707,0,0" VerticalAlignment="Top" Width="350" Foreground="{ThemeResource ButtonForegroundThemeBrush}" Background="{x:Null}" FontSize="40" CornerRadius="25,25,25,25" Click="Button_Click" Padding="8,0,8,0" BorderBrush="#FF91B3FA"/>
-        <TextBlock Margin="1341,792,525,263" TextWrapping="Wrap" Text="назад" FontSize="20" TextDecorations="Underline" Height="25" Width="54" d:LayoutOverrides="Width, Height" Tapped="TextBlock_Tapped" Foreground="#FFE9EFFD"/>
+        <Image Margin="219,180,0,169" Width="741" Height="741" HorizontalAlignment="Left" d:LayoutOverrides="Width" Source="/Assets/Rectangle 2.png"/>
+        <TextBlock TextWrapping="Wrap" Text="bm store" FontSize="128" Height="125" Width="591" FontFamily="Aldrich" d:LayoutOverrides="Width, Height" Margin="1071,287,268,657"/>
+        <TextBox x:Name="LoginTextBox" Height="85" TextWrapping="Wrap" Text="" Width="590" HorizontalAlignment="Left" Margin="1071,466,0,513" Background="{x:Null}" CornerRadius="25,25,25,25" Foreground="{ThemeResource AppBarItemForegroundThemeBrush}" PlaceholderForeground="{ThemeResource AppBarItemForegroundThemeBrush}" FontSize="30" BorderThickness="2,2,2,2" Padding="25,20,0,0" d:LayoutOverrides="VerticalAlignment" PlaceholderText="Логин:" FocusVisualPrimaryBrush="{x:Null}"/>
+        <TextBox x:Name="PasswordTextBox" Height="85" TextWrapping="Wrap" Text="" Width="590" HorizontalAlignment="Left" Margin="1071,568,0,427" Background="{x:Null}" CornerRadius="25,25,25,25" Foreground="{ThemeResource DefaultTextForegroundThemeBrush}" PlaceholderForeground="{ThemeResource DefaultTextForegroundThemeBrush}" FontSize="30" BorderThickness="2,2,2,2" Padding="25,20,0,0" d:LayoutOverrides="Height" PlaceholderText="Пароль:"/>
+        <Button Content="Вход" Height="85" Margin="1192,707,0,0" VerticalAlignment="Top" Width="350" Foreground="{ThemeResource ButtonForegroundThemeBrush}" Background="{x:Null}" FontSize="40" CornerRadius="25,25,25,25" Click="Button_Click" Padding="8,0,8,0" BorderBrush="{ThemeResource AppBarItemDisabledForegroundThemeBrush}"/>
+        <TextBlock Margin="1341,792,525,263" TextWrapping="Wrap" Text="назад" FontSize="20" TextDecorations="Underline" Height="25" Width="54" d:LayoutOverrides="Width, Height" Tapped="TextBlock_Tapped" Foreground="{ThemeResource AppBarItemDisabledForegroundThemeBrush}"/>
 
     </Grid>
 </Page>

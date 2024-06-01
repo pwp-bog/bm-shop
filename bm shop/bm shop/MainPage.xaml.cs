@@ -36,6 +36,15 @@ namespace bm_shop
 
             MainPage.CategoryName = "find";
             ContentFrame.Navigate(typeof(CatalogPage));
+
+            if(SignInPage.CurrentUser.admin)
+            {
+                AddMaterial.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                AddMaterial.Visibility= Visibility.Collapsed;
+            }
         }
 
         private void NavigationView_BackRequested(NavigationView sender, NavigationViewBackRequestedEventArgs args)
@@ -117,12 +126,6 @@ namespace bm_shop
             ContentFrame.Navigate(typeof(CatalogPage), null, new SuppressNavigationTransitionInfo());
         }
 
-        private void NavigationViewItem_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            CategoryName = "purchases";
-            ContentFrame.Navigate(typeof(CatalogPage));
-        }
-
         //Обработчик кнопки настройки
         private void SettingsButton_Tapped(object sender, TappedRoutedEventArgs e)
         {
@@ -132,6 +135,39 @@ namespace bm_shop
         private void NavigationViewItem_Tapped1(object sender, TappedRoutedEventArgs e)
         {
             ContentFrame.Navigate(typeof(Basket));
+        }
+
+        private void NavigationViewItem_Tapped2(object sender, TappedRoutedEventArgs e)
+        {
+            CategoryName = "purchases";
+            ContentFrame.Navigate(typeof(CatalogPage));
+        }
+
+        private async void ShowSettingsDialog(object sender, TappedRoutedEventArgs e)
+        {
+            var dialog = new Settings();
+            var result = await dialog.ShowAsync();
+
+            if (result == ContentDialogResult.Primary)
+            {
+                dialog.SaveButton_Click();
+            }
+            else
+            {
+                // Обработка нажатия кнопки "Отмена"
+            }
+        }
+
+        //Добавить товар
+        private void NavigationViewItem_Tapped3(object sender, TappedRoutedEventArgs e)
+        {
+            ContentFrame.Navigate(typeof(AdminAddedMaterialPage));
+        }
+
+        //Редактирование + удаление мб
+        private void NavigationViewItem_Tapped4(object sender, TappedRoutedEventArgs e)
+        {
+            ContentFrame.Navigate(typeof(AdminEditMaterialPage));
         }
     }
 }

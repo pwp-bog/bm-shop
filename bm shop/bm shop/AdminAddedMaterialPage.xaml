@@ -1,0 +1,159 @@
+﻿<Page
+    x:Class="bm_shop.AdminAddedMaterialPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:bm_shop"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Width="1920" Height="1080">
+
+    <Grid>
+        <ScrollViewer  HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Padding="0,0,21,0" Margin="10,10,1395,0">
+            <Grid x:Name="AddGrid" Margin="0,0,0,0" Padding="0,0,21,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Row="0" Grid.Column="0" TextWrapping="Wrap" Text="Добавление товара" VerticalAlignment="Top" FontSize="36" Margin="0,0,0,10" HorizontalAlignment="Center"/>
+
+                <TextBox Grid.Row="1" Grid.Column="0" x:Name="AddMaterialName" HorizontalAlignment="Center" TextWrapping="Wrap" PlaceholderText="Наименование товара:" VerticalAlignment="Top" Margin="0,0,0,10" AcceptsReturn="True"  Width="490"/>
+
+                <TextBox Grid.Row="2" Grid.Column="0" x:Name="AddMaterialColor" HorizontalAlignment="Left" TextWrapping="Wrap" PlaceholderText="Цвет товара:" VerticalAlignment="Top" Margin="0,0,0,10"  AcceptsReturn="True"  Width="490"/>
+
+                <TextBox Grid.Row="3" Grid.Column="0" x:Name="AddMaterialWeight" HorizontalAlignment="Left" TextWrapping="Wrap" PlaceholderText="Объём товара:" VerticalAlignment="Top" Margin="0,0,0,10"  AcceptsReturn="True"  Width="490"/>
+
+                <TextBox Grid.Row="4" Grid.Column="0" x:Name="AddMaterialCost" HorizontalAlignment="Left" TextWrapping="Wrap" PlaceholderText="Стоимость товара:" VerticalAlignment="Top" Margin="0,0,0,10"  AcceptsReturn="True"  Width="490"/>
+
+                <TextBox Grid.Row="5" Grid.Column="0" x:Name="AddMaterialQuantity" HorizontalAlignment="Left" TextWrapping="Wrap" PlaceholderText="Количество товара:" VerticalAlignment="Top" Margin="0,0,0,10"  AcceptsReturn="True"  Width="490"/>
+
+                <TextBox Grid.Row="6" Grid.Column="0" x:Name="AddMaterialPhoto" HorizontalAlignment="Left" TextWrapping="Wrap" PlaceholderText="Фотография товара:" VerticalAlignment="Top" Margin="0,0,0,10"  AcceptsReturn="True"  Width="490"/>
+
+                <TextBox Grid.Row="7" Grid.Column="0" x:Name="AddMaterialCategory" HorizontalAlignment="Left" TextWrapping="Wrap" PlaceholderText="Категория товара:" VerticalAlignment="Top" Margin="0,0,0,10"  AcceptsReturn="True"  Width="490"/>
+
+                <TextBox Grid.Row="8" Grid.Column="0" x:Name="AddMaterialModeOfApplication" HorizontalAlignment="Left" TextWrapping="Wrap" PlaceholderText="Способ применения товара:" VerticalAlignment="Top" AcceptsReturn="True" Margin="0,0,0,10"  Width="490"/>
+
+                <TextBox Grid.Row="9" Grid.Column="0" x:Name="AddMaterialDescription" HorizontalAlignment="Left" TextWrapping="Wrap" PlaceholderText="Описание товара:" VerticalAlignment="Top" AcceptsReturn="True" Margin="0,0,0,10"  Width="490"/>
+
+                <TextBox Grid.Row="10" Grid.Column="0" x:Name="AddMaterialAdvantages" HorizontalAlignment="Left" TextWrapping="Wrap" PlaceholderText="Преимущества товара:" VerticalAlignment="Top" AcceptsReturn="True" Margin="0,0,0,10"  Width="490"/>
+
+                <TextBox Grid.Row="11" Grid.Column="0" x:Name="AddMaterialCharacteristics" HorizontalAlignment="Left" TextWrapping="Wrap" PlaceholderText="Характеристики товара:" VerticalAlignment="Top" AcceptsReturn="True" Margin="0,0,0,10"  Width="490"/>
+
+                <TextBox Grid.Row="12" Grid.Column="0" x:Name="AddMaterialStorage" TextWrapping="Wrap" PlaceholderText="Способ хранения товара:" VerticalAlignment="Top" AcceptsReturn="True" Margin="0,0,0,10"  Width="490" HorizontalAlignment="Center"/>
+
+                <Button Grid.Row="13" Grid.Column="0" Content="Добавить товар" VerticalAlignment="Top" Margin="0,0,0,10" Click="Button_Click1" HorizontalAlignment="Center" />
+            </Grid>
+        </ScrollViewer>
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="555,0,1061,0">
+            <Grid x:Name="DeleteGrid">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Удаление товара" VerticalAlignment="Top" FontSize="36" Margin="0,0,0,10"/>
+
+                <TextBox Grid.Row="1" Grid.Column="0" x:Name="DeleteSearchBox" HorizontalAlignment="Center" TextWrapping="Wrap" PlaceholderText="Название товара:" VerticalAlignment="Top" AcceptsReturn="True" Margin="0,0,0,10" MaxWidth="927" Width="270"/>
+
+                <TextBox Grid.Row="2" Grid.Column="0" x:Name="DeleteSearchBoxWeight" HorizontalAlignment="Center" TextWrapping="Wrap" PlaceholderText="Объём товара:" VerticalAlignment="Top" AcceptsReturn="True" Margin="0,0,0,10" MaxWidth="927" Width="270"/>
+
+                <Button Grid.Row="3" Grid.Column="0" Content="Удалить товар" VerticalAlignment="Top" Margin="0,0,0,10" Tapped="Button_Tapped11" HorizontalContentAlignment="Center" HorizontalAlignment="Center"/>
+
+            </Grid>
+        </ScrollViewer>
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="876,0,624,0">
+            <Grid x:Name="EditGrid">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Редактирование данных" VerticalAlignment="Top" FontSize="36" Margin="0,0,0,10"/>
+
+                <TextBox Grid.Row="1" Grid.Column="0" x:Name="EditNameMaterialTextBox" HorizontalAlignment="Center" TextWrapping="Wrap" PlaceholderText="Название товара:" VerticalAlignment="Top" AcceptsReturn="True" Margin="0,0,0,10" MaxWidth="927" Width="240"/>
+
+                <TextBox Grid.Row="1" Grid.Column="1" x:Name="EditWeigthMaterialTextBox" HorizontalAlignment="Center" TextWrapping="Wrap" PlaceholderText="Объём товара:" VerticalAlignment="Top" AcceptsReturn="True" Margin="0,0,0,10" MaxWidth="927" Width="150"/>
+
+                <ComboBox x:Name="ComboBoxEdit" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" PlaceholderText="Поле для редактирования" HorizontalAlignment="Center" Margin="0,0,5,0" Width="400">
+                    <ComboBoxItem Content="Наименование товара"/>
+                    <ComboBoxItem Content="Цвет товара"/>
+                    <ComboBoxItem Content="Объём товара"/>
+                    <ComboBoxItem Content="Стоимость товара"/>
+                    <ComboBoxItem Content="Количество товара"/>
+                    <ComboBoxItem Content="Фотография товара"/>
+                    <ComboBoxItem Content="Категория товара"/>
+                    <ComboBoxItem Content="Способ применения товара"/>
+                    <ComboBoxItem Content="Описание товара"/>
+                    <ComboBoxItem Content="Преимущества товара"/>
+                    <ComboBoxItem Content="Характеристики товара"/>
+                    <ComboBoxItem Content="Способ хранения товара"/>
+                </ComboBox>
+
+                <TextBox Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" x:Name="EditValueOnDataBase" HorizontalAlignment="Left" TextWrapping="Wrap" PlaceholderText="Введите новое значение:" VerticalAlignment="Top" AcceptsReturn="True" Margin="0,10,0,5" MaxWidth="927" Width="400"/>
+
+                <Button Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Content="Сохранить изменения" VerticalAlignment="Top" Margin="5,0,0,10" Tapped="Button_Tapped1123" HorizontalContentAlignment="Center" HorizontalAlignment="Center"/>
+            </Grid>
+        </ScrollViewer>
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="1317,0,33,0">
+            <Grid x:Name="CreateNewAdminGrid">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Добавление администратора" VerticalAlignment="Top" FontSize="36" Margin="0,0,0,10"/>
+
+                <TextBox Grid.Row="1" Grid.Column="0" x:Name="AddNewAdminiUserTextBoxLogin" HorizontalAlignment="Center" TextWrapping="Wrap" PlaceholderText="Логин:" VerticalAlignment="Top" AcceptsReturn="True" Margin="0,0,0,10" MaxWidth="927" Width="480"/>
+
+                <TextBox x:Name="AddNewAdminiUserTextBoxPassword" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" TextWrapping="Wrap" PlaceholderText="Пароль:" VerticalAlignment="Top" AcceptsReturn="True" Margin="0,0,0,10" MaxWidth="927" Width="480"/>
+                
+                <TextBox x:Name="AddNewAdminiUserTextBoxSurname" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" TextWrapping="Wrap" PlaceholderText="Фамилия:" VerticalAlignment="Top" AcceptsReturn="True" Margin="0,0,0,10" MaxWidth="927" Width="480"/>
+                
+                <TextBox x:Name="AddNewAdminiUserTextBoxName" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center" TextWrapping="Wrap" PlaceholderText="Имя:" VerticalAlignment="Top" AcceptsReturn="True" Margin="0,0,0,10" MaxWidth="927" Width="480"/>
+                
+                <TextBox x:Name="AddNewAdminiUserTextBoxPatronymic" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Center" TextWrapping="Wrap" PlaceholderText="Отчество:" VerticalAlignment="Top" AcceptsReturn="True" Margin="0,0,0,10" MaxWidth="927" Width="480"/>
+
+                <Button Grid.Row="6" Grid.Column="0" Content="Добавить администратора" VerticalAlignment="Top" Margin="0,0,0,10" Tapped="Button_Tapped11shuma" HorizontalContentAlignment="Center" HorizontalAlignment="Center"/>
+
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</Page>

@@ -189,6 +189,7 @@ namespace bm_shop
             CatalogGrid.Children.Add(border); // Замените "CatalogGrid" на имя вашего Grid элемента
         }
 
+        public static int quantity = 0;
 
         public void getNamePicture(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
         {
@@ -200,6 +201,18 @@ namespace bm_shop
                 {
                     int index = (int)tappedImage.Tag;
                     CatalogPage.CurrentMateriall = MaterialsList[index];
+
+                    string name = MaterialsList[index].name;
+
+                    quantity = 0;
+                    foreach (var item in MaterialsList)
+                    {
+                        if(item.name == name)
+                        {
+                            quantity++;
+                        }
+                    }
+
                     AdditionalInfoAboutMaterials.isBasket = true;
                     Frame.Navigate(typeof(AdditionalInfoAboutMaterials));
                 }

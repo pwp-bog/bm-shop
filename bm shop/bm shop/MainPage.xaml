@@ -8,17 +8,19 @@
     mc:Ignorable="d"
     Background="{ThemeResource SystemControlPageBackgroundListLowBrush}">
 
-    <Grid>
+    <Grid x:Name="ContentGrid">
         <NavigationView x:Name="NavigationViewControl" PaneDisplayMode="Top" IsBackButtonVisible="Collapsed" IsBackEnabled="True" IsSettingsVisible="False">
             <NavigationView.MenuItems>
                 <!-- Используем NavigationViewItem для LEVEL 1 -->
                 <NavigationViewItem Content="Категории" Icon="AllApps" Tapped="Level1Button_Click"/>
                 <NavigationViewItem Icon="Shop" Content="Корзина" Tapped="NavigationViewItem_Tapped1"/>
+                <NavigationViewItem Icon="Clock" Content="История покупок" Tapped="NavigationViewItem_Tapped2"/>
                 <!--<NavigationViewItem Icon="Clock" Content="История покупок" Tapped="NavigationViewItem_Tapped"/>-->
                 <TextBox x:Name="SearchTextBox" PlaceholderText="Поиск" Width="500" CornerRadius="10,10,10,10" Background="{x:Null}" TextChanged="TextBox_TextChanged"/>
+                <NavigationViewItem x:Name="AddMaterial" Icon="Add" Content="Добавить товар" Tapped="NavigationViewItem_Tapped3" Visibility="Collapsed"/>
             </NavigationView.MenuItems>
             <NavigationView.PaneFooter>
-                <NavigationViewItem Icon="Contact" Content="" Tapped="SettingsButton_Tapped"/>
+                <NavigationViewItem Icon="Contact" Content="" Tapped="ShowSettingsDialog"/>
             </NavigationView.PaneFooter>
             <Frame x:Name="ContentFrame" />
         </NavigationView>

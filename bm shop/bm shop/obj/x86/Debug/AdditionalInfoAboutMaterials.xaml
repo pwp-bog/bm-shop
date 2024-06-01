@@ -19,7 +19,7 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <TextBlock x:ConnectionId='11' x:Name="NameMaterial" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Lorem" VerticalAlignment="Top" FontSize="48" Grid.Row="0" Grid.Column="0" Margin="0,0,0,25"/>
+            <TextBlock x:ConnectionId='11' x:Name="NameMaterial" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Lorem" VerticalAlignment="Top" FontSize="48" Grid.Row="0" Grid.Column="0" Margin="0,0,0,25"                             />
             <Image x:ConnectionId='12' x:Name="ImageMaterial" HorizontalAlignment="Left" VerticalAlignment="Top" Source="/Assets/Rectangle 2.png" Grid.Row="1" Grid.Column="0" Stretch="Uniform"/>
 
             <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center">
@@ -55,8 +55,9 @@
                     <Button x:ConnectionId='9' x:Name="testBtn3" Content="Хранение" BorderThickness="0,0,0,2" Background="{x:Null}" FocusVisualPrimaryBrush="{x:Null}" BorderBrush="{ThemeResource AppBarItemDisabledForegroundThemeBrush}" Padding="8,0,8,0"                      FontSize="20"/>
                     <Button x:ConnectionId='10' x:Name="testBtn4" Content="Отзывы" BorderThickness="0,0,0,2" Background="{x:Null}" FocusVisualPrimaryBrush="{x:Null}" BorderBrush="{ThemeResource AppBarItemDisabledForegroundThemeBrush}" Padding="8,0,8,0"                      FontSize="20"/>
                 </StackPanel>
-                
-                <TextBlock x:ConnectionId='4' x:Name="FooterText" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Padding="0,10,0,0" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3" Margin="0,5,0,0"/>
+
+                <Frame x:ConnectionId='4' x:Name="CommentsFrame" Grid.Row="5" Grid.Column="0">
+                </Frame>
             </Grid>
         </ScrollViewer>
     </Grid>

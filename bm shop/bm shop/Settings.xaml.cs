@@ -1,5 +1,7 @@
-﻿using System;
+﻿using MySqlConnector;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -22,63 +24,117 @@ namespace bm_shop
     /// <summary>
     /// Пустая страница, которую можно использовать саму по себе или для перехода внутри фрейма.
     /// </summary>
-    public sealed partial class Settings : Page
+    public sealed partial class Settings : ContentDialog
     {
         public Settings()
         {
             this.InitializeComponent();
+            FillData();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        // Обработчик нажатия кнопки "Сохранить"
+        public void SaveButton_Click()
         {
-            // Сохранение других настроек...
+            // Сохранение изменений
+            DB db = new DB();
+            db.openConnection();
 
-            if (ThemeComboBox.SelectedItem is ComboBoxItem selectedItem)
+            DataTable table = new DataTable();
+            using (MySqlConnection connection = db.getConnection())
             {
-                string selectedTheme = selectedItem.Tag.ToString();
-                ApplicationData.Current.LocalSettings.Values["AppTheme"] = selectedTheme;
-            }
+                string CheckSqlCommandText = $"SELECT * FROM user WHERE login = \"{Login.Text}\";";
+                MySqlCommand CheckCommand = new MySqlCommand(CheckSqlCommandText, connection);
 
-            var messageDialog = new MessageDialog("Изменения сохранены.", "Успешно");
-            messageDialog.ShowAsync();
-        }
-
-        private void LogoutButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void ThemeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (ThemeComboBox.SelectedItem is ComboBoxItem selectedItem)
-            {
-                string selectedTheme = selectedItem.Tag.ToString();
-                ElementTheme theme = ElementTheme.Default;
-
-                switch (selectedTheme)
+                using (MySqlDataAdapter adapter = new MySqlDataAdapter(CheckCommand))
                 {
-                    case "Light":
-                        theme = ElementTheme.Light;
-                        break;
-                    case "Dark":
-                        theme = ElementTheme.Dark;
-                        break;
-                    default:
-                        theme = ElementTheme.Default;
-                        break;
+                    adapter.Fill(table);
                 }
-
-                ApplyThemeToFrame(theme);
+                
             }
-        }
 
-        private void ApplyThemeToFrame(ElementTheme theme)
-        {
-            if (Window.Current.Content is FrameworkElement frameworkElement)
+            db.closeConnection();
+
+            if (table.Rows.Count == 0 || SignInPage.CurrentUser.login == Login.Text)
             {
-                frameworkElement.RequestedTheme = theme;
+
+                DB db1 = new DB();
+                db1.openConnection();
+
+                using (MySqlConnection connection1 = db1.getConnection())
+                {
+                    string login = Login.Text;
+                    string password = Password.Text;
+                    string surname = Surname.Text;
+                    string name = Name.Text;
+                    string patronymic = Patronymic.Text;
+
+                    if(login == string.Empty || password == string.Empty || surname == string.Empty || name == string.Empty || patronymic == string.Empty)
+                    {
+                        var msgDialog = new MessageDialog("Необходимо заполнить все поля", "bm shop");
+                        var res = msgDialog.ShowAsync();
+                    }
+                    else
+                    {
+                        string SqlCommandText = $"UPDATE `user` SET `login` ='{login}', `password` ='{password}', `surname` = '{surname}', `name` = '{name}', `patronymic` = '{patronymic}' WHERE `user`.`id` = {SignInPage.CurrentUser.id};";
+                        MySqlCommand command = new MySqlCommand(SqlCommandText, connection1);
+
+                        if (command.ExecuteNonQuery() == 1)
+                        {
+                            var msgDialog = new MessageDialog("Данные успешно изменены", "bm shop");
+                            var res = msgDialog.ShowAsync();
+
+                            SignInPage.CurrentUser.login = Login.Text;
+                            SignInPage.CurrentUser.password = Password.Text;
+                            SignInPage.CurrentUser.surname = Surname.Text;
+                            SignInPage.CurrentUser.name = Name.Text;
+                            SignInPage.CurrentUser.patronymic = Patronymic.Text;
+                            // Закрываем диалог
+                            this.Hide();
+                        }
+                        else
+                        {
+                            var msgDialog = new MessageDialog("Возникла ошибка при изменении данных", "bm shop");
+                            var res = msgDialog.ShowAsync();
+                        }
+                    }
+                }
+                db1.closeConnection();
+            }
+            else
+            {
+                var msgDialog = new MessageDialog("Такой логин уже занят, введите другой", "bm shop");
+                var res = msgDialog.ShowAsync();
             }
         }
 
+        // Обработчик нажатия кнопки "Отмена"
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Отмена изменений
+
+            // Закрываем диалог
+            this.Hide();
+        }
+
+
+        public void FillData()
+        {
+            Login.PlaceholderText = "Логин: " + SignInPage.CurrentUser.login;
+            Password.PlaceholderText = "Пароль: " +  SignInPage.CurrentUser.password;
+            Surname.PlaceholderText = "Фамилия: " + SignInPage.CurrentUser.surname;
+            Name.PlaceholderText = "Имя: " + SignInPage.CurrentUser.name;
+            Patronymic.PlaceholderText = "Отчество: " + SignInPage.CurrentUser.patronymic;
+        }
+
+        // Выйти из уч записи
+        private void TextBlock_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            // Закрываем диалог
+            ContentDialog.Hide();
+
+            // Навигация на SignInPage
+            (Window.Current.Content as Frame).Navigate(typeof(SignInPage));
+        }
     }
+
 }

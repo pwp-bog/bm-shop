@@ -116,8 +116,17 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AddInfoPage.xaml.cs">
+      <DependentUpon>AddInfoPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AdditionalInfoAboutMaterials.xaml.cs">
       <DependentUpon>AdditionalInfoAboutMaterials.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdminAddedMaterialPage.xaml.cs">
+      <DependentUpon>AdminAddedMaterialPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdminEditMaterialPage.xaml.cs">
+      <DependentUpon>AdminEditMaterialPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
@@ -128,6 +137,9 @@
     </Compile>
     <Compile Include="CatalogPage.xaml.cs">
       <DependentUpon>CatalogPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CommentsPage.xaml.cs">
+      <DependentUpon>CommentsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="DB.cs" />
     <Compile Include="MainPage.xaml.cs">
@@ -179,7 +191,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="AddInfoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AdditionalInfoAboutMaterials.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdminAddedMaterialPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdminEditMaterialPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -188,6 +212,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CatalogPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CommentsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -213,6 +241,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="EPPlus">
+      <Version>7.1.3</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.14</Version>
     </PackageReference>

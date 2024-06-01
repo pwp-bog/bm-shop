@@ -28,8 +28,47 @@
     <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\bm shop.exe">
       <PackagePath>entrypoint\bm shop.exe</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\epplus\7.1.3\lib\netstandard2.0\EPPlus.dll">
+      <PackagePath>EPPlus.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\epplus.interfaces\6.1.1\lib\netstandard2.0\EPPlus.Interfaces.dll">
+      <PackagePath>EPPlus.Interfaces.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\epplus.system.drawing\6.1.1\lib\netstandard2.0\EPPlus.System.Drawing.dll">
+      <PackagePath>EPPlus.System.Drawing.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\microsoft.bcl.asyncinterfaces\8.0.0\lib\netstandard2.0\Microsoft.Bcl.AsyncInterfaces.dll">
+      <PackagePath>Microsoft.Bcl.AsyncInterfaces.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\microsoft.extensions.configuration\8.0.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.dll">
+      <PackagePath>Microsoft.Extensions.Configuration.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\microsoft.extensions.configuration.abstractions\8.0.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll">
+      <PackagePath>Microsoft.Extensions.Configuration.Abstractions.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\microsoft.extensions.configuration.fileextensions\8.0.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.FileExtensions.dll">
+      <PackagePath>Microsoft.Extensions.Configuration.FileExtensions.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\microsoft.extensions.configuration.json\8.0.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.Json.dll">
+      <PackagePath>Microsoft.Extensions.Configuration.Json.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\microsoft.extensions.fileproviders.abstractions\8.0.0\lib\netstandard2.0\Microsoft.Extensions.FileProviders.Abstractions.dll">
+      <PackagePath>Microsoft.Extensions.FileProviders.Abstractions.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\microsoft.extensions.fileproviders.physical\8.0.0\lib\netstandard2.0\Microsoft.Extensions.FileProviders.Physical.dll">
+      <PackagePath>Microsoft.Extensions.FileProviders.Physical.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\microsoft.extensions.filesystemglobbing\8.0.0\lib\netstandard2.0\Microsoft.Extensions.FileSystemGlobbing.dll">
+      <PackagePath>Microsoft.Extensions.FileSystemGlobbing.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\microsoft.extensions.logging.abstractions\7.0.1\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll">
       <PackagePath>Microsoft.Extensions.Logging.Abstractions.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\microsoft.extensions.primitives\8.0.0\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll">
+      <PackagePath>Microsoft.Extensions.Primitives.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\microsoft.io.recyclablememorystream\3.0.0\lib\netstandard2.0\Microsoft.IO.RecyclableMemoryStream.dll">
+      <PackagePath>Microsoft.IO.RecyclableMemoryStream.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\mysqlconnector\2.3.7\lib\netstandard2.0\MySqlConnector.dll">
       <PackagePath>MySqlConnector.dll</PackagePath>
@@ -40,8 +79,26 @@
     <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\system.diagnostics.diagnosticsource\7.0.2\lib\netstandard2.0\System.Diagnostics.DiagnosticSource.dll">
       <PackagePath>System.Diagnostics.DiagnosticSource.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\system.drawing.common\4.7.3\lib\netstandard2.0\System.Drawing.Common.dll">
+      <PackagePath>System.Drawing.Common.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\system.formats.asn1\8.0.0\lib\netstandard2.0\System.Formats.Asn1.dll">
+      <PackagePath>System.Formats.Asn1.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\system.runtime.compilerservices.unsafe\6.0.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll">
       <PackagePath>System.Runtime.CompilerServices.Unsafe.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\system.security.cryptography.pkcs\8.0.0\lib\netstandard2.0\System.Security.Cryptography.Pkcs.dll">
+      <PackagePath>System.Security.Cryptography.Pkcs.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\system.text.encoding.codepages\8.0.0\lib\netstandard2.0\System.Text.Encoding.CodePages.dll">
+      <PackagePath>System.Text.Encoding.CodePages.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\system.text.encodings.web\8.0.0\lib\netstandard2.0\System.Text.Encodings.Web.dll">
+      <PackagePath>System.Text.Encodings.Web.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\system.text.json\8.0.0\lib\netstandard2.0\System.Text.Json.dll">
+      <PackagePath>System.Text.Json.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\bin\10.0.22621.0\XamlCompiler\Microsoft.UI.Xaml.Markup.winmd">
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
@@ -116,14 +173,26 @@
     <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\AddInfoPage.xbf">
+      <PackagePath>AddInfoPage.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\AdditionalInfoAboutMaterials.xbf">
       <PackagePath>AdditionalInfoAboutMaterials.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\AdminAddedMaterialPage.xbf">
+      <PackagePath>AdminAddedMaterialPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\AdminEditMaterialPage.xbf">
+      <PackagePath>AdminEditMaterialPage.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\Basket.xbf">
       <PackagePath>Basket.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\CatalogPage.xbf">
       <PackagePath>CatalogPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\CommentsPage.xbf">
+      <PackagePath>CommentsPage.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>

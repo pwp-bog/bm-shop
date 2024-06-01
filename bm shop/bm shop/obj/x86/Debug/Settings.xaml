@@ -1,38 +1,18 @@
-﻿<Page
+﻿<ContentDialog x:ConnectionId='1' x:Name="ContentDialog"
     x:Class="bm_shop.Settings"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:bm_shop"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource AppBarBackgroundThemeBrush}">
+    Title="Настройки"
+    PrimaryButtonText="Сохранить"
+    SecondaryButtonText="Отмена">
 
-    <Grid Padding="20">
-        <TextBlock Text="Настройки" FontSize="40" FontWeight="Bold" Margin="0,0,0,20"/>
-
-        <StackPanel Spacing="20">
-            <!-- Личные данные -->
-            <StackPanel Margin="0,60,0,0">
-                <TextBlock Text="Личные данные" FontSize="20" FontWeight="SemiBold"/>
-                <TextBox x:ConnectionId='6' x:Name="FullNameTextBox" Header="ФИО" PlaceholderText="Введите ваше ФИО"/>
-                <TextBox x:ConnectionId='7' x:Name="UsernameTextBox" Header="Логин" PlaceholderText="Введите ваш логин"/>
-                <PasswordBox x:ConnectionId='8' x:Name="PasswordBox" Header="Пароль" PlaceholderText="Введите ваш пароль"/>
-            </StackPanel>
-
-            <TextBlock Text="Дополнительные настройки" FontSize="20" FontWeight="SemiBold"/>
-            <ToggleSwitch x:ConnectionId='2' x:Name="NotificationsToggle" Header="Уведомления" OnContent="Включены" OffContent="Выключены"/>
-            <ComboBox x:ConnectionId='3' x:Name="ThemeComboBox" Header="Тема" PlaceholderText="Выберите тему"                                                  >
-                <ComboBoxItem Content="Light" Tag="Light"/>
-                <ComboBoxItem Content="Dark" Tag="Dark"/>
-                <ComboBoxItem Content="Default" Tag="Default"/>
-            </ComboBox>
-
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Spacing="10">
-                <Button x:ConnectionId='4' Content="Сохранить изменения"                     />
-                <Button x:ConnectionId='5' Content="Выйти из учетной записи"                            Foreground="Red"/>
-            </StackPanel>
-        </StackPanel>
+    <Grid Padding="0,0,0,0">
+        <TextBox x:ConnectionId='2' x:Name="Login" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" PlaceholderText="Логин:" VerticalAlignment="Top" CornerRadius="8,8,8,8" Width="300"/>
+        <TextBox x:ConnectionId='3' x:Name="Password" HorizontalAlignment="Left" Margin="0,35,0,0" TextWrapping="Wrap" PlaceholderText="Пароль:" VerticalAlignment="Top" CornerRadius="8,8,8,8" Width="300"/>
+        <TextBox x:ConnectionId='4' x:Name="Surname" HorizontalAlignment="Left" Margin="0,70,0,0" TextWrapping="Wrap" PlaceholderText="Фамилия:" VerticalAlignment="Top" CornerRadius="8,8,8,8" Width="300"/>
+        <TextBox x:ConnectionId='5' x:Name="Name" HorizontalAlignment="Left" Margin="0,105,0,0" TextWrapping="Wrap" PlaceholderText="Имя:" VerticalAlignment="Top" CornerRadius="8,8,8,8" Width="300"/>
+        <TextBox x:ConnectionId='6' x:Name="Patronymic" HorizontalAlignment="Left" Margin="0,140,0,0" TextWrapping="Wrap" PlaceholderText="Отчество:" VerticalAlignment="Top" CornerRadius="8,8,8,8" Width="300"/>
+        <TextBlock x:ConnectionId='7' HorizontalAlignment="Left" Margin="95,175,0,0" TextWrapping="Wrap" Text="Выйти из учётной записи" VerticalAlignment="Top" FontSize="9"                          />
     </Grid>
-</Page>
+</ContentDialog>
 

@@ -26,6 +26,13 @@ using Windows.ApplicationModel.Activation;
 using System.Xml.Linq;
 using Windows.UI;
 using System.Data.SqlClient;
+using OfficeOpenXml;
+using Windows.Storage.Pickers;
+using Windows.Storage;
+using Windows.Graphics.Printing;
+using Windows.UI.Xaml.Printing;
+using System.Threading.Tasks;
+using OfficeOpenXml.Style;
 
 
 
@@ -187,7 +194,7 @@ namespace bm_shop
             {
                 foreach (var child in CatalogGrid.Children)
                 {
-                    if (child is Border border)
+                    if (child is Windows.UI.Xaml.Controls.Border border)
                     {
                         foreach (var gridChild in (border.Child as Grid).Children)
                         {
@@ -210,7 +217,8 @@ namespace bm_shop
             selectAllPreviousState = isChecked;
         }
 
-        
+        public static SolidColorBrush brush1 = (SolidColorBrush)Application.Current.Resources["AppBarItemPointerOverForegroundThemeBrush"];
+
         //Отображение плашки с товаром в список корзины
         public void addTextToGrid(int row, int column, Materials currentMaterial, int i, int quantity, string SelectedStatusForMaterial, int BasketId)
         {
@@ -237,10 +245,25 @@ namespace bm_shop
             Windows.UI.Color fb = Windows.UI.Color.FromArgb(255, 251, 251, 251);
             Windows.UI.Color f1 = Windows.UI.Color.FromArgb(255, 241, 241, 241);
 
+            // Получение ресурса ThemeResource
+            var brush = (SolidColorBrush)Application.Current.Resources["SystemControlPageBackgroundListLowBrush"];
+            
+
+            var currentTheme = Application.Current.RequestedTheme;
+            if (currentTheme == ApplicationTheme.Dark)
+            {
+                brush1 = new SolidColorBrush(Windows.UI.Colors.White);
+            }
+            else
+            {
+                brush1 = new SolidColorBrush(Windows.UI.Colors.Black);
+            }
+
+
             // Создание нового объекта Border
-            Border border = new Border();
+            Windows.UI.Xaml.Controls.Border border = new Windows.UI.Xaml.Controls.Border();
             border.Name = currentMaterial.name;
-            border.Background = new SolidColorBrush(color1);
+            //border.Background = brush;
             border.HorizontalAlignment = HorizontalAlignment.Stretch;
             border.Margin = new Thickness(10, 5, 10, 15);
 
@@ -249,7 +272,7 @@ namespace bm_shop
             MaterialName.Text = currentMaterial.name;
             MaterialName.FontSize = 28;
             MaterialName.Name = "MaterialName";
-            MaterialName.Foreground = new SolidColorBrush(BlackColor);
+            MaterialName.Foreground = brush1;
             MaterialName.HorizontalAlignment = HorizontalAlignment.Left;
             MaterialName.VerticalAlignment = VerticalAlignment.Top;
             MaterialName.Margin = new Thickness(10, 0, 0, 0);
@@ -259,7 +282,7 @@ namespace bm_shop
             MaterialColor.Text = currentMaterial.color;
             MaterialColor.FontSize = 18;
             MaterialColor.Name = "MaterialColor";
-            MaterialColor.Foreground = new SolidColorBrush(BlackColor);
+            MaterialColor.Foreground = brush1;
             MaterialColor.HorizontalAlignment = HorizontalAlignment.Left;
             MaterialColor.VerticalAlignment = VerticalAlignment.Top;
             MaterialColor.Margin = new Thickness(10, 0, 0, 0);
@@ -270,7 +293,7 @@ namespace bm_shop
             MaterialCost.Text = currentMaterial.cost.ToString();
             MaterialCost.FontSize = 18;
             MaterialCost.Name = "MaterialCost";
-            MaterialCost.Foreground = new SolidColorBrush(BlackColor);
+            MaterialCost.Foreground = brush1;
             MaterialCost.HorizontalAlignment = HorizontalAlignment.Left;
             MaterialCost.VerticalAlignment = VerticalAlignment.Top;
             MaterialCost.Margin = new Thickness(10, 0, 0, 0);
@@ -280,7 +303,7 @@ namespace bm_shop
             MaterialWeight.Text = currentMaterial.weigth;
             MaterialWeight.FontSize = 18;
             MaterialWeight.Name = "MaterialWeight";
-            MaterialWeight.Foreground = new SolidColorBrush(BlackColor);
+            MaterialWeight.Foreground = brush1;
             MaterialWeight.HorizontalAlignment = HorizontalAlignment.Left;
             MaterialWeight.VerticalAlignment = VerticalAlignment.Top;
             MaterialWeight.Margin = new Thickness(10, 0, 0, 0);
@@ -291,7 +314,7 @@ namespace bm_shop
             MaterialBigCost.Text = (currentMaterial.cost * quantity).ToString();
             MaterialBigCost.FontSize = 28;
             MaterialBigCost.Name = "MaterialBigCost";
-            MaterialBigCost.Foreground = new SolidColorBrush(BlackColor);
+            MaterialBigCost.Foreground = brush1;
             MaterialBigCost.HorizontalAlignment = HorizontalAlignment.Right;
             MaterialBigCost.VerticalAlignment = VerticalAlignment.Top;
 
@@ -312,7 +335,7 @@ namespace bm_shop
             Button MinusBtn = new Button();
             MinusBtn.Background = new SolidColorBrush(Windows.UI.Colors.Transparent);
             MinusBtn.BorderBrush = new SolidColorBrush(Windows.UI.Colors.Transparent);
-            MinusBtn.Foreground = new SolidColorBrush(Windows.UI.Colors.Black);
+            MinusBtn.Foreground = brush1;
             MinusBtn.BorderThickness = new Thickness(0);
             MinusBtn.Width = 35;
             MinusBtn.Height = 35;
@@ -330,12 +353,13 @@ namespace bm_shop
             QuantityMaterial.HorizontalAlignment = HorizontalAlignment.Center;
             QuantityMaterial.VerticalAlignment = VerticalAlignment.Center;
             QuantityMaterial.Margin = new Thickness(0);
+            QuantityMaterial.Foreground = brush1;
 
 
             Button DeleteBtn = new Button();
             DeleteBtn.Background = new SolidColorBrush(Windows.UI.Colors.Transparent);
             DeleteBtn.BorderBrush = new SolidColorBrush(Windows.UI.Colors.Transparent);
-            DeleteBtn.Foreground = new SolidColorBrush(Windows.UI.Colors.Black);
+            DeleteBtn.Foreground = brush1;
             DeleteBtn.BorderThickness = new Thickness(0);
             DeleteBtn.Width = 35;
             DeleteBtn.Height = 35;
@@ -349,7 +373,7 @@ namespace bm_shop
             Button PlusBtn = new Button();
             PlusBtn.Background = new SolidColorBrush(Windows.UI.Colors.Transparent);
             PlusBtn.BorderBrush = new SolidColorBrush(Windows.UI.Colors.Transparent);
-            PlusBtn.Foreground = new SolidColorBrush(Windows.UI.Colors.Black);
+            PlusBtn.Foreground = brush1;
             PlusBtn.BorderThickness = new Thickness(0);
             PlusBtn.Width = 35;
             PlusBtn.Height = 35;
@@ -531,7 +555,7 @@ namespace bm_shop
         }
 
         //Крестик удаления товара из корзины
-        private void DeleteBtnClick(object sender, TappedRoutedEventArgs e, Border border, Materials CurrentMaterial)
+        private void DeleteBtnClick(object sender, TappedRoutedEventArgs e, Windows.UI.Xaml.Controls.Border border, Materials CurrentMaterial)
         {
             border.Visibility = Visibility.Collapsed;
             //Удалить товар из корзины (запрос в бд)
@@ -872,6 +896,9 @@ namespace bm_shop
 
             DataTable table = new DataTable();
 
+
+            List<Item> ExcelList = new List<Item>();
+
             using (MySqlConnection connection = db.getConnection())
             {
                 string GetAllCorrectMaterialId = $"SELECT * FROM `basket` WHERE userId = \"{SignInPage.CurrentUser.id}\" and selected = \"true\";";
@@ -909,7 +936,7 @@ namespace bm_shop
 
                 using (MySqlConnection connection1 = db1.getConnection())
                 {
-                    string CheckQuantityInMaterialTable = $"SELECT quantity FROM `materials` WHERE id = \"{item.materialId}\";";
+                    string CheckQuantityInMaterialTable = $"SELECT * FROM `materials` WHERE id = \"{item.materialId}\";";
                     MySqlCommand QuantityMaterialCommand = new MySqlCommand(CheckQuantityInMaterialTable, connection1);
 
                     using (MySqlDataAdapter adapter1 = new MySqlDataAdapter(QuantityMaterialCommand))
@@ -922,10 +949,10 @@ namespace bm_shop
 
                 foreach (DataRow row in table1.Rows)
                 {
-                    QuantityInMaterial.Add(int.Parse(row[0].ToString()));
+                    QuantityInMaterial.Add(int.Parse(row[10].ToString()));
 
                     //if количество товара больше в корзине, то сообщение сосал яйца
-                    if (item.quantity > int.Parse(row[0].ToString()))
+                    if (item.quantity > int.Parse(row[10].ToString()))
                     {
                         var msgDialog = new MessageDialog($"Количество товара в корзине больше, чем количество товара в магазине", "bm shop");
                         var result = msgDialog.ShowAsync();
@@ -940,7 +967,7 @@ namespace bm_shop
 
                         using (MySqlConnection connection2 = db2.getConnection())
                         {
-                            string ChangeQuantityValueInMaterialTable = $"UPDATE `materials` SET `quantity` = '{int.Parse(row[0].ToString()) - item.quantity}' WHERE `materials`.`id` = {item.materialId};";
+                            string ChangeQuantityValueInMaterialTable = $"UPDATE `materials` SET `quantity` = '{int.Parse(row[10].ToString()) - item.quantity}' WHERE `materials`.`id` = {item.materialId};";
                             //значение в бд = бд - текущее
                             MySqlCommand ChangeQuantity = new MySqlCommand(ChangeQuantityValueInMaterialTable, connection2);
                             int ResChangeQuantity = ChangeQuantity.ExecuteNonQuery();
@@ -951,31 +978,165 @@ namespace bm_shop
                                 string WriteInPurchasesTable = $"INSERT INTO `purchases` (`id`, `materialId`, `userId`) VALUES (NULL, '{item.materialId}', '{SignInPage.CurrentUser.id}');";
                                 MySqlCommand WriteInPurchases = new MySqlCommand(WriteInPurchasesTable, connection2);
                                 ResWriteInPurchases = WriteInPurchases.ExecuteNonQuery();
+
+                                Item buf = new Item(row[1].ToString(), decimal.Parse(row[5].ToString()));
+                                ExcelList.Add(buf);
                             }
 
                             string DeleteFromBasketTable = $"DELETE FROM basket WHERE `basket`.`id` = {item.id}";
                             MySqlCommand DeleteBasketNote = new MySqlCommand(DeleteFromBasketTable, connection2);
                             int ResDeleteBasketNote = DeleteBasketNote.ExecuteNonQuery();
-                            //вывести сообщение об успешном удалении
-
-                            if(ResDeleteBasketNote == 1 && ResChangeQuantity == 1 && ResWriteInPurchases == 1)
-                            {
-                                var msgDialog = new MessageDialog($"Транзакция успешна завершена", "bm shop");
-                                var res = msgDialog.ShowAsync();
-                                FillData();
-                            }
-                            else
-                            {
-                                var msgDialog = new MessageDialog($"Возникла ошибка при совершении покупки", "bm shop");
-                                var res = msgDialog.ShowAsync();
-                                FillData();
-                            }
                         }
 
                         db2.closeConnection();
                     }
                 }
             }
+
+            ShowTransactionDialog(ExcelList);
         }
+
+        //Класс экземляра товара для записи в Excel файл
+        public class Item
+        {
+            public string Name { get; set; }
+            public decimal Price { get; set; }
+
+            public Item() { }
+            public Item(string name, decimal price)
+            {
+                Name = name;
+                Price = price;
+            }
+        }
+
+        //Функция записи в Excel файл
+        private async void ShowTransactionDialog(List<Item> ExcelList)
+        {
+            // Создание диалога
+            var msgDialog1 = new ContentDialog
+            {
+                Title = "bm shop",
+                Content = "Операция успешно завершена. Вы хотите получить чек?",
+                PrimaryButtonText = "Да",
+                SecondaryButtonText = "Нет"
+            };
+
+            // Показ диалога и обработка результата
+            var result1 = await msgDialog1.ShowAsync();
+            if (result1 == ContentDialogResult.Primary)
+            {
+                await GenerateReceiptAsync(ExcelList); // Дождаться завершения
+            }
+            else
+            {
+                FillData();
+            }
+        }
+
+
+        public async Task GenerateReceiptAsync(List<Item> items)
+        {
+            try
+            {
+                ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+                using (ExcelPackage package = new ExcelPackage())
+                {
+                    // Добавляем новый лист в документ
+                    ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("Чек");
+
+                    // Заполняем заголовок
+                    worksheet.Cells[1, 1].Value = "ООО \"bm shop\"";
+                    worksheet.Cells[2, 1].Value = "г.Витебск, пр Черняховского 31/5";
+                    worksheet.Cells[4, 1].Value = "ПЛАТЕЖНЫЙ ДОКУМЕНТ";
+                    worksheet.Cells[5, 1].Value = "ЧЕК ПРОДАЖИ";
+
+                    // Заполняем заголовки колонок
+                    worksheet.Cells[7, 1].Value = "Наименование";
+                    worksheet.Cells[7, 2].Value = "Цена";
+
+                    // Заполняем данные
+                    int row = 8;
+                    decimal total = 0;
+                    foreach (var item in items)
+                    {
+                        worksheet.Cells[row, 1].Value = item.Name;
+                        worksheet.Cells[row, 2].Value = item.Price;
+                        total += item.Price;
+                        row++;
+                    }
+
+                    // Итог
+                    worksheet.Cells[row+1, 1].Value = "Итого к оплате";
+                    worksheet.Cells[row+1, 2].Value = total;
+
+                    // Стилизация
+                    worksheet.Cells[1, 1, 1, 3].Merge = true;
+                    worksheet.Cells[2, 1, 2, 3].Merge = true;
+                    worksheet.Cells[4, 1, 4, 3].Merge = true;
+                    worksheet.Cells[5, 1, 5, 3].Merge = true;
+                    worksheet.Cells[7, 1, 7, 3].Style.Font.Bold = true;
+
+                    // Авторазмер колонок
+                    worksheet.Cells.AutoFitColumns();
+
+                    // Стилизация заголовков
+                    using (ExcelRange range = worksheet.Cells[1, 1, 5, 1])
+                    {
+                        range.Style.Font.Bold = true; // Установка жирного шрифта
+                        range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center; // Выравнивание текста по центру
+                    }
+
+                    // Стилизация строки с итогом
+                    using (ExcelRange range = worksheet.Cells[row + 1, 1, row + 1, 2])
+                    {
+                        range.Style.Font.Bold = true; // Установка жирного шрифта
+                        range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Right; // Выравнивание текста по правому краю
+                    }
+
+
+                    // Сохранение файла
+                    var savePicker = new FileSavePicker
+                    {
+                        SuggestedStartLocation = PickerLocationId.DocumentsLibrary,
+                        FileTypeChoices = { { "Excel files", new List<string> { ".xlsx" } } },
+                        SuggestedFileName = "Receipt"
+                    };
+
+                    var file = await savePicker.PickSaveFileAsync();
+
+                    if (file != null)
+                    {
+                        using (var stream = await file.OpenStreamForWriteAsync())
+                        {
+                            package.SaveAs(stream);
+                        }
+
+                        FillData();
+                        var dialog = new ContentDialog
+                        {
+                            Title = "Файл сохранен",
+                            Content = "Ваш чек был успешно сохранен.",
+                            CloseButtonText = "ОК"
+                        };
+                        await dialog.ShowAsync();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Обработка ошибок при сохранении файла
+                var dialog = new ContentDialog
+                {
+                    Title = "Ошибка",
+                    Content = $"Возникла ошибка при сохранении файла: {ex.Message}",
+                    CloseButtonText = "ОК"
+                };
+                await dialog.ShowAsync();
+                FillData();
+            }
+            FillData();
+        }
+
     }
 }

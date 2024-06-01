@@ -15,11 +15,15 @@ Assets\Square44x44Logo.targetsize-24_altform-unplated.png
 Assets\startPage bg1.png
 Assets\StoreLogo.png
 Assets\Wide310x150Logo.scale-200.png
+AddInfoPage.xbf
 AdditionalInfoAboutMaterials.xbf
+AdminAddedMaterialPage.xbf
+AdminEditMaterialPage.xbf
 App.xbf
 Basket.xbf
 bm shop.xr.xml
 CatalogPage.xbf
+CommentsPage.xbf
 MainPage.xbf
 Settings.xbf
 SignInPage.xbf

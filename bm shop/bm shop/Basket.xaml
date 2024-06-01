@@ -6,25 +6,28 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="#FFF3F3F3" Width="1920" Height="1080">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Width="1920" Height="1080">
 
     <Grid>
-        <Grid x:Name="CatalogGrid" Margin="10,10,465,10" Background="#FFFBFBFB" BorderThickness="8,8,8,8" BorderBrush="#FFF3F3F3" CornerRadius="12,12,12,12">
+        <Grid x:Name="CatalogGrid" Margin="10,10,465,10" BorderThickness="8,8,8,8" BorderBrush="{ThemeResource ApplicationPageBackgroundThemeBrush}" CornerRadius="12,12,12,12">
             <Grid.Resources>
                 <Style TargetType="Image">
                     <Setter Property="Margin" Value="0,0,0,0"/>
                 </Style>
             </Grid.Resources>
+            <Grid.Background>
+                <ThemeResource ResourceKey="SystemControlPageBackgroundListLowBrush"/>
+            </Grid.Background>
             <!-- Ensure that CatalogGrid has at least one column that can stretch -->
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
         </Grid>
-        <Rectangle HorizontalAlignment="Left" Height="175" Margin="1460,18,0,0" VerticalAlignment="Top" Width="400" Fill="#FFFBFBFB" RadiusX="8" RadiusY="8"/>
-        <TextBlock HorizontalAlignment="Left" Margin="1469,24,0,0" TextWrapping="Wrap" Text="Ваша корзина" VerticalAlignment="Top" Foreground="Black" FontSize="20" FontWeight="SemiBold"/>
-        <TextBlock x:Name="QuantityMaterial" HorizontalAlignment="Left" Margin="1469,51,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Foreground="Black" FontSize="16" FontWeight="Light"/>
-        <TextBlock HorizontalAlignment="Left" Margin="1469,87,0,0" TextWrapping="Wrap" Text="Общая стоимость" VerticalAlignment="Top" Foreground="Black" FontSize="20" FontWeight="SemiBold"/>
-        <TextBlock x:Name="AllCostText" HorizontalAlignment="Left" Margin="1469,114,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Foreground="Black" FontSize="16" FontWeight="Light"/>
-        <Button Content="Оплатить корзину" Margin="1467,146,0,0" VerticalAlignment="Top" Width="386" Height="40" Background="#FF28CA5E" CornerRadius="6,6,6,6" BorderBrush="#FFF1F1F1" FontSize="18" FocusVisualPrimaryBrush="Black" FocusVisualSecondaryBrush="#99000000" Click="BuyButtonClick"/>
+        <Rectangle HorizontalAlignment="Left" Height="175" Margin="1460,18,0,0" VerticalAlignment="Top" Width="400" Fill="{ThemeResource SystemControlPageBackgroundListLowBrush}" RadiusX="8" RadiusY="8"/>
+        <TextBlock HorizontalAlignment="Left" Margin="1469,24,0,0" TextWrapping="Wrap" Text="Ваша корзина" VerticalAlignment="Top" Foreground="{ThemeResource AppBarItemPointerOverForegroundThemeBrush}" FontSize="20" FontWeight="SemiBold"/>
+        <TextBlock x:Name="QuantityMaterial" HorizontalAlignment="Left" Margin="1469,51,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Foreground="{ThemeResource AppBarItemPointerOverForegroundThemeBrush}" FontSize="16" FontWeight="Light"/>
+        <TextBlock HorizontalAlignment="Left" Margin="1469,87,0,0" TextWrapping="Wrap" Text="Общая стоимость" VerticalAlignment="Top" Foreground="{ThemeResource AppBarItemPointerOverForegroundThemeBrush}" FontSize="20" FontWeight="SemiBold"/>
+        <TextBlock x:Name="AllCostText" HorizontalAlignment="Left" Margin="1469,114,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Foreground="{ThemeResource AppBarItemPointerOverForegroundThemeBrush}" FontSize="16" FontWeight="Light"/>
+        <Button Content="Оплатить корзину" Margin="1467,146,0,0" VerticalAlignment="Top" Width="386" Height="40" Background="#FF28CA5E" CornerRadius="6,6,6,6" FontSize="18" FocusVisualPrimaryBrush="Black" FocusVisualSecondaryBrush="#99000000" Click="BuyButtonClick"/>
     </Grid>
 </Page>
