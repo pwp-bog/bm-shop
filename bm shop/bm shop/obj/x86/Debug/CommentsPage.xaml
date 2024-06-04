@@ -6,10 +6,12 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="#FF960404" Width="1920" Height="1080">
+    Background="Transparent" Width="1100">
 
-    <Grid x:ConnectionId='2' x:Name="CatalogGrid">
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" HorizontalScrollMode="Disabled" Width="1100" Height="900">
+        <Grid x:ConnectionId='2' x:Name="CatalogGrid">
 
-    </Grid>
+        </Grid>
+    </ScrollViewer>
 </Page>
 

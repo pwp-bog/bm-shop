@@ -6,10 +6,12 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="Transparent" Width="1100">
 
-    <Grid>
-        <TextBlock x:ConnectionId='2' x:Name="FooterText" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Padding="0,10,0,0" Grid.ColumnSpan="3" Margin="0,5,0,0"/>
-    </Grid>
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" HorizontalScrollMode="Disabled" Width="1100">
+        <Grid>
+            <TextBlock x:ConnectionId='2' x:Name="FooterText" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Padding="0,10,0,0" Grid.ColumnSpan="3" Margin="0,5,0,0"/>
+        </Grid>
+    </ScrollViewer>
 </Page>
 

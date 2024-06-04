@@ -30,35 +30,33 @@
             </StackPanel>
         </Grid>
 
-        <ScrollViewer VerticalScrollBarVisibility="Auto" Background="{x:Null}" BorderBrush="{x:Null}" Margin="0,0,0,0">
-            <Grid x:Name="CatalogGrid" Margin="800,25,15,0">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
+        <Grid x:Name="CatalogGrid" Margin="800,25,15,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-                <!-- Выбор подпунктов -->
-                <StackPanel x:Name="ButtonStackPanel" Orientation="Horizontal" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3">
-                    <Button x:Name="testBtn0" Content="Описание" BorderThickness="0,0,0,2" BorderBrush="{ThemeResource SystemAccentColor}" Background="#008C8F98" Click="Button_Click" Padding="8,0,8,0" FontSize="20"/>
-                    <Button x:Name="testBtn" Content="Преимущества" BorderThickness="0,0,0,2" BorderBrush="{ThemeResource AppBarItemDisabledForegroundThemeBrush}" Background="{x:Null}" Click="Button_Click" Padding="8,0,8,0" FontSize="20"/>
-                    <Button x:Name="testBtn1" Content="Характеристики" BorderThickness="0,0,0,2" Background="{x:Null}" Click="Button_Click" FocusVisualPrimaryBrush="{x:Null}" BorderBrush="{ThemeResource AppBarItemDisabledForegroundThemeBrush}" Padding="8,0,8,0" FontSize="20"/>
-                    <Button x:Name="testBtn2" Content="Способ применения" BorderThickness="0,0,0,2" Background="{x:Null}" Click="Button_Click" FocusVisualPrimaryBrush="{x:Null}" BorderBrush="{ThemeResource AppBarItemDisabledForegroundThemeBrush}" Padding="8,0,8,0" FontSize="20"/>
-                    <Button x:Name="testBtn3" Content="Хранение" BorderThickness="0,0,0,2" Background="{x:Null}" FocusVisualPrimaryBrush="{x:Null}" BorderBrush="{ThemeResource AppBarItemDisabledForegroundThemeBrush}" Padding="8,0,8,0" Click="Button_Click" FontSize="20"/>
-                    <Button x:Name="testBtn4" Content="Отзывы" BorderThickness="0,0,0,2" Background="{x:Null}" FocusVisualPrimaryBrush="{x:Null}" BorderBrush="{ThemeResource AppBarItemDisabledForegroundThemeBrush}" Padding="8,0,8,0" Click="Button_Click" FontSize="20"/>
-                </StackPanel>
+            <!-- Выбор подпунктов -->
+            <StackPanel x:Name="ButtonStackPanel" Orientation="Horizontal" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3">
+                <Button x:Name="testBtn0" Content="Описание" BorderThickness="0,0,0,2" BorderBrush="{ThemeResource SystemAccentColor}" Background="#008C8F98" Click="Button_Click" Padding="8,0,8,0" FontSize="20"/>
+                <Button x:Name="testBtn" Content="Преимущества" BorderThickness="0,0,0,2" BorderBrush="{ThemeResource AppBarItemDisabledForegroundThemeBrush}" Background="{x:Null}" Click="Button_Click" Padding="8,0,8,0" FontSize="20"/>
+                <Button x:Name="testBtn1" Content="Характеристики" BorderThickness="0,0,0,2" Background="{x:Null}" Click="Button_Click" FocusVisualPrimaryBrush="{x:Null}" BorderBrush="{ThemeResource AppBarItemDisabledForegroundThemeBrush}" Padding="8,0,8,0" FontSize="20"/>
+                <Button x:Name="testBtn2" Content="Способ применения" BorderThickness="0,0,0,2" Background="{x:Null}" Click="Button_Click" FocusVisualPrimaryBrush="{x:Null}" BorderBrush="{ThemeResource AppBarItemDisabledForegroundThemeBrush}" Padding="8,0,8,0" FontSize="20"/>
+                <Button x:Name="testBtn3" Content="Хранение" BorderThickness="0,0,0,2" Background="{x:Null}" FocusVisualPrimaryBrush="{x:Null}" BorderBrush="{ThemeResource AppBarItemDisabledForegroundThemeBrush}" Padding="8,0,8,0" Click="Button_Click" FontSize="20"/>
+                <Button x:Name="testBtn4" Content="Отзывы" BorderThickness="0,0,0,2" Background="{x:Null}" FocusVisualPrimaryBrush="{x:Null}" BorderBrush="{ThemeResource AppBarItemDisabledForegroundThemeBrush}" Padding="8,0,8,0" Click="Button_Click" FontSize="20"/>
+            </StackPanel>
 
-                <Frame x:Name="CommentsFrame" Grid.Row="5" Grid.Column="0">
-                </Frame>
-            </Grid>
-        </ScrollViewer>
+            <Frame x:Name="CommentsFrame" Grid.Row="5" Grid.Column="0">
+            </Frame>
+        </Grid>
     </Grid>
 </Page>
