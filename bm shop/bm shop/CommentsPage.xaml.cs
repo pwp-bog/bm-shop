@@ -9,6 +9,8 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Devices.Geolocation.Geofencing;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
+using Windows.UI.Input;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -43,6 +45,9 @@ namespace bm_shop
         {
             //Очистка таблицы отзывов
             CatalogGrid.Children.Clear();
+            comments.Clear();
+            weight.Clear();
+            name.Clear();
 
             DB db = new DB();
             db.openConnection();
@@ -173,6 +178,8 @@ namespace bm_shop
             LikeButton.FontSize = 20;
             LikeButton.Name = "LikeButton";
             LikeButton.Margin = new Thickness(0, 0, 0, 0);
+            LikeButton.Tag = "";
+            LikeButton.BorderThickness = new Thickness(1);
 
             // Создание кнопки дизлайк
             Button DislikeButton = new Button();
@@ -182,6 +189,8 @@ namespace bm_shop
             DislikeButton.FontSize = 20;
             DislikeButton.Name = "DislikeButton";
             DislikeButton.Margin = new Thickness(5, 0, 0, 0);
+            DislikeButton.Tag = "";
+            DislikeButton.BorderThickness = new Thickness(1);
 
             // Создание кнопки Ответить
             Button AnswerButton = new Button();
@@ -201,14 +210,14 @@ namespace bm_shop
             WriteAnswerTextBox.Name = "WriteAnswerTextBox";
             WriteAnswerTextBox.Visibility = Visibility.Collapsed;
 
-            // Создание кнопки отмены написания ответа
-            Button  CancelWriteButton = new Button();
-            CancelWriteButton.Content = "Отмена";
-            CancelWriteButton.FontSize = 20;
-            CancelWriteButton.HorizontalAlignment = HorizontalAlignment.Left;
-            CancelWriteButton.VerticalAlignment = VerticalAlignment.Top;
-            CancelWriteButton.Name = "CancelWriteButton";
-            CancelWriteButton.Visibility = Visibility.Collapsed;
+            //// Создание кнопки отмены написания ответа
+            //Button  CancelWriteButton = new Button();
+            //CancelWriteButton.Content = "Отмена";
+            //CancelWriteButton.FontSize = 20;
+            //CancelWriteButton.HorizontalAlignment = HorizontalAlignment.Left;
+            //CancelWriteButton.VerticalAlignment = VerticalAlignment.Top;
+            //CancelWriteButton.Name = "CancelWriteButton";
+            //CancelWriteButton.Visibility = Visibility.Collapsed;
 
             // Создание кнопки ответить
             Button SendAnswerButton = new Button();
@@ -218,20 +227,23 @@ namespace bm_shop
             SendAnswerButton.VerticalAlignment = VerticalAlignment.Top;
             SendAnswerButton.Name = "SendAnswerButton";
             SendAnswerButton.Visibility = Visibility.Collapsed;
+            SendAnswerButton.IsEnabled = false;
 
             // Создание кнопки посмотреть ответы
             TextBlock GetAnswers = new TextBlock();
-            GetAnswers.Text = "v Ответы";
             GetAnswers.HorizontalAlignment = HorizontalAlignment.Left;
             GetAnswers.VerticalAlignment = VerticalAlignment.Top;
             GetAnswers.FontSize = 20;
             GetAnswers.Name = "GetAnswers";
             GetAnswers.Margin = new Thickness(0, 0, 0, 0);
+            GetAnswers.Tag = "false";
+            GetAnswers.Foreground = new SolidColorBrush((Color)Application.Current.Resources["SystemAccentColor"]);
 
             // Создание таблицы для отображение ответов на комментарии
             Grid AnswersGrid = new Grid();
             AnswersGrid.RowDefinitions.Add(new RowDefinition() { Height = GridLength.Auto });
             FillAnswerGrid(CurrentComment.id, GetAnswers, AnswersGrid);
+            GetAnswers.Text = GetCorrectAnswerCount(AnswersGrid.Children.Count);
 
 
             Grid containerGrid = new Grid();
@@ -255,7 +267,7 @@ namespace bm_shop
             containerGrid.Children.Add(DislikeButton);
             containerGrid.Children.Add(AnswerButton);
             containerGrid.Children.Add(WriteAnswerTextBox);
-            containerGrid.Children.Add(CancelWriteButton);
+            //containerGrid.Children.Add(CancelWriteButton);
             containerGrid.Children.Add(SendAnswerButton);
             containerGrid.Children.Add(GetAnswers);
             containerGrid.Children.Add(AnswersGrid);
@@ -275,10 +287,10 @@ namespace bm_shop
             Grid.SetRow(WriteAnswerTextBox, 4);
             Grid.SetColumn(WriteAnswerTextBox, 0);
             //Grid.SetColumnSpan(WriteAnswerTextBox, 3);
-            Grid.SetRow(CancelWriteButton, 4);
-            Grid.SetColumn(CancelWriteButton, 1);
+            //Grid.SetRow(CancelWriteButton, 4);
+            //Grid.SetColumn(CancelWriteButton, 1);
             Grid.SetRow(SendAnswerButton, 4);
-            Grid.SetColumn(SendAnswerButton, 2);
+            Grid.SetColumn(SendAnswerButton, 1);
 
             Grid.SetRow(GetAnswers, 5);
             Grid.SetColumn(GetAnswers, 0);
@@ -295,13 +307,15 @@ namespace bm_shop
             Grid.SetRow(DateOfWriting, 0);
             Grid.SetColumn(DateOfWriting, 2);
             
-
             // Задание функции обработчика нажатия на кнопку ответы
             GetAnswers.Tapped += (sender, e) =>  HideOrOpenAnswerComment(sender, e, AnswersGrid, GetAnswers);
             AnswersGrid.Visibility = Visibility.Collapsed;
-            AnswerButton.Click += (sender, e) => HideOrOpenAnswerTextBoxAndButtons(sender, e, WriteAnswerTextBox, CancelWriteButton, SendAnswerButton);
+            AnswerButton.Click += (sender, e) => HideOrOpenAnswerTextBoxAndButtons(sender, e, WriteAnswerTextBox, SendAnswerButton, AnswerButton);
             SendAnswerButton.Click += (sender, e) => CreateAnswer(sender, e, WriteAnswerTextBox, AnswersGrid, GetAnswers,   CurrentComment);
-
+            WriteAnswerTextBox.TextChanged += (sender, e) => EditStatusSendAnswerButton(sender, e, WriteAnswerTextBox, SendAnswerButton);
+            LikeButton.Tapped += (sender, e) => SetLikeDislike(sender, e, LikeButton, CurrentComment.id, SignInPage.CurrentUser.id, true);
+            DislikeButton.Tapped += (sender, e) => SetLikeDislike(sender, e, DislikeButton, CurrentComment.id, SignInPage.CurrentUser.id, false);
+            ChangeStatusLikeDislike(LikeButton, DislikeButton, CurrentComment.id, SignInPage.CurrentUser.id);
 
             // Задание расположения Border в Grid
             Grid.SetRow(border, row);
@@ -388,8 +402,10 @@ namespace bm_shop
             SendAnswerButton.HorizontalAlignment = HorizontalAlignment.Left;
             SendAnswerButton.VerticalAlignment = VerticalAlignment.Top;
             SendAnswerButton.Name = "SendAnswerButton";
+            SendAnswerButton.IsEnabled = false;
 
             SendAnswerButton.Click += (sender, e) => SendAnswerAboutMaterial(sender, e, GetMaterialMark(FirstStar, SecondaryStar, ThirdStar, FourthStar, FivesStar));
+            WriteAnswerTextBox.TextChanged += (sender, e) => EditStatusSendAnswerButton(sender, e, WriteAnswerTextBox, SendAnswerButton);
 
             Grid containerGrid = new Grid();
             containerGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = GridLength.Auto });
@@ -480,6 +496,31 @@ namespace bm_shop
             }
         }
 
+        public string GetCorrectAnswerCount(int AnswerCount)
+        {
+            string word = $"{AnswerCount} ответ";
+
+            // Проверяем окончание по правилам русского языка
+            if (AnswerCount % 10 == 1 && AnswerCount % 100 != 11)
+            {
+                // Если окончание соответствует правилам для "1", используем слово "ответ"
+                word += AnswerCount == 11 ? "ов" : "";
+            }
+            else if (AnswerCount % 10 >= 2 && AnswerCount % 10 <= 4 && !(AnswerCount % 100 >= 12 && AnswerCount % 100 <= 14))
+            {
+                // Если окончание соответствует правилам для "2-4", используем слово "ответа"
+                word += "а";
+            }
+            else
+            {
+                // Иначе используем слово "ответов"
+                word += "ов";
+            }
+
+            return word;
+        }
+
+        // Возвращает количество звёзд в виде оценки в формате цифры
         public int GetMaterialMark(TextBlock one, TextBlock two, TextBlock three, TextBlock fourth, TextBlock fives)
         {
             int result = 0;
@@ -583,6 +624,8 @@ namespace bm_shop
             LikeButton.FontSize = 20;
             LikeButton.Name = "LikeButton";
             LikeButton.Margin = new Thickness(0, 0, 0, 0);
+            LikeButton.BorderThickness = new Thickness(1);
+            LikeButton.Tag = "";
 
             // Создание кнопки дизлайк
             Button DislikeButton = new Button();
@@ -592,6 +635,8 @@ namespace bm_shop
             DislikeButton.FontSize = 20;
             DislikeButton.Name = "DislikeButton";
             DislikeButton.Margin = new Thickness(5, 0, 0, 0);
+            DislikeButton.BorderThickness = new Thickness(1);
+            DislikeButton.Tag = "";
 
             // Создание кнопки Ответить
             Button AnswerButton = new Button();
@@ -610,15 +655,16 @@ namespace bm_shop
             WriteAnswerTextBox.VerticalAlignment = VerticalAlignment.Top;
             WriteAnswerTextBox.Name = "WriteAnswerTextBox";
             WriteAnswerTextBox.Visibility = Visibility.Collapsed;
+            
 
             // Создание кнопки отмены написания ответа
-            Button CancelWriteButton = new Button();
-            CancelWriteButton.Content = "Отмена";
-            CancelWriteButton.FontSize = 20;
-            CancelWriteButton.HorizontalAlignment = HorizontalAlignment.Left;
-            CancelWriteButton.VerticalAlignment = VerticalAlignment.Top;
-            CancelWriteButton.Name = "CancelWriteButton";
-            CancelWriteButton.Visibility = Visibility.Collapsed;
+            //Button CancelWriteButton = new Button();
+            //CancelWriteButton.Content = "Отмена";
+            //CancelWriteButton.FontSize = 20;
+            //CancelWriteButton.HorizontalAlignment = HorizontalAlignment.Left;
+            //CancelWriteButton.VerticalAlignment = VerticalAlignment.Top;
+            //CancelWriteButton.Name = "CancelWriteButton";
+            //CancelWriteButton.Visibility = Visibility.Collapsed;
 
             // Создание кнопки ответить
             Button SendAnswerButton = new Button();
@@ -628,6 +674,7 @@ namespace bm_shop
             SendAnswerButton.VerticalAlignment = VerticalAlignment.Top;
             SendAnswerButton.Name = "SendAnswerButton";
             SendAnswerButton.Visibility = Visibility.Collapsed;
+            SendAnswerButton.IsEnabled = false;
 
             Grid containerGrid = new Grid();
             containerGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = GridLength.Auto });
@@ -649,7 +696,7 @@ namespace bm_shop
             containerGrid.Children.Add(DislikeButton);
             containerGrid.Children.Add(AnswerButton);
             containerGrid.Children.Add(WriteAnswerTextBox);
-            containerGrid.Children.Add(CancelWriteButton);
+            //containerGrid.Children.Add(CancelWriteButton);
             containerGrid.Children.Add(SendAnswerButton);
 
             // Задание расположения Border в Grid
@@ -666,10 +713,10 @@ namespace bm_shop
             Grid.SetColumn(AnswerButton, 2);
             Grid.SetRow(WriteAnswerTextBox, 4);
             Grid.SetColumn(WriteAnswerTextBox, 0);
-            Grid.SetRow(CancelWriteButton, 4);
-            Grid.SetColumn(CancelWriteButton, 1);
+            //Grid.SetRow(CancelWriteButton, 4);
+            //Grid.SetColumn(CancelWriteButton, 1);
             Grid.SetRow(SendAnswerButton, 4);
-            Grid.SetColumn(SendAnswerButton, 2);
+            Grid.SetColumn(SendAnswerButton, 1);
 
             Grid.SetRow(UserName, 0);
             Grid.SetColumn(UserName, 1);
@@ -677,9 +724,13 @@ namespace bm_shop
             Grid.SetColumn(DateOfWriting, 2);
 
 
-            AnswerButton.Click += (sender, e) => HideOrOpenAnswerTextBoxAndButtons(sender, e, WriteAnswerTextBox, CancelWriteButton, SendAnswerButton);
+            AnswerButton.Click += (sender, e) => HideOrOpenAnswerTextBoxAndButtons(sender, e, WriteAnswerTextBox, SendAnswerButton, AnswerButton);
 
             SendAnswerButton.Click += (sender, e) => CreateAnswer(sender, e, WriteAnswerTextBox, CurrentComment, commentId);
+            WriteAnswerTextBox.TextChanged += (sender, e) => EditStatusSendAnswerButton(sender, e, WriteAnswerTextBox, SendAnswerButton);
+            LikeButton.Tapped += (sender, e) => SetLikeDislike(sender, e, LikeButton, CurrentComment.id, SignInPage.CurrentUser.id, true);
+            DislikeButton.Tapped += (sender, e) => SetLikeDislike(sender, e, DislikeButton, CurrentComment.id, SignInPage.CurrentUser.id, false);
+            ChangeStatusLikeDislike(LikeButton, DislikeButton, CurrentComment.id, SignInPage.CurrentUser.id);
 
 
             // Задание расположения Border в Grid
@@ -793,30 +844,36 @@ namespace bm_shop
         // Показать/Скрыть ответы
         public void HideOrOpenAnswerComment(object sender, RoutedEventArgs e, Grid AnswerGrid, TextBlock  AnswerText)
         {
-            if(AnswerText.Text == "v Ответы")
+            if(AnswerText.Tag == "false")
             {
                 AnswerGrid.Visibility = Visibility.Visible;
-                AnswerText.Text = "⌃ Ответы";
+                AnswerText.Tag = "true";
             }
-            else if(AnswerText.Text == "⌃ Ответы")
+            else if(AnswerText.Tag == "true")
             {
                 AnswerGrid.Visibility = Visibility.Collapsed;
-                AnswerText.Text = "v Ответы";
+                AnswerText.Tag = "false";
             }
         }
 
         // Показать/Скрыть поле для ввода ответа и кнопки отменить и отправить
-        public void HideOrOpenAnswerTextBoxAndButtons(object sender, RoutedEventArgs e, TextBox textBox, Button btn1, Button btn2)
+        public void HideOrOpenAnswerTextBoxAndButtons(object sender, RoutedEventArgs e, TextBox textBox, Button btn1, Button AnswerBtn)
         {
             var buf = Visibility.Collapsed;
             if (textBox.Visibility == Visibility.Collapsed)
+            {
                 buf = Visibility.Visible;
+                AnswerBtn.Content = "Скрыть";
+            }
             else
+            {
                 buf = Visibility.Collapsed;
+                AnswerBtn.Content = "Ответить";
+            }
 
             textBox.Visibility = buf;
             btn1.Visibility = buf;
-            btn2.Visibility = buf;
+            //btn2.Visibility = buf;
         }
 
         // Отправка ответа на ответ
@@ -841,7 +898,7 @@ namespace bm_shop
                     {
                         textBox.Text = String.Empty;
                         var btn1 = this.FindName("SendAnswerButton") as Button;
-                        var btn2 = this.FindName("CancelWriteButton") as Button;
+                        var btn2 = this.FindName("AnswerButton") as Button;
 
                         HideOrOpenAnswerTextBoxAndButtons(sender, e, textBox, btn1, btn2);
                         //FillAnswerGrid(CurrentComment.id, AnswerText, AnswerGrid);
@@ -880,7 +937,7 @@ namespace bm_shop
                     {
                         textBox.Text = String.Empty;
                         var btn1 = this.FindName("SendAnswerButton") as Button;
-                        var btn2 = this.FindName("CancelWriteButton") as Button;
+                        var btn2 = this.FindName("AnswerButton") as Button;
 
                         HideOrOpenAnswerTextBoxAndButtons(sender, e, textBox, btn1, btn2);
                         FillAnswerGrid(CurrentComment.id, AnswerText, AnswerGrid);
@@ -898,9 +955,121 @@ namespace bm_shop
         }
 
         // Менять статус кнопки на не рабочий если текстбокс без текста и когда появляется текст делать его кликабельным
-        public void EditStatusSendAnswerButton()
+        public void EditStatusSendAnswerButton(object sender, TextChangedEventArgs e, TextBox CommentText, Button SendButton)
         {
+            if(CommentText.Text == String.Empty)
+            {
+                SendButton.IsEnabled = false;
+            }
+            else
+            {
+                SendButton.IsEnabled = true;
+            }
+        }
 
+        // Функция добавляющая Like/Dislike на комментарий
+        public void SetLikeDislike(object sender, TappedRoutedEventArgs e, Button Btn, int CommentId, int UserId, bool Status)
+        {
+            Btn.BorderBrush = new SolidColorBrush((Color)Application.Current.Resources["SystemAccentColor"]);
+
+
+            DB db1 = new DB();
+
+            db1.openConnection();
+
+            using (MySqlConnection connection1 = db1.getConnection())
+            {
+                string DeleteSqlCommandText = $"DELETE FROM `commentslikes` WHERE commentsId = {CommentId} AND userId = {UserId}";
+                MySqlCommand DeleteCommand = new MySqlCommand(DeleteSqlCommandText, connection1);
+
+                if (!(DeleteCommand.ExecuteNonQuery() >= 0))
+                {
+                    var msg = new MessageDialog("Возникла ошибка, попробуйте снова", "bm shop");
+                    var res = msg.ShowAsync();
+                }
+            }
+
+            if (Btn.Tag == "" || Btn.Tag == "false")
+            {
+                Btn.Tag = "true";
+
+                DB db = new DB();
+
+                db.openConnection();
+
+
+
+                using (MySqlConnection connection = db.getConnection())
+                {
+                    string CommandText = $"INSERT INTO `commentslikes` (`id`, `commentsId`, `userId`, `islike`) VALUES (NULL, '{CommentId}', '{UserId}', '{Status.ToString().ToLower()}');";
+                    MySqlCommand command = new MySqlCommand(CommandText, connection);
+
+                    if (command.ExecuteNonQuery() >= 0)
+                    {
+
+                    }
+                    else
+                    {
+                        var msg = new MessageDialog("Возникла ошибка во время оценки, попробуйте снова", "bm shop");
+                        var res = msg.ShowAsync();
+                    }
+                }
+
+                db.closeConnection();
+            }
+            Btn.Tag = "false";
+            FillData();
+        }
+
+        // Обводка кнопок лайка дизлайка
+        public void ChangeStatusLikeDislike(Button LikeBtn, Button DislikeBtn, int CommentId, int UserId)
+        {
+            // Если лайк для данной записи уже есть, то заблокировать поступление новых лайков для этой записи от данного юзера, в случае если юзер ставит дизлайк то всё наоборот и лайк снимается.
+
+            DB db = new DB();
+
+            db.openConnection();
+
+            DataTable table = new DataTable();
+
+            using (MySqlConnection connection = db.getConnection())
+            {
+                string SqlText = $"SELECT * FROM `commentslikes` WHERE commentsId = {CommentId} AND userId = {UserId};";
+                MySqlCommand command = new MySqlCommand(@SqlText, connection);
+
+                using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                {
+                    adapter.Fill(table);
+                }
+            }
+
+            db.closeConnection();
+
+            if(table.Rows.Count > 0)
+            {
+                foreach (DataRow row in table.Rows)
+                {
+                    if (row[3].ToString() == "true")
+                    {
+                        LikeBtn.Tag = "true";
+                        LikeBtn.BorderBrush = new SolidColorBrush((Color)Application.Current.Resources["SystemAccentColor"]);
+                        DislikeBtn.Tag = "false";
+                        DislikeBtn.BorderBrush = null;
+                    }
+                    else if (row[3].ToString() == "false")
+                    {
+                        LikeBtn.Tag = "false";
+                        LikeBtn.BorderBrush = null;
+                        DislikeBtn.Tag = "true";
+                        DislikeBtn.BorderBrush = new SolidColorBrush((Color)Application.Current.Resources["SystemAccentColor"]);
+                    }
+                }
+            }
+            else
+            {
+                LikeBtn.BorderBrush = null;
+                DislikeBtn.BorderBrush = null;
+            }
         }
     }
 }

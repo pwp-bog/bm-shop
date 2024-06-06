@@ -17,7 +17,7 @@
                 <NavigationViewItem Icon="Clock" Content="История покупок" Tapped="NavigationViewItem_Tapped2"/>
                 <!--<NavigationViewItem Icon="Clock" Content="История покупок" Tapped="NavigationViewItem_Tapped"/>-->
                 <TextBox x:Name="SearchTextBox" PlaceholderText="Поиск" Width="500" CornerRadius="10,10,10,10" Background="{x:Null}" TextChanged="TextBox_TextChanged"/>
-                <NavigationViewItem x:Name="AddMaterial" Icon="Add" Content="Добавить товар" Tapped="NavigationViewItem_Tapped3" Visibility="Collapsed"/>
+                <NavigationViewItem x:Name="AddMaterial" Icon="Add" Content="Панель администратора" Tapped="NavigationViewItem_Tapped3" Visibility="Collapsed"/>
             </NavigationView.MenuItems>
             <NavigationView.PaneFooter>
                 <NavigationViewItem Icon="Contact" Content="" Tapped="ShowSettingsDialog"/>

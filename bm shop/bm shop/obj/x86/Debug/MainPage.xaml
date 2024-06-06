@@ -17,7 +17,7 @@
                 <NavigationViewItem x:ConnectionId='6' Icon="Clock" Content="История покупок"                                    />
                 <!--<NavigationViewItem Icon="Clock" Content="История покупок" Tapped="NavigationViewItem_Tapped"/>-->
                 <TextBox x:ConnectionId='7' x:Name="SearchTextBox" PlaceholderText="Поиск" Width="500" CornerRadius="10,10,10,10" Background="{x:Null}"                                  />
-                <NavigationViewItem x:ConnectionId='8' x:Name="AddMaterial" Icon="Add" Content="Добавить товар"                                     Visibility="Collapsed"/>
+                <NavigationViewItem x:ConnectionId='8' x:Name="AddMaterial" Icon="Add" Content="Панель администратора"                                     Visibility="Collapsed"/>
             </NavigationView.MenuItems>
             <NavigationView.PaneFooter>
                 <NavigationViewItem x:ConnectionId='9' Icon="Contact" Content=""                            />

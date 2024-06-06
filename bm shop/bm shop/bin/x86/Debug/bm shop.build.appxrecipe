@@ -28,6 +28,9 @@
     <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\bin\x86\Debug\bm shop.exe">
       <PackagePath>entrypoint\bm shop.exe</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\castle.core\5.1.1\lib\netstandard2.0\Castle.Core.dll">
+      <PackagePath>Castle.Core.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\epplus\7.1.3\lib\netstandard2.0\EPPlus.dll">
       <PackagePath>EPPlus.dll</PackagePath>
     </AppxPackagedFile>
@@ -70,6 +73,54 @@
     <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\microsoft.io.recyclablememorystream\3.0.0\lib\netstandard2.0\Microsoft.IO.RecyclableMemoryStream.dll">
       <PackagePath>Microsoft.IO.RecyclableMemoryStream.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\moq\4.20.70\lib\netstandard2.0\Moq.dll">
+      <PackagePath>Moq.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\mstest.testframework\3.4.3\lib\uap10.0\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll">
+      <PackagePath>Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\mstest.testframework\3.4.3\lib\uap10.0\Microsoft.VisualStudio.TestPlatform.TestFramework.dll">
+      <PackagePath>Microsoft.VisualStudio.TestPlatform.TestFramework.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\mstest.testframework\3.4.3\lib\uap10.0\cs\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll">
+      <PackagePath>cs\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\mstest.testframework\3.4.3\lib\uap10.0\de\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll">
+      <PackagePath>de\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\mstest.testframework\3.4.3\lib\uap10.0\es\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll">
+      <PackagePath>es\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\mstest.testframework\3.4.3\lib\uap10.0\fr\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll">
+      <PackagePath>fr\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\mstest.testframework\3.4.3\lib\uap10.0\it\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll">
+      <PackagePath>it\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\mstest.testframework\3.4.3\lib\uap10.0\ja\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll">
+      <PackagePath>ja\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\mstest.testframework\3.4.3\lib\uap10.0\ko\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll">
+      <PackagePath>ko\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\mstest.testframework\3.4.3\lib\uap10.0\pl\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll">
+      <PackagePath>pl\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\mstest.testframework\3.4.3\lib\uap10.0\pt-BR\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll">
+      <PackagePath>pt-BR\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\mstest.testframework\3.4.3\lib\uap10.0\ru\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll">
+      <PackagePath>ru\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\mstest.testframework\3.4.3\lib\uap10.0\tr\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll">
+      <PackagePath>tr\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\mstest.testframework\3.4.3\lib\uap10.0\zh-Hans\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll">
+      <PackagePath>zh-Hans\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\mstest.testframework\3.4.3\lib\uap10.0\zh-Hant\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll">
+      <PackagePath>zh-Hant\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\mysqlconnector\2.3.7\lib\netstandard2.0\MySqlConnector.dll">
       <PackagePath>MySqlConnector.dll</PackagePath>
     </AppxPackagedFile>
@@ -78,6 +129,9 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\system.diagnostics.diagnosticsource\7.0.2\lib\netstandard2.0\System.Diagnostics.DiagnosticSource.dll">
       <PackagePath>System.Diagnostics.DiagnosticSource.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\system.diagnostics.eventlog\4.7.0\lib\netstandard2.0\System.Diagnostics.EventLog.dll">
+      <PackagePath>System.Diagnostics.EventLog.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\system.drawing.common\4.7.3\lib\netstandard2.0\System.Drawing.Common.dll">
       <PackagePath>System.Drawing.Common.dll</PackagePath>
@@ -102,6 +156,18 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\bin\10.0.22621.0\XamlCompiler\Microsoft.UI.Xaml.Markup.winmd">
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\mstest.testadapter\3.4.3\build\_localization\ru\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll">
+      <PackagePath>ru\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\mstest.testadapter\3.4.3\build\uap10.0\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll">
+      <PackagePath>Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\mstest.testadapter\3.4.3\build\uap10.0\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll">
+      <PackagePath>Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\bodya\.nuget\packages\mstest.testadapter\3.4.3\build\uap10.0\Microsoft.TestPlatform.AdapterUtilities.dll">
+      <PackagePath>Microsoft.TestPlatform.AdapterUtilities.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Github\bm-shop\bm shop\bm shop\Assets\23.png">
       <PackagePath>Assets\23.png</PackagePath>

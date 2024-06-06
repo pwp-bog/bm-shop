@@ -1,0 +1,286 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ElementNumbersDontMatch" xml:space="preserve">
+    <value>Počet elementů v kolekcích nesouhlasí. Očekáváno:&lt;{1}&gt;. Aktuálně:&lt;{2}&gt;.{0}</value>
+  </data>
+  <data name="IsMatchFail" xml:space="preserve">
+    <value>Řetězec '{0}' neodpovídá vzoru '{1}'. {2}.</value>
+  </data>
+  <data name="IsInstanceOfFailMsg" xml:space="preserve">
+    <value>{0} Očekávaný typ:&lt;{1}&gt;. Aktuální typ:&lt;{2}&gt;.</value>
+  </data>
+  <data name="ContainsFail" xml:space="preserve">
+    <value>Řetězec '{0}' neobsahuje řetězec '{1}'. {2}.</value>
+  </data>
+  <data name="StartsWithFail" xml:space="preserve">
+    <value>Řetězec '{0}' nezačíná řetězcem '{1}'. {2}.</value>
+  </data>
+  <data name="AreEqualDifferentTypesFailMsg" xml:space="preserve">
+    <value>Očekáváno:&lt;{1} ({2})&gt;. Aktuálně:&lt;{3} ({4})&gt;. {0}</value>
+  </data>
+  <data name="DynamicDataInvalidPropertyLayout" xml:space="preserve">
+    <value>Vlastnost dynamických dat {0} by měla být statická a měla by mít metodu getter.</value>
+  </data>
+  <data name="BothSameElements" xml:space="preserve">
+    <value>Obě kolekce obsahují stejné elementy. {0}</value>
+  </data>
+  <data name="DynamicDataValueNull" xml:space="preserve">
+    <value>Hodnota vrácená vlastností nebo metodou {0} by neměla být null.</value>
+  </data>
+  <data name="AreNotEqualDeltaFailMsg" xml:space="preserve">
+    <value>Očekáván rozdíl, který je větší jak &lt;{3}&gt; mezi očekávanou hodnotou &lt;{1}&gt; a aktuální hodnotou &lt;{2}&gt;. {0}</value>
+  </data>
+  <data name="ElementsAtIndexDontMatch" xml:space="preserve">
+    <value>Element na indexu {0} nesouhlasí.</value>
+  </data>
+  <data name="BothCollectionsSameReference" xml:space="preserve">
+    <value>Obě reference na kolekci odkazují na stejný objekt kolekce. {0}</value>
+  </data>
+  <data name="AsyncUITestMethodNotSupported" xml:space="preserve">
+    <value>async TestMethod s atributem UITestMethodAttribute se nepodporují. Buď odeberte async, nebo použijte TestMethodAttribute.</value>
+  </data>
+  <data name="PrivateAccessorConstructorNotFound" xml:space="preserve">
+    <value>
+      Konstruktor se zadaným podpisem se nepovedlo najít. Je možné, že bude zapotřebí obnovit soukromý přistupující objekt,
+ nebo může být člen soukromý a definovaný v základní třídě. Pokud je tvrzení pravdivé, bude zapotřebí předat typ
+      , který definuje člena do konstruktoru PrivateObject.
+    </value>
+  </data>
+  <data name="AssertionFailed" xml:space="preserve">
+    <value>{0} selhalo. {1}</value>
+  </data>
+  <data name="DoNotUseAssertEquals" xml:space="preserve">
+    <value>Assert.Equals by neměla být pro kontrolní výrazy používána. Použijte prosím místo toho Assert.AreEqual a její přetížení.</value>
+  </data>
+  <data name="UTF_TestMethodNoExceptionDefault" xml:space="preserve">
+    <value>Testovací metoda nevyvolala výjimku. Atribut {0} definovaný u testovací metody výjimku očekával.</value>
+  </data>
+  <data name="Common_NullInMessages" xml:space="preserve">
+    <value>(null)</value>
+  </data>
+  <data name="UTF_TestMethodWrongExceptionDerivedAllowed" xml:space="preserve">
+    <value>Testovací metoda vyvolala výjimku {0}, ale očekávala se výjimka {1} nebo od ní odvozený typ. Zpráva o výjimce: {2}</value>
+  </data>
+  <data name="NoExceptionThrown" xml:space="preserve">
+    <value>Nebyla vyvolána žádná výjimka. Byla očekávaná {1} výjimka. {0}</value>
+  </data>
+  <data name="DataDrivenResultDisplayName" xml:space="preserve">
+    <value>{0} ({1})</value>
+  </data>
+  <data name="CollectionEqualReason" xml:space="preserve">
+    <value>{0}({1})</value>
+  </data>
+  <data name="AccessStringInvalidSyntax" xml:space="preserve">
+    <value>Přístupový řetězec má neplatnou syntaxi.</value>
+  </data>
+  <data name="ElementTypesAtIndexDontMatch" xml:space="preserve">
+    <value>Element na indexu {1} není očekávaného typu. Očekávaný typ:&lt;{2}&gt;. Aktuální typ:&lt;{3}&gt;.{0}</value>
+  </data>
+  <data name="AreNotEqualFailMsg" xml:space="preserve">
+    <value>Nebyla očekávána žádná hodnota kromě:&lt;{1}&gt;. Aktuálně:&lt;{2}&gt;. {0}</value>
+  </data>
+  <data name="AsyncUITestMethodWithNoDispatcherQueue" xml:space="preserve">
+    <value>UITestMethodAttribute.DispatcherQueue nesmí mít hodnotu null. Pokud chcete použít UITestMethodAttribute v desktopové aplikaci WinUI, nezapomeňte během inicializace testu nastavit statický UITestMethodAttribute.DispatcherQueue.</value>
+  </data>
+  <data name="UTF_TestMethodNoException" xml:space="preserve">
+    <value>Testovací metoda nevyvolala očekávanou výjimku {0}. {1}</value>
+  </data>
+  <data name="IsNotMatchFail" xml:space="preserve">
+    <value>Řetězec '{0}' odpovídá vzoru '{1}'. {2}.</value>
+  </data>
+  <data name="UTF_TestMethodWrongException" xml:space="preserve">
+    <value>Testovací metoda vyvolala výjimku {0}, ale očekávala se výjimka {1}. Zpráva o výjimce: {2}</value>
+  </data>
+  <data name="WrongExceptionThrown" xml:space="preserve">
+    <value>Způsobil výjimku {2}, ale výjimka {1} byla očekávaná. {0}
+Zpráva výjimky: {3}
+Trasování zásobníku: {4}</value>
+  </data>
+  <data name="IsNotInstanceOfFailMsg" xml:space="preserve">
+    <value>Špatný typ:&lt;{1}&gt;. Aktuální typ:&lt;{2}&gt;. {0}</value>
+  </data>
+  <data name="AreEqualDeltaFailMsg" xml:space="preserve">
+    <value>Očekáván rozdíl, který není větší jak &lt;{3}&gt; mezi očekávanou hodnotou &lt;{1}&gt; a aktuální hodnotou &lt;{2}&gt;. {0}</value>
+  </data>
+  <data name="UTF_FailedToGetExceptionMessage" xml:space="preserve">
+    <value>(Z důvodu výjimky se nepodařilo získat zprávu o výjimce typu {0}.)</value>
+  </data>
+  <data name="AllItemsAreUniqueFailMsg" xml:space="preserve">
+    <value>Byla nalezena duplicitní položka:&lt;{1}&gt;. {0}</value>
+  </data>
+  <data name="Common_ObjectString" xml:space="preserve">
+    <value>(objekt)</value>
+  </data>
+  <data name="ArgumentXMustDeriveFromClassY" xml:space="preserve">
+    <value>Typ „{0}“ nelze přiřadit k „{1}“.</value>
+  </data>
+  <data name="EndsWithFail" xml:space="preserve">
+    <value>Řetězec '{0}' nekončí řetězcem '{1}'. {2}.</value>
+  </data>
+  <data name="DynamicDataIEnumerableEmpty" xml:space="preserve">
+    <value>Vlastnost nebo metoda {0} ve třídě {1} vrací prázdné IEnumerable&lt;object[]&gt;.</value>
+  </data>
+  <data name="DynamicDataInvalidMethodLayout" xml:space="preserve">
+    <value>Metoda dynamických dat {0} by měla být statická, bez parametrů a negenerická.</value>
+  </data>
+  <data name="NumberOfElementsDiff" xml:space="preserve">
+    <value>Rozdílný počet elementů.</value>
+  </data>
+  <data name="NullParameterToAssert" xml:space="preserve">
+    <value>Parametr '{0}' je neplatný. Hodnota nemůže být null. {1}.</value>
+  </data>
+  <data name="BothCollectionsSameElements" xml:space="preserve">
+    <value>Obě kolekce obsahují stejné elementy.</value>
+  </data>
+  <data name="BothCollectionsEmpty" xml:space="preserve">
+    <value>Obě kolekce jsou prázdné. {0}</value>
+  </data>
+  <data name="AreEqualCaseFailMsg" xml:space="preserve">
+    <value>Očekáváno:&lt;{1}&gt;. Případ je rozdílný pro aktuální hodnotu:&lt;{2}&gt;. {0}</value>
+  </data>
+  <data name="InvalidPropertyType" xml:space="preserve">
+    <value>Vlastnost {0} je typu {1}; očekávaný typ {2}.</value>
+  </data>
+  <data name="AreSameGivenValues" xml:space="preserve">
+    <value>Nevkládejte hodnotu typů do AreSame(). Hodnoty převedené do typu Object už nebudou nikdy stejné. Zvažte použití AreEqual(). {0}</value>
+  </data>
+  <data name="DynamicDataIEnumerableNull" xml:space="preserve">
+    <value>Vlastnost nebo metoda {0} na návratovém typu {1} se nedá přiřadit k „IEnumerable&lt;object[]&gt;“ (ani „IEnumerable&lt;ITuple&gt;“ pro .NET Core).</value>
+  </data>
+  <data name="UTF_ExpectedExceptionTypeMustDeriveFromException" xml:space="preserve">
+    <value>Typ očekávané výjimky musí být typu System.Exception nebo z něj odvozený.</value>
+  </data>
+  <data name="DynamicDataDisplayName" xml:space="preserve">
+    <value>Metoda {0} musí odpovídat očekávanému podpisu: public static {1} {0}({2}).</value>
+  </data>
+  <data name="AreEqualFailMsg" xml:space="preserve">
+    <value>Očekáváno:&lt;{1}&gt;. Aktuálně:&lt;{2}&gt;. {0}</value>
+  </data>
+  <data name="ActualHasMismatchedElements" xml:space="preserve">
+    <value>Očekávaná kolekce obsahuje {1} výskyt(ů) &lt;{2}&gt;. Aktuální kolekce obsahuje {3} výskyt(ů). {0}</value>
+  </data>
+  <data name="PrivateAccessorMemberNotFound" xml:space="preserve">
+    <value>
+      Zadaný člen ({0}) nemohl být nalezen. Je možné, že bude zapotřebí obnovit soukromý přístupový objekt,
+ nebo může být člen soukromý a definovaný v základní třídě. Pokud je tvrzení pravdivé, bude zapotřebí předat typ
+      , který definuje člena do konstruktoru PrivateObject.
+    </value>
+  </data>
+</root>

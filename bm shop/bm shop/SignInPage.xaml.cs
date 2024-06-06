@@ -38,6 +38,7 @@ namespace bm_shop
             Frame.Navigate(typeof(StartPage));
         }
 
+
         //Обработка кнопки SignIn
         private void Button_Click(object sender, RoutedEventArgs e)
         {

@@ -248,6 +248,15 @@
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.14</Version>
     </PackageReference>
+    <PackageReference Include="Moq">
+      <Version>4.20.70</Version>
+    </PackageReference>
+    <PackageReference Include="MSTest.TestAdapter">
+      <Version>3.4.3</Version>
+    </PackageReference>
+    <PackageReference Include="MSTest.TestFramework">
+      <Version>3.4.3</Version>
+    </PackageReference>
     <PackageReference Include="MySqlConnector">
       <Version>2.3.7</Version>
     </PackageReference>

@@ -48,9 +48,21 @@
               "target": "Package",
               "version": "[7.1.3, )"
             },
+            "MSTest.TestAdapter": {
+              "target": "Package",
+              "version": "[3.4.3, )"
+            },
+            "MSTest.TestFramework": {
+              "target": "Package",
+              "version": "[3.4.3, )"
+            },
             "Microsoft.NETCore.UniversalWindowsPlatform": {
               "target": "Package",
               "version": "[6.2.14, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.20.70, )"
             },
             "MySqlConnector": {
               "target": "Package",
