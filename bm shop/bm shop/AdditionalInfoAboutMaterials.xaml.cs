@@ -408,7 +408,7 @@ namespace bm_shop
         public void CopyToClipboard(string text)
         {
             var dialog = new MessageDialog("Название скопировано в буфер обмена", "bm shop");
-            dialog.ShowAsync();
+            var res = dialog.ShowAsync();
 
             var dataPackage = new DataPackage();
             dataPackage.SetText(text);

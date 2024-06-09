@@ -1,0 +1,2 @@
+C:\Github\bm-shop\bm shop\bm shop\bm shop.csproj;x86
+C:\Github\bm-shop\bm shop\UWPTest\UWPTest.csproj;x86

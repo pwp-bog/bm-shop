@@ -1,0 +1,286 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ElementNumbersDontMatch" xml:space="preserve">
+    <value>El número de elementos de las colecciones no coincide. Se esperaba:&lt;{1}&gt;, pero es:&lt;{2}&gt;.{0}</value>
+  </data>
+  <data name="IsMatchFail" xml:space="preserve">
+    <value>La cadena '{0}' no coincide con el patrón '{1}'. {2}.</value>
+  </data>
+  <data name="IsInstanceOfFailMsg" xml:space="preserve">
+    <value>{0} Tipo esperado:&lt;{1}&gt;. Tipo real:&lt;{2}&gt;.</value>
+  </data>
+  <data name="ContainsFail" xml:space="preserve">
+    <value>La cadena '{0}' no contiene la cadena '{1}'. {2}.</value>
+  </data>
+  <data name="StartsWithFail" xml:space="preserve">
+    <value>La cadena '{0}' no empieza con la cadena '{1}'. {2}.</value>
+  </data>
+  <data name="AreEqualDifferentTypesFailMsg" xml:space="preserve">
+    <value>Se esperaba:&lt;{1} ({2})&gt;, pero es:&lt;{3} ({4})&gt;. {0}</value>
+  </data>
+  <data name="DynamicDataInvalidPropertyLayout" xml:space="preserve">
+    <value>La propiedad de datos dinámicos '{0}' debe ser estática y tener un captador.</value>
+  </data>
+  <data name="BothSameElements" xml:space="preserve">
+    <value>Ambas colecciones tienen los mismos elementos. {0}</value>
+  </data>
+  <data name="DynamicDataValueNull" xml:space="preserve">
+    <value>El valor devuelto por la propiedad o el método {0} no debe ser nulo.</value>
+  </data>
+  <data name="AreNotEqualDeltaFailMsg" xml:space="preserve">
+    <value>Se esperaba una diferencia mayor que &lt;{3}&gt; entre el valor esperado &lt;{1}&gt; y el valor actual &lt;{2}&gt;. {0}</value>
+  </data>
+  <data name="ElementsAtIndexDontMatch" xml:space="preserve">
+    <value>El elemento del índice {0} no coincide.</value>
+  </data>
+  <data name="BothCollectionsSameReference" xml:space="preserve">
+    <value>Las referencias de ambas colecciones apuntan al mismo objeto de colección. {0}</value>
+  </data>
+  <data name="AsyncUITestMethodNotSupported" xml:space="preserve">
+    <value>async TestMethod con UITestMethodAttribute no son compatibles. Quite async o use TestMethodAttribute.</value>
+  </data>
+  <data name="PrivateAccessorConstructorNotFound" xml:space="preserve">
+    <value>
+      No se encontró el constructor con la signatura especificada. Es posible que tenga que volver a generar el descriptor de acceso privado,
+      o que el miembro sea privado y esté definido en una clase base. Si esto último es cierto, debe pasar el tipo
+      que define el miembro al constructor de PrivateObject.
+    </value>
+  </data>
+  <data name="AssertionFailed" xml:space="preserve">
+    <value>Error de {0}. {1}</value>
+  </data>
+  <data name="DoNotUseAssertEquals" xml:space="preserve">
+    <value>No se debe usar Assert.Equals para aserciones. Use Assert.AreEqual y Overloads en su lugar.</value>
+  </data>
+  <data name="UTF_TestMethodNoExceptionDefault" xml:space="preserve">
+    <value>El método de prueba no inició una excepción. El atributo {0} definido en el método de prueba esperaba una excepción.</value>
+  </data>
+  <data name="Common_NullInMessages" xml:space="preserve">
+    <value>(null)</value>
+  </data>
+  <data name="UTF_TestMethodWrongExceptionDerivedAllowed" xml:space="preserve">
+    <value>El método de prueba inició la excepción {0}, pero se esperaba la excepción {1} o un tipo derivado de ella. Mensaje de la excepción: {2}</value>
+  </data>
+  <data name="NoExceptionThrown" xml:space="preserve">
+    <value>No se produjo ninguna excepción. Se esperaba la excepción {1}. {0}</value>
+  </data>
+  <data name="DataDrivenResultDisplayName" xml:space="preserve">
+    <value>{0} ({1})</value>
+  </data>
+  <data name="CollectionEqualReason" xml:space="preserve">
+    <value>{0}({1})</value>
+  </data>
+  <data name="AccessStringInvalidSyntax" xml:space="preserve">
+    <value>La cadena de acceso tiene una sintaxis no válida.</value>
+  </data>
+  <data name="ElementTypesAtIndexDontMatch" xml:space="preserve">
+    <value>El elemento del índice {1} no es del tipo esperado. Tipo esperado:&lt;{2}&gt;, pero es el tipo:&lt;{3}&gt;.{0}</value>
+  </data>
+  <data name="AreNotEqualFailMsg" xml:space="preserve">
+    <value>Se esperaba cualquier valor excepto &lt;{1}&gt;, pero es &lt;{2}&gt;. {0}</value>
+  </data>
+  <data name="AsyncUITestMethodWithNoDispatcherQueue" xml:space="preserve">
+    <value>UITestMethodAttribute.DispatcherQueue no debe ser null. Para usar UITestMethodAttribute en una aplicación de escritorio WinUI, recuerde establecer el UITestMethodAttribute.DispatcherQueue estático durante la inicialización de la prueba.</value>
+  </data>
+  <data name="UTF_TestMethodNoException" xml:space="preserve">
+    <value>El método de prueba no inició la excepción esperada {0}. {1}</value>
+  </data>
+  <data name="IsNotMatchFail" xml:space="preserve">
+    <value>La cadena '{0}' coincide con el patrón '{1}'. {2}.</value>
+  </data>
+  <data name="UTF_TestMethodWrongException" xml:space="preserve">
+    <value>El método de prueba inició la excepción {0}, pero se esperaba la excepción {1}. Mensaje de la excepción: {2}</value>
+  </data>
+  <data name="WrongExceptionThrown" xml:space="preserve">
+    <value>Se produjo la excepción {2}, pero se esperaba la excepción {1}. {0}
+Mensaje de excepción: {3}
+Seguimiento de la pila: {4}</value>
+  </data>
+  <data name="IsNotInstanceOfFailMsg" xml:space="preserve">
+    <value>Tipo incorrecto:&lt;{1}&gt;. Tipo actual:&lt;{2}&gt;. {0}</value>
+  </data>
+  <data name="AreEqualDeltaFailMsg" xml:space="preserve">
+    <value>Se esperaba una diferencia no superior a &lt;{3}&gt; entre el valor esperado &lt;{1}&gt; y el valor actual &lt;{2}&gt;. {0}</value>
+  </data>
+  <data name="UTF_FailedToGetExceptionMessage" xml:space="preserve">
+    <value>(No se pudo obtener el mensaje para una excepción del tipo {0} debido a una excepción.)</value>
+  </data>
+  <data name="AllItemsAreUniqueFailMsg" xml:space="preserve">
+    <value>Se encontró un elemento duplicado:&lt;{1}&gt;. {0}</value>
+  </data>
+  <data name="Common_ObjectString" xml:space="preserve">
+    <value>(objeto)</value>
+  </data>
+  <data name="ArgumentXMustDeriveFromClassY" xml:space="preserve">
+    <value>Tipo "{0}" no se puede asignar a "{1}".</value>
+  </data>
+  <data name="EndsWithFail" xml:space="preserve">
+    <value>La cadena '{0}' no termina con la cadena '{1}'. {2}.</value>
+  </data>
+  <data name="DynamicDataIEnumerableEmpty" xml:space="preserve">
+    <value>La propiedad o el método {0} en {1} devuelve un elemento IEnumerable&lt;object[]&gt; vacío.</value>
+  </data>
+  <data name="DynamicDataInvalidMethodLayout" xml:space="preserve">
+    <value>El método de datos dinámicos '{0}' debe ser estático, sin parámetros y no genérico.</value>
+  </data>
+  <data name="NumberOfElementsDiff" xml:space="preserve">
+    <value>Número diferente de elementos.</value>
+  </data>
+  <data name="NullParameterToAssert" xml:space="preserve">
+    <value>El parámetro '{0}' no es válido. El valor no puede ser null. {1}.</value>
+  </data>
+  <data name="BothCollectionsSameElements" xml:space="preserve">
+    <value>Ambas colecciones tienen los mismos elementos.</value>
+  </data>
+  <data name="BothCollectionsEmpty" xml:space="preserve">
+    <value>Ambas colecciones están vacías. {0}</value>
+  </data>
+  <data name="AreEqualCaseFailMsg" xml:space="preserve">
+    <value>Se esperaba:&lt;{1}&gt;. La caja es diferente para el valor actual:&lt;{2}&gt;. {0}</value>
+  </data>
+  <data name="InvalidPropertyType" xml:space="preserve">
+    <value>La propiedad {0} tiene el tipo {1}; se esperaba el tipo {2}.</value>
+  </data>
+  <data name="AreSameGivenValues" xml:space="preserve">
+    <value>No pase tipos de valor a AreSame(). Los valores convertidos a Object no serán nunca iguales. Considere el uso de AreEqual(). {0}</value>
+  </data>
+  <data name="DynamicDataIEnumerableNull" xml:space="preserve">
+    <value>La propiedad o el método {0} en {1} tipo de valor devuelto no se puede asignar a "IEnumerable&lt;objecto[]&gt;" (ni a "IEnumerable&lt;ITuple&gt;" para .NET Core).</value>
+  </data>
+  <data name="UTF_ExpectedExceptionTypeMustDeriveFromException" xml:space="preserve">
+    <value>El tipo de excepción esperado debe ser System.Exception o un tipo derivado de System.Exception.</value>
+  </data>
+  <data name="DynamicDataDisplayName" xml:space="preserve">
+    <value>El método {0} debe coincidir con la signatura esperada: {1} {0}({2}) estática pública.</value>
+  </data>
+  <data name="AreEqualFailMsg" xml:space="preserve">
+    <value>Se esperaba &lt;{1}&gt;, pero es &lt;{2}&gt;. {0}</value>
+  </data>
+  <data name="ActualHasMismatchedElements" xml:space="preserve">
+    <value>Apariciones que contiene la colección esperada: {1} de &lt;{2}&gt;. Apariciones que contiene la colección real: {3}. {0}</value>
+  </data>
+  <data name="PrivateAccessorMemberNotFound" xml:space="preserve">
+    <value>
+      No se encontró el miembro especificado ({0}). Es posible que tenga que volver a generar el descriptor de acceso privado,
+      o que el miembro sea privado y esté definido en una clase base. Si esto último es cierto, debe pasar el tipo
+      que define el miembro al constructor de PrivateObject.
+    </value>
+  </data>
+</root>

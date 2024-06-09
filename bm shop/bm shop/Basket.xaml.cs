@@ -524,7 +524,7 @@ namespace bm_shop
         public int QuantityMaterialInBasket = 0;
         
         //Получение корректной формы слова "товар"
-        public string GetCorrectWordFormForProduct(int count)
+        public static string GetCorrectWordFormForProduct(int count)
         {
             if (count < 0)
             {

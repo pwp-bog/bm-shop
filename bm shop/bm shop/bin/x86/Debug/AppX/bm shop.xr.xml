@@ -144,7 +144,6 @@
       <RootProperty Name="Content" />
     </RootType>
     <RootType FullName="bm_shop.AdminAddedMaterialPage" />
-    <RootType FullName="bm_shop.AdminEditMaterialPage" />
     <RootType FullName="Windows.UI.Xaml.Shapes.Rectangle">
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Height" />

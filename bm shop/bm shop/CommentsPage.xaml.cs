@@ -404,7 +404,7 @@ namespace bm_shop
             SendAnswerButton.Name = "SendAnswerButton";
             SendAnswerButton.IsEnabled = false;
 
-            SendAnswerButton.Click += (sender, e) => SendAnswerAboutMaterial(sender, e, GetMaterialMark(FirstStar, SecondaryStar, ThirdStar, FourthStar, FivesStar));
+            SendAnswerButton.Click += (sender, e) => SendAnswerAboutMaterial(sender, e, GetMaterialMark(FirstStar.Text, SecondaryStar.Text, ThirdStar.Text, FourthStar.Text, FivesStar.Text));
             WriteAnswerTextBox.TextChanged += (sender, e) => EditStatusSendAnswerButton(sender, e, WriteAnswerTextBox, SendAnswerButton);
 
             Grid containerGrid = new Grid();
@@ -496,7 +496,9 @@ namespace bm_shop
             }
         }
 
-        public string GetCorrectAnswerCount(int AnswerCount)
+
+        // Преобразование слова ответ в зависимости от количества ответов
+        public static string GetCorrectAnswerCount(int AnswerCount)
         {
             string word = $"{AnswerCount} ответ";
 
@@ -521,19 +523,19 @@ namespace bm_shop
         }
 
         // Возвращает количество звёзд в виде оценки в формате цифры
-        public int GetMaterialMark(TextBlock one, TextBlock two, TextBlock three, TextBlock fourth, TextBlock fives)
+        public static int GetMaterialMark(string one, string two, string three, string fourth, string fives)
         {
             int result = 0;
 
-            if(one.Text == "★")
+            if(one == "★")
                 result++;
-            if (two.Text == "★")
+            if (two == "★")
                 result++;
-            if (three.Text == "★")
+            if (three == "★")
                 result++;
-            if (fourth.Text == "★")
+            if (fourth == "★")
                 result++;
-            if (fives.Text == "★")
+            if (fives == "★")
                 result++;
 
             return result;
@@ -809,7 +811,7 @@ namespace bm_shop
         }
 
         // Функция конвертации оценки в звёзды
-        public string GetQuantityStar(string Mark)
+        public static string GetQuantityStar(string Mark)
         {
             string result = "";
 
@@ -836,7 +838,7 @@ namespace bm_shop
         }
 
         // Функция обрезки времени из даты
-        public string ConvertToDate(string Date)
+        public static string ConvertToDate(string Date)
         {
             return Date.Substring(0, 10);
         }
@@ -844,12 +846,12 @@ namespace bm_shop
         // Показать/Скрыть ответы
         public void HideOrOpenAnswerComment(object sender, RoutedEventArgs e, Grid AnswerGrid, TextBlock  AnswerText)
         {
-            if(AnswerText.Tag == "false")
+            if(AnswerText.Tag.ToString() == "false")
             {
                 AnswerGrid.Visibility = Visibility.Visible;
                 AnswerText.Tag = "true";
             }
-            else if(AnswerText.Tag == "true")
+            else if(AnswerText.Tag.ToString() == "true")
             {
                 AnswerGrid.Visibility = Visibility.Collapsed;
                 AnswerText.Tag = "false";
@@ -989,7 +991,7 @@ namespace bm_shop
                 }
             }
 
-            if (Btn.Tag == "" || Btn.Tag == "false")
+            if (Btn.Tag.ToString() == "" || Btn.Tag.ToString() == "false")
             {
                 Btn.Tag = "true";
 

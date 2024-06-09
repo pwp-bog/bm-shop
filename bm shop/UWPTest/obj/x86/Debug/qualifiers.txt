@@ -1,0 +1,16 @@
+AlternateForm=UNPLATED
+Language=RU
+Scale=200
+TargetSize=24
+Language=CS
+Language=DE
+Language=ES
+Language=FR
+Language=IT
+Language=JA
+Language=KO
+Language=PL
+Language=PT-BR
+Language=TR
+Language=ZH-HANS
+Language=ZH-HANT

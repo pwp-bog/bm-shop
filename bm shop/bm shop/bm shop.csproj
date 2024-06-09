@@ -125,9 +125,6 @@
     <Compile Include="AdminAddedMaterialPage.xaml.cs">
       <DependentUpon>AdminAddedMaterialPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AdminEditMaterialPage.xaml.cs">
-      <DependentUpon>AdminEditMaterialPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -201,10 +198,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AdminAddedMaterialPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="AdminEditMaterialPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

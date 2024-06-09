@@ -164,10 +164,5 @@ namespace bm_shop
             ContentFrame.Navigate(typeof(AdminAddedMaterialPage));
         }
 
-        //Редактирование + удаление мб
-        private void NavigationViewItem_Tapped4(object sender, TappedRoutedEventArgs e)
-        {
-            ContentFrame.Navigate(typeof(AdminEditMaterialPage));
-        }
     }
 }
